@@ -1,19 +1,22 @@
-# 4. jade as html templating language
+# 4. jade as html template language
 
 Date: 06/07/2016
 
 ## Status
 
-Accepted
+Proposed
 
 ## Context
 
-Context here...
+We need a html template language because it helps to reduce development time and duplicate code.
 
 ## Decision
 
-Decision here...
+We chose Jade over Slim because:
+* the team has experience using Jade
+* it is widely used with excellent supporting documenting
 
 ## Consequences
 
-Consequences here...
+The other option is to use Slim which is a Ruby gem as opposed to Jade which is a node library.
+It may be easier to set up the development environment since this is currently proposed as a Ruby app.
