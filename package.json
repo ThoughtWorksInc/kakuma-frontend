@@ -1,0 +1,20 @@
+{
+  "name": "find_me",
+  "version": "1.0.0",
+  "description": "Project Kakuma",
+  "main": "index.js",
+  "dependencies": {
+    "sass": "^0.5.0",
+    "jade" : "^1.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.thoughtworks.net/findme-kakuma/kakuma-frontend.git"
+  },
+  "author": "Thoughtworks",
+  "license": "ISC"
+}
