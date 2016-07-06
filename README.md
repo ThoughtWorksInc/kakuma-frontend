@@ -1,3 +1,5 @@
+Copyright (c) 2016 ThoughtWorks, Inc. All rights reserved.
+
 #Find me in Kakuma
 
 Front-end code used for user testing.
