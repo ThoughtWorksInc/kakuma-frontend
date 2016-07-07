@@ -1,16 +1,27 @@
 $font-stack: Arial, Helvetica, sans-serif;
 $body-color: #F5F5F5;
 $highlight-orange: #f3a536;
-$banner-color: #f3a536;
-$grey-font: #4d4d4d;
-$grey-progress-status: #c2c2c2;
+$banner-color: $highlight-orange;
+$main-font: #4d4d4d;
+$incomplete-progress-status: #c2c2c2;
 $container-background: white;
 $header-text-color: white;
 
+$header-font-size: 100px;
+$content-font-size: 40px;
+$input-height: 40px;
+
+/* CSS Resest*/
+
+* {
+  margin: 0;
+}
+
+
 body {
-  font: 100% $font-stack;
+  font: $content-font-size $font-stack;
   background-color: $body-color;
-  color: $grey-font;
+  color: $main-font;
 }
 
 h1 {
@@ -19,8 +30,21 @@ h1 {
   text-align: center;
 }
 
+input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel] {
+  -webkit-appearance: none; -moz-appearance: none;
+  display: block;
+  margin: 0;
+  width: 100%;
+  height: $input-height;
+  font-size: $content-font-size;
+  border-width: 0 0 2px 0;
+  border-color: $highlight-orange;
+  border-style: solid;
+}
+
 #container {
-  width: 648px;
+  width: 800px;
   background-color: $container-background;
   margin: 0 auto;
+  padding: 10px;
 }

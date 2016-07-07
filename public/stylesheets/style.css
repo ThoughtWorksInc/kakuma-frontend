@@ -1,5 +1,9 @@
+/* CSS Resest*/
+* {
+  margin: 0; }
+
 body {
-  font: 100% Arial, Helvetica, sans-serif;
+  font: 40px Arial, Helvetica, sans-serif;
   background-color: #F5F5F5;
   color: #4d4d4d; }
 
@@ -8,9 +12,22 @@ h1 {
   background-color: #f3a536;
   text-align: center; }
 
+input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: block;
+  margin: 0;
+  width: 100%;
+  height: 40px;
+  font-size: 40px;
+  border-width: 0 0 2px 0;
+  border-color: #f3a536;
+  border-style: solid; }
+
 #container {
-  width: 648px;
+  width: 800px;
   background-color: white;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 10px; }
 
 /*# sourceMappingURL=style.css.map */
