@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAGA,IAAK;EACH,IAAI,EAAE,0BAAgB;EACtB,gBAAgB,EAJF,IAAI",
+"mappings": "AAGA,IAAK;EACH,IAAI,EAAE,0BAAgB;EACtB,gBAAgB,EAJE,OAAO",
 "sources": ["../../app/assets/stylesheets/style.scss"],
 "names": [],
 "file": "style.css"
