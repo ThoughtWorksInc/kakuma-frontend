@@ -1,5 +1,16 @@
 body {
-  font: 100% Helvetica, sans-serif;
-  background-color: #eeffee; }
+  font: 100% Arial, Helvetica, sans-serif;
+  background-color: #F5F5F5;
+  color: #4d4d4d; }
+
+h1 {
+  color: white;
+  background-color: #f3a536;
+  text-align: center; }
+
+#container {
+  width: 648px;
+  background-color: white;
+  margin: 0 auto; }
 
 /*# sourceMappingURL=style.css.map */

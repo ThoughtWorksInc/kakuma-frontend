@@ -1,7 +1,26 @@
-$font-stack:    Helvetica, sans-serif;
-$nice-pastel-green: #eeffee;
+$font-stack: Arial, Helvetica, sans-serif;
+$body-color: #F5F5F5;
+$highlight-orange: #f3a536;
+$banner-color: #f3a536;
+$grey-font: #4d4d4d;
+$grey-progress-status: #c2c2c2;
+$container-background: white;
+$header-text-color: white;
 
 body {
   font: 100% $font-stack;
-  background-color: $nice-pastel-green;
+  background-color: $body-color;
+  color: $grey-font;
+}
+
+h1 {
+  color: $header-text-color;
+  background-color: $banner-color;
+  text-align: center;
+}
+
+#container {
+  width: 648px;
+  background-color: $container-background;
+  margin: 0 auto;
 }
