@@ -1,6 +1,12 @@
-$font-stack: Arial, Helvetica, sans-serif;
-$body-color: #F5F5F5;
+$font-stack: Open Sans, Arial, Helvetica, sans-serif;
+
 $highlight-orange: #f3a536;
+$matcha-green: #ACD2BC;
+$light-grey: #D8D8D8;
+$light-blue: #4A90E2;
+$dark-grey: #C2C2C2;
+
+$body-color: $light-grey;
 $banner-color: $highlight-orange;
 $main-font: #4d4d4d;
 $incomplete-progress-status: #c2c2c2;
@@ -34,7 +40,7 @@ input[type=text], input[type=url], input[type=email], input[type=password], inpu
   -webkit-appearance: none; -moz-appearance: none;
   display: block;
   margin: 0;
-  width: 100%;
+  width: 50%;
   height: $input-height;
   font-size: $content-font-size;
   border-width: 0 0 2px 0;
@@ -43,7 +49,7 @@ input[type=text], input[type=url], input[type=email], input[type=password], inpu
 }
 
 #container {
-  width: 800px;
+  width: 100%;
   background-color: $container-background;
   margin: 0 auto;
   padding: 10px;
