@@ -10,6 +10,12 @@ Install all the ruby gems:
 To compile the slim files from the project root:
 ``slimrb app/views/index.slim > public/views/index.html``
 
+To compile SASS and Slim files to the public folder, run:
+``./go.sh``
+
+To watch the sass files, run:
+``sass --watch app/assets/stylesheets:public/stylesheets``
+
 To start the server:
 ``rackup``
 
