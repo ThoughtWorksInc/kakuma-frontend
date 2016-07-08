@@ -6,26 +6,33 @@ html(lang="en")
     title Find Me in Kakuma
   body
     h1#header
-      | Find Me
-    #dialogue-container.col
-      #question-1
-        .question#name-question
-          p.
-            | Hi, let us start, what is your name?
-          p.help-text
-            | Just type in your full name.
-        form.answer onsubmit="nameResponse()"
-          input#name-answer type="text" name="name"
-        .response#name-response
-          | hello
+      | FIND ME
+    #dialogue-container
+      form.answer onsubmit="return false;" method="post" action="/"
+        #question-1 data-question-title="name"
+          .question-container
+            p
+              | Hi, let us start. What is your name?
+            p.help-text
+              | Just type in your full name.
+          .response-container.hidden
+            | Hi <span class='response-text'></span>, nice to meet you.
+          .input-container
+            input.answer#answer-1 type="text" name="name"
+            button#send type="submit" onclick="answerSubmit(1); return false;"
+              | send
+            
+          / button#submit-answer type="submit"
+          /   | Send
+        
           
-          
-      #question-2
-        .question#location-question
-          p.
-            | Where are you from?
-          p.help-text
-            | Tell us about your village, state and country
-        form.answer#location-answer
-          input type="text" name="location"
+      /     
+      / #question-2
+      /   .question#location-question
+      /     p.
+      /       | Where are you from?
+      /     p.help-text
+      /       | Tell us about your village, state and country
+      /   form.answer#location-answer
+      /     input type="text" name="location"
         
