@@ -7,15 +7,25 @@ function updateQuestionWithResponse(questionContainer, answer){
 
   var questionQuestionContainer = questionContainer.getElementsByClassName("question-container")[0]
     .classList.add("hidden");
-  var inputContainer = questionContainer.getElementsByClassName("input-container")[0]
-      .classList.add("hidden");
+
+    var thing = document.getElementsByClassName("input-container");
+  var inputContainer = Array.prototype.map.call(thing, function(element) {
+    element.classList.add("hidden");
+  })
 
   var answerThing =responseContainer.getElementsByClassName("response-text")[0].innerHTML = answer;
+
   responseContainer.classList.remove("hidden");
 }
 
 function updateResponse() {
 
+}
+
+function displayQuestion(questionNumber) {
+  var questionNode = document.getElementById("question-" + questionNumber);
+  questionNode.classList.remove("hidden");
+  questionNode.getElementsByClassName("input-container")[0].classList.remove("hidden");
 }
 
 function answerSubmit(questionNumber) {
@@ -27,11 +37,14 @@ function answerSubmit(questionNumber) {
   console.log(answerArray[questionNumber]);
 
   updateQuestionWithResponse(questionNode, answer);
-  //update currentQuestion with the answer just entered
-  //Hi name, nice to meet you
 
+  var totalNumberOfQuestions = document.getElementsByClassName("question").length;
+  if (questionNumber < totalNumberOfQuestions)
+  {
+    displayQuestion(questionNumber + 1);
+  }
   //show the next question?
-  //(where do you live?)
+
 
   //update progress variable
 }
