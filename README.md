@@ -20,3 +20,22 @@ To start the server:
 ``rackup``
 
 Go to localhost:9292
+
+
+
+
+How to build and push to heroku.
+
+First sign up for heroku (if you haven't already). 
+Install the Heroku Toolbelt https://toolbelt.heroku.com/
+Ask Lucy to add your heroku account as a collaborator on the Findme-kakuma app.
+Sign in on the command line
+``heroku login``
+
+get your git repo ready - ie build, commit, push to master etc, so you have a clean tree.
+
+Add the Heroku git remote to your local get repository.
+``heroku git:remote -a findme-kakuma``
+
+Then deploy to Heroku by running:
+``git push heroku master``
