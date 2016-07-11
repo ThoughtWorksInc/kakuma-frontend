@@ -6,7 +6,7 @@ $light-grey: #D8D8D8;
 $light-blue: #4A90E2;
 $dark-grey: #C2C2C2;
 
-$body-color: $light-grey;
+$body-color: white;
 $banner-color: $highlight-orange;
 $main-font: #4d4d4d;
 $incomplete-progress-status: #c2c2c2;
@@ -14,9 +14,10 @@ $container-background: white;
 $header-text-color: white;
 $input-submit-color: $light-blue;
 $highlight-text: $highlight-orange;
+$border-color: $highlight-orange;
 
 $header-font-size: 100px;
-$content-font-size: 40px;
+$content-font-size: 5vw;
 $input-height: 40px;
 
 /* CSS Reset*/
@@ -30,6 +31,7 @@ body {
   font: $content-font-size $font-stack;
   background-color: $body-color;
   color: $main-font;
+  padding:0px;
 }
 
 h1 {
@@ -42,6 +44,8 @@ h1 {
 p {
   padding: 5px;
 }
+
+/* Input Styling*/
 
 button, input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel] {
   -webkit-appearance: none; -moz-appearance: none;
@@ -56,8 +60,8 @@ input[type=text], input[type=url], input[type=email], input[type=password], inpu
   width: 70%;
   border-radius: 10px;
   background-color: $light-grey;
-  height: $input-height + 10px;
-  margin: 0 15px;
+  height: $input-height;
+  // margin: 0 15px;
   padding: 10px;
   // margin: 0 10px 10px 20px;
 }
@@ -70,14 +74,14 @@ button {
 }
 
 #dialogue-container {
-  width: 100%;
+  width: 100vw;
   background-color: $container-background;
   margin: 0 auto;
-  padding: 0px;
 }
 
 .question {
-  padding: 15px;
+  padding: 10px;
+  border-bottom: 1px solid $border-color;
 }
 
 .help-text {
@@ -90,7 +94,7 @@ button {
   bottom: 0;
   left:0;
   width:100%;
-  padding: 15px;
+  padding: 5vw;
 }
 
 .hidden {
