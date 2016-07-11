@@ -16,7 +16,8 @@ html(lang="en")
               | Hi, let us start. What is your name?
             p.help-text
               | Just type in your full name.
-          .response-container.hidden
+          .response-container.hidden onclick="goWithTheEditMaybe(1);"
+
             | Hi <span class='response-text'></span>, nice to meet you.
           .input-container
             input.answer#answer-1 type="text" name="name"
@@ -29,7 +30,7 @@ html(lang="en")
               | Where are you from?
             p.help-text
               | Tell us about your village, state and country
-          .response-container.hidden
+          .response-container.hidden onclick="goWithTheEditMaybe(2);"
             | So you are from <span class='response-text'></span>
           .input-container
             input.answer#answer-1 type="text" name="name"
