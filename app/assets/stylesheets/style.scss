@@ -40,9 +40,8 @@ h1 {
 }
 
 p {
-  padding: 5px 20px;
+  padding: 5px;
 }
-
 
 button, input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel] {
   -webkit-appearance: none; -moz-appearance: none;
@@ -50,6 +49,7 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
   margin: 0;
   font-size: $content-font-size;
   border: none;
+  font: $content-font-size $font-stack;
 }
 
 input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel] {
@@ -57,13 +57,16 @@ input[type=text], input[type=url], input[type=email], input[type=password], inpu
   border-radius: 10px;
   background-color: $light-grey;
   height: $input-height + 10px;
-  margin: 0 10px 10px 20px;
+  margin: 0 15px;
+  padding: 10px;
+  // margin: 0 10px 10px 20px;
 }
 
 button {
   padding: 5px;
   background-color: white;
   color:$light-blue;
+  font-weight:600;
 }
 
 #dialogue-container {
@@ -73,8 +76,21 @@ button {
   padding: 0px;
 }
 
+.question {
+  padding: 15px;
+}
+
 .help-text {
   color: $highlight-text;
+}
+
+.input-container {
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left:0;
+  width:100%;
+  padding: 15px;
 }
 
 .hidden {
