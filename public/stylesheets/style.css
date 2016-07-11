@@ -18,6 +18,12 @@ p {
   padding: 5px; }
 
 /* Input Styling*/
+button {
+  padding: 5px;
+  background-color: rgba(1, 1, 1, 0);
+  color: #4A90E2;
+  font-weight: 600; }
+
 button, input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel] {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -27,18 +33,21 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
   border: none;
   font: 5vw Open Sans, Arial, Helvetica, sans-serif; }
 
-input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel] {
-  width: 70%;
-  border-radius: 10px;
-  background-color: #D8D8D8;
-  height: 40px;
-  padding: 10px; }
-
-button {
-  padding: 5px;
+.input-container {
   background-color: white;
-  color: #4A90E2;
-  font-weight: 600; }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2vw 5vw; }
+  .input-container .answer {
+    width: 70vw;
+    border-radius: 10px;
+    background-color: #D8D8D8;
+    height: 5vw;
+    padding: 10px; }
+  .input-container .send {
+    width: 20vw; }
 
 #dialogue-container {
   width: 100vw;
@@ -51,14 +60,6 @@ button {
 
 .help-text {
   color: #f3a536; }
-
-.input-container {
-  background-color: white;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 5vw; }
 
 .hidden {
   display: none; }

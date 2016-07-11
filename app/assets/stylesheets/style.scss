@@ -12,13 +12,15 @@ $main-font: #4d4d4d;
 $incomplete-progress-status: #c2c2c2;
 $container-background: white;
 $header-text-color: white;
-$input-submit-color: $light-blue;
 $highlight-text: $highlight-orange;
 $border-color: $highlight-orange;
 
 $header-font-size: 100px;
 $content-font-size: 5vw;
-$input-height: 40px;
+
+$input-height: $content-font-size;
+$button-width: 20vw;
+$input-submit-color: $light-blue;
 
 /* CSS Reset*/
 
@@ -46,6 +48,12 @@ p {
 }
 
 /* Input Styling*/
+button {
+  padding: 5px;
+  background-color: rgba(1, 1, 1, 0);
+  color:$light-blue;
+  font-weight:600;
+}
 
 button, input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel] {
   -webkit-appearance: none; -moz-appearance: none;
@@ -56,21 +64,27 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
   font: $content-font-size $font-stack;
 }
 
-input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel] {
-  width: 70%;
-  border-radius: 10px;
-  background-color: $light-grey;
-  height: $input-height;
-  // margin: 0 15px;
-  padding: 10px;
-  // margin: 0 10px 10px 20px;
-}
 
-button {
-  padding: 5px;
+.input-container {
   background-color: white;
-  color:$light-blue;
-  font-weight:600;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  width:100%;
+  padding: 2vw 5vw;
+
+  .answer {
+    width: 90vw - $button-width;
+    border-radius: 10px;
+    background-color: $light-grey;
+    height: $input-height;
+    // margin: 0 15px;
+    padding: 10px;
+  }
+
+  .send {
+    width:$button-width;
+  }
 }
 
 #dialogue-container {
@@ -86,15 +100,6 @@ button {
 
 .help-text {
   color: $highlight-text;
-}
-
-.input-container {
-  background-color: white;
-  position: absolute;
-  bottom: 0;
-  left:0;
-  width:100%;
-  padding: 5vw;
 }
 
 .hidden {
