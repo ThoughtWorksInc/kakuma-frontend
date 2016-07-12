@@ -6,6 +6,18 @@ function getQuestionNode (questionNumber) {
   return document.getElementById("question-" + questionNumber);
 }
 
+function getQuestionView(questionNumber) {
+  var questionView = {
+    questionNode: getQuestionNode(questionNumber),
+    showTextbox: function () {
+      this.questionNode.getElementsByClassName("input-container")[0]
+        .classList
+        .remove("hidden");
+    }
+  };
+  return questionView;
+}
+
 function hideAllInputFields() {
   var inputFieldCollection = document.getElementsByClassName("input-container");
   var inputContainer = Array.prototype.map.call(inputFieldCollection, function(element) {
@@ -27,10 +39,6 @@ function updateQuestionWithResponse(questionContainer, answer){
   responseContainer.classList.remove("hidden");
 }
 
-function updateResponse() {
-
-}
-
 function displayQuestion(questionNumber) {
   var questionNode = getQuestionNode(questionNumber);
   questionNode.classList.remove("hidden");
@@ -38,11 +46,9 @@ function displayQuestion(questionNumber) {
 }
 
 function answerSubmit(questionNumber) {
-  var questionNode = getQuestionNode(questionNumber);
 
-  var answer = questionNode.getElementsByClassName("answer")[0].value;
-
-  updateQuestionWithResponse(questionNode, answer);
+  var answer = getQuestionView(questionNumber).getAnswer();
+  getQuestionView(questionNumber).displayResponseWith(answer);
 
   var totalNumberOfQuestions = document.getElementsByClassName("question").length;
   if (questionNumber < totalNumberOfQuestions)
@@ -53,15 +59,14 @@ function answerSubmit(questionNumber) {
   //update progress variable
 }
 
-function goWithTheEditMaybe(questionNumber) {
-  hideAllInputFields();
+function editResponse(questionNumber) {
   //hide all the text boxes.
+  hideAllInputFields();
 
-  var questionUnderEditInputField = getQuestionNode(questionNumber).getElementsByClassName("input-container")[0];
-
-  questionUnderEditInputField.classList.remove("hidden");
   //display input box for the question we /do/ want
+  getQuestionView(questionNumber).showTextbox();
 
   //modify styling of the current quesiont - apply shiny
+  // getQuestion(questionNumber).applyStylingForUnderEdit()
 
 }
