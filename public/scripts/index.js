@@ -13,9 +13,36 @@ function getQuestionView(questionNumber) {
       this.questionNode.getElementsByClassName("input-container")[0]
         .classList
         .remove("hidden");
+      return this;
+    },
+    getAnswer: function() {
+      return this.questionNode.getElementsByClassName("answer")[0].value;
+    },
+    displayResponseWith: function(answer) {
+      this.questionNode.getElementsByClassName("response-text")[0].innerHTML = answer;
+      this.questionNode.getElementsByClassName("response-container")[0].classList.remove("hidden");
+      return this;
+    },
+    hideQuestionText:function() {
+      this.questionNode.getElementsByClassName("question-container")[0]
+        .classList.add("hidden");
+      return this;
+    },
+    show: function() {
+      this.questionNode.classList.remove("hidden");
+      this.showTextbox();
     }
   };
   return questionView;
+}
+
+function getAllQuestionsArray () {
+  var allQuestionViews = [];
+  var allQuestionNodes = document.getElementsByClassName("question");
+  for (i = 1; i <= allQuestionNodes.length; i++) {
+    allQuestionViews[i-1] = getQuestionView(i);
+  }
+  return allQuestionViews;
 }
 
 function hideAllInputFields() {
@@ -25,19 +52,19 @@ function hideAllInputFields() {
   });
 }
 
-function updateQuestionWithResponse(questionContainer, answer){
-  var responseContainer = questionContainer.getElementsByClassName('response-container')[0];
-
-  questionContainer
-    .getElementsByClassName("question-container")[0]
-    .classList.add("hidden");
-
-  hideAllInputFields();
-
-  var answerThing =responseContainer.getElementsByClassName("response-text")[0].innerHTML = answer;
-
-  responseContainer.classList.remove("hidden");
-}
+// function updateQuestionWithResponse(questionContainer, answer){
+//   var responseContainer = questionContainer.getElementsByClassName('response-container')[0];
+//
+//   questionContainer
+//     .getElementsByClassName("question-container")[0]
+//     .classList.add("hidden");
+//
+//   hideAllInputFields();
+//
+//   responseContainer.getElementsByClassName("response-text")[0].innerHTML = answer;
+//
+//   responseContainer.classList.remove("hidden");
+// }
 
 function displayQuestion(questionNumber) {
   var questionNode = getQuestionNode(questionNumber);
@@ -47,17 +74,26 @@ function displayQuestion(questionNumber) {
 
 function answerSubmit(questionNumber) {
 
-  var questionNode = getQuestionNode(questionNumber);
+  var answer = getQuestionView(questionNumber).getAnswer();
 
-  var answer = questionNode.getElementsByClassName("answer")[0].value;
+  hideAllInputFields();
 
-  updateQuestionWithResponse(questionNode, answer);
+  getQuestionView(questionNumber)
+    .displayResponseWith(answer)
+    .hideQuestionText();
 
-  var totalNumberOfQuestions = document.getElementsByClassName("question").length;
-  if (questionNumber < totalNumberOfQuestions)
-  {
-    displayQuestion(questionNumber + 1);
+  var isUnanswered = function (question) {
+    if (question.getAnswer()){
+      return false;
+    } return true;
   }
+
+  //what is the next unanswered question???
+  var nextUnansweredQuestion = getAllQuestionsArray().find(isUnanswered);
+
+  if (nextUnansweredQuestion) {
+    nextUnansweredQuestion.show();
+  } //else - we're at the end - some kinda submit???
 
   //update progress variable
 }
@@ -68,9 +104,6 @@ function editResponse(questionNumber) {
 
   //display input box for the question we /do/ want
   getQuestionView(questionNumber).showTextbox();
-
-  // var questionUnderEditInputField = getQuestionNode(questionNumber).getElementsByClassName("input-container")[0];
-  // questionUnderEditInputField.classList.remove("hidden");
 
   //modify styling of the current quesiont - apply shiny
   // getQuestion(questionNumber).applyStylingForUnderEdit()

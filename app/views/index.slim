@@ -21,7 +21,7 @@ html(lang="en")
             | Hi <span class='response-text'></span>, nice to meet you.
           .input-container
             input.answer#answer-1 type="text" name="name"
-            button.send type="submit" onclick="answerSubmit(1); return false;"
+            button.send onclick="answerSubmit(1); return false;"
               | send
         
         .question#question-2.hidden data-question-title="location"
@@ -33,8 +33,19 @@ html(lang="en")
           .response-container.hidden onclick="editResponse(2);"
             | So you are from <span class='response-text'></span>
           .input-container
-            input.answer#answer-1 type="text" name="name"
-            button.send type="submit" onclick="answerSubmit(2); return false;"
+            input.answer#answer-2 type="text" name="location"
+            button.send onclick="answerSubmit(2); return false;"
+              | send
+              
+        .question#question-3.hidden data-question-title="age"
+          .question-container
+            p
+              | How old are you?
+          .response-container.hidden onclick="editResponse(3);"
+            | So you are <span class='response-text'></span> years old.
+          .input-container
+            input.answer#answer-3 type="number" name="age"
+            button.send onclick="answerSubmit(3); return false;"
               | send
             
           / button#submit-answer type="submit"
