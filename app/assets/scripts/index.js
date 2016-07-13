@@ -32,6 +32,12 @@ function getQuestionView(questionNumber) {
       this.questionNode.classList.remove("hidden");
       this.showTextbox();
       return this;
+    },
+    highlightQuestionForEdit: function() {
+      this.questionNode.classList.add("edit-highlight");
+    },
+    removeEditHighlight: function() {
+      this.questionNode.classList.remove("edit-highlight");
     }
   };
   return questionView;
@@ -71,7 +77,8 @@ function answerSubmit(questionNumber) {
 
   getQuestionView(questionNumber)
     .displayResponseWith(answer)
-    .hideQuestionText();
+    .hideQuestionText()
+    .removeEditHighlight();
 
   //what is the next unanswered question???
   var firstUnansweredQuestion = getFirstUnansweredQuestion();
@@ -91,6 +98,6 @@ function editResponse(questionNumber) {
   getQuestionView(questionNumber).showTextbox();
 
   //modify styling of the current question - apply shiny
-  // getQuestion(questionNumber).applyStylingForUnderEdit()
+  getQuestionView(questionNumber).highlightQuestionForEdit()
 
 }

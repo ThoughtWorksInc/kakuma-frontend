@@ -5,6 +5,7 @@ $matcha-green: #ACD2BC;
 $light-grey: #D8D8D8;
 $light-blue: #4A90E2;
 $dark-grey: #C2C2C2;
+$highlight-background: #FDE7C4;
 
 $body-color: white;
 $banner-color: $highlight-orange;
@@ -104,4 +105,12 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
 
 .hidden {
   display: none;
+}
+
+.edit-highlight .response-text {
+  background-color: $matcha-green;
+}
+
+.edit-highlight {
+  background-color: $highlight-background;
 }
