@@ -52,20 +52,6 @@ function hideAllInputFields() {
   });
 }
 
-// function updateQuestionWithResponse(questionContainer, answer){
-//   var responseContainer = questionContainer.getElementsByClassName('response-container')[0];
-//
-//   questionContainer
-//     .getElementsByClassName("question-container")[0]
-//     .classList.add("hidden");
-//
-//   hideAllInputFields();
-//
-//   responseContainer.getElementsByClassName("response-text")[0].innerHTML = answer;
-//
-//   responseContainer.classList.remove("hidden");
-// }
-
 function displayQuestion(questionNumber) {
   var questionNode = getQuestionNode(questionNumber);
   questionNode.classList.remove("hidden");
