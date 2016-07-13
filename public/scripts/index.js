@@ -26,9 +26,7 @@ function removeAllEditHighlights() {
 
 function getFirstUnansweredQuestion() {
   var isUnanswered = function (question) {
-    if (question.getAnswer()){
-      return false;
-    } return true;
+    return !question.hasAnswer();
   }
   //what is the next unanswered question???
   return getAllQuestionsArray().find(isUnanswered);
@@ -73,4 +71,23 @@ function clickButtonOnEnterPress(event, questionNumber) {
     answerSubmit(questionNumber);
     return false;
   }
+}
+
+
+function playAnimation (){
+  
+}
+
+function startTimer (){
+
+}
+
+function recordVoice() {
+  // play gif for 60 seconds
+  playAnimation();
+
+  //timer counts down from 60 sec
+  startTimer();
+
+  //after 60 seconds display finished gif
 }

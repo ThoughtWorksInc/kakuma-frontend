@@ -24,7 +24,7 @@ button {
   color: #4A90E2;
   font-weight: 600; }
 
-button, input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel] {
+button, input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel], input[type=number] {
   -webkit-appearance: none;
   -moz-appearance: none;
   display: inline-block;
@@ -69,5 +69,29 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
 
 .edit-highlight {
   background-color: #FDE7C4; }
+
+.recording-container div {
+  display: inline-block; }
+.recording-container #mic-gif {
+  width: 10vw;
+  display: inline-block; }
+.recording-container #animated-slider {
+  padding: 0vw 2.5vw; }
+.recording-container #slider-bar {
+  width: 70vw;
+  height: 2px;
+  background-color: #D8D8D8;
+  position: relative;
+  bottom: 5vw; }
+.recording-container #slider-status {
+  position: relative;
+  right: 70vw;
+  height: 11vw;
+  width: 2px;
+  background-color: #f3a536; }
+.recording-container #timer {
+  font-size: 7vw;
+  position: relative;
+  top: -3vw; }
 
 /*# sourceMappingURL=style.css.map */

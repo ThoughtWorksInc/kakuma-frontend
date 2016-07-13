@@ -9,12 +9,18 @@ function getQuestionView(questionNumber) {
       this.questionNode.getElementsByClassName("input-container")[0]
         .classList
         .remove("hidden");
-      this.questionNode.getElementsByClassName("answer")[0].focus();   
+      this.questionNode.getElementsByClassName("answer")[0].focus();
 
       return this;
     },
     getAnswer: function() {
       return this.questionNode.getElementsByClassName("answer")[0].value;
+    },
+    hasAnswer: function() {
+      if (this.getAnswer()) {
+        return true;
+      }
+      return false;
     },
     displayResponseWith: function(answer) {
       this.questionNode.getElementsByClassName("response-text")[0].innerHTML = answer;

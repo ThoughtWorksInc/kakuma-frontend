@@ -9,7 +9,7 @@ $highlight-background: #FDE7C4;
 
 $body-color: white;
 $banner-color: $highlight-orange;
-$main-font: #4d4d4d;
+$main-font-color: #4d4d4d;
 $incomplete-progress-status: #c2c2c2;
 $container-background: white;
 $header-text-color: white;
@@ -33,7 +33,7 @@ $input-submit-color: $light-blue;
 body {
   font: $content-font-size $font-stack;
   background-color: $body-color;
-  color: $main-font;
+  color: $main-font-color;
   padding:0px;
 }
 
@@ -56,7 +56,7 @@ button {
   font-weight:600;
 }
 
-button, input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel] {
+button, input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel], input[type=number] {
   -webkit-appearance: none; -moz-appearance: none;
   display: inline-block;
   margin: 0;
@@ -103,6 +103,14 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
   color: $highlight-text;
 }
 
+// .response-container {
+// color: $highlight-text;
+//
+//   .response-text {
+//     color: $main-font-color;
+//   }
+// }
+
 .hidden {
   display: none;
 }
@@ -113,4 +121,41 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
 
 .edit-highlight {
   background-color: $highlight-background;
+}
+
+.recording-container {
+  div {
+    display:inline-block;
+  }
+
+  #mic-gif{
+    width: 2 * 5vw;
+    display:inline-block;
+  }
+
+  #animated-slider {
+    padding: 0vw 2.5vw;
+  }
+
+  #slider-bar{
+    width: 70vw;
+    height: 2px;
+    background-color: $light-grey;
+    position: relative;
+    bottom: 5vw;
+  }
+
+  #slider-status {
+    position: relative;
+    right: 70vw;
+    height:11vw;
+    width: 2px;
+    background-color: $highlight-text;
+  }
+
+  #timer {
+    font-size: 7vw;
+    position: relative;
+    top: -3vw;
+  }
 }
