@@ -31,6 +31,7 @@ function getQuestionView(questionNumber) {
     show: function() {
       this.questionNode.classList.remove("hidden");
       this.showTextbox();
+      return this;
     }
   };
   return questionView;
@@ -52,10 +53,14 @@ function hideAllInputFields() {
   });
 }
 
-function displayQuestion(questionNumber) {
-  var questionNode = getQuestionNode(questionNumber);
-  questionNode.classList.remove("hidden");
-  questionNode.getElementsByClassName("input-container")[0].classList.remove("hidden");
+function getFirstUnansweredQuestion() {
+  var isUnanswered = function (question) {
+    if (question.getAnswer()){
+      return false;
+    } return true;
+  }
+  //what is the next unanswered question???
+  return getAllQuestionsArray().find(isUnanswered);
 }
 
 function answerSubmit(questionNumber) {
@@ -68,18 +73,12 @@ function answerSubmit(questionNumber) {
     .displayResponseWith(answer)
     .hideQuestionText();
 
-  var isUnanswered = function (question) {
-    if (question.getAnswer()){
-      return false;
-    } return true;
-  }
-
   //what is the next unanswered question???
-  var nextUnansweredQuestion = getAllQuestionsArray().find(isUnanswered);
+  var firstUnansweredQuestion = getFirstUnansweredQuestion();
 
-  if (nextUnansweredQuestion) {
-    nextUnansweredQuestion.show();
-  } //else - we're at the end - some kinda submit???
+  if (firstUnansweredQuestion) { //There may not be any more unanswered questions.
+    firstUnansweredQuestion.show();
+  } //else - we're at the end - some kinda confirmation that they are ready to submit
 
   //update progress variable
 }
@@ -91,7 +90,7 @@ function editResponse(questionNumber) {
   //display input box for the question we /do/ want
   getQuestionView(questionNumber).showTextbox();
 
-  //modify styling of the current quesiont - apply shiny
+  //modify styling of the current question - apply shiny
   // getQuestion(questionNumber).applyStylingForUnderEdit()
 
 }

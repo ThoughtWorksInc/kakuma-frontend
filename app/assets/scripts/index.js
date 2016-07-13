@@ -77,7 +77,7 @@ function answerSubmit(questionNumber) {
   var firstUnansweredQuestion = getFirstUnansweredQuestion();
 
   if (firstUnansweredQuestion) { //There may not be any more unanswered questions.
-    nextUnansweredQuestion.show();
+    firstUnansweredQuestion.show();
   } //else - we're at the end - some kinda confirmation that they are ready to submit
 
   //update progress variable
