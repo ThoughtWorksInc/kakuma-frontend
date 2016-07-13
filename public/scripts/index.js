@@ -18,6 +18,12 @@ function hideAllInputFields() {
   });
 }
 
+function removeAllEditHighlights() {
+  getAllQuestionsArray().map(function(questionView) {
+    questionView.removeEditHighlight();
+  });
+}
+
 function getFirstUnansweredQuestion() {
   var isUnanswered = function (question) {
     if (question.getAnswer()){
@@ -52,7 +58,7 @@ function answerSubmit(questionNumber) {
 function editResponse(questionNumber) {
   //hide all the text boxes.
   hideAllInputFields();
-
+  removeAllEditHighlights();
   //display input box for the question we /do/ want
   getQuestionView(questionNumber).showTextbox();
 

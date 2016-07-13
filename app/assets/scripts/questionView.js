@@ -9,6 +9,8 @@ function getQuestionView(questionNumber) {
       this.questionNode.getElementsByClassName("input-container")[0]
         .classList
         .remove("hidden");
+      this.questionNode.getElementsByClassName("answer")[0].focus();   
+
       return this;
     },
     getAnswer: function() {
