@@ -50,4 +50,17 @@ html(lang="en")
             input.answer#answer-3 type="number" name="age" onkeydown="clickButtonOnEnterPress(event, 3)"
             button.send onclick="answerSubmit(3); return false;"
               | send
+              
+        .question#question-4.hidden data-question-title="phoneNumber"
+          .question-container
+            p
+              | Please tell us your phone number.
+          .response-container.hidden onclick="editResponse(4);"
+            p 
+              | Your phone number is <span class='response-text'></span>.
+          .input-container
+            input.answer#answer-4 type="tel" name="phoneNumber" onkeydown="clickButtonOnEnterPress(event, 4)"
+            button.send onclick="answerSubmit(4); return false;"
+              | send
+              
         
