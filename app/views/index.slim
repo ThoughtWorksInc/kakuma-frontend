@@ -63,4 +63,16 @@ html(lang="en")
             button.send onclick="answerSubmit(4); return false;"
               | send
               
+        .question#question-5.hidden data-question-title="nameToFind"
+          .question-container
+            p
+              | Who are you looking for?
+          .response-container.hidden onclick="editResponse(5);"
+            p 
+              | We will help you find <span class='response-text'></span>.
+          .input-container
+            input.answer#answer-5 type="text" name="nameToFind" onkeydown="clickButtonOnEnterPress(event, 5)"
+            button.send onclick="answerSubmit(5); return false;"
+              | send
+              
         
