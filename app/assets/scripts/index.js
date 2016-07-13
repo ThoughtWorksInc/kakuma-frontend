@@ -60,3 +60,16 @@ function editResponse(questionNumber) {
   getQuestionView(questionNumber).highlightQuestionForEdit()
 
 }
+
+function clickButtonOnEnterPress(event, questionNumber) {
+
+  var sendButton = getQuestionView(questionNumber)
+                .questionNode
+                .getElementsByClassName('send')[0];
+
+  if (event.keyCode == 13) {
+    event.preventDefault();
+    console.log("enter key pressed");
+    sendButton.click();
+  }
+}

@@ -18,9 +18,10 @@ html(lang="en")
             p.help-text
               | Just type in your full name.
           .response-container.hidden onclick="editResponse(1);"
-            | Hi <span class='response-text'></span>, nice to meet you.
+            p
+              | Hi <span class='response-text'></span>, nice to meet you.
           .input-container
-            input.answer#answer-1 type="text" name="name"
+            input.answer#answer-1 type="text" name="name" onkeydown="clickButtonOnEnterPress(event, 1)"
             button.send onclick="answerSubmit(1); return false;"
               | send
         
@@ -31,9 +32,10 @@ html(lang="en")
             p.help-text
               | Tell us about your village, state and country
           .response-container.hidden onclick="editResponse(2);"
-            | So you are from <span class='response-text'></span>
+            p
+              | So you are from <span class='response-text'></span>
           .input-container
-            input.answer#answer-2 type="text" name="location"
+            input.answer#answer-2 type="text" name="location" onkeydown="clickButtonOnEnterPress(event, 2)"
             button.send onclick="answerSubmit(2); return false;"
               | send
               
@@ -42,23 +44,10 @@ html(lang="en")
             p
               | How old are you?
           .response-container.hidden onclick="editResponse(3);"
-            | So you are <span class='response-text'></span> years old.
+            p 
+              | So you are <span class='response-text'></span> years old.
           .input-container
-            input.answer#answer-3 type="number" name="age"
+            input.answer#answer-3 type="number" name="age" onkeydown="clickButtonOnEnterPress(event, 3)"
             button.send onclick="answerSubmit(3); return false;"
               | send
-            
-          / button#submit-answer type="submit"
-          /   | Send
-        
-          
-      /     
-      / #question-2
-      /   .question#location-question
-      /     p.
-      /       | Where are you from?
-      /     p.help-text
-      /       | Tell us about your village, state and country
-      /   form.answer#location-answer
-      /     input type="text" name="location"
         
