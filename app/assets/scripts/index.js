@@ -99,7 +99,9 @@ function moveSlider() {
 }
 
 function setRecordingToFinished() {
-
+  // document.getElementById("slider-status-mark").classList.remove("animate");
+  // document.getElementById("slider-status-fill").classList.remove("animate");
+  document.getElementById("slider-bar").classList.add("finished");
 }
 
 function recordVoice() {
@@ -114,5 +116,5 @@ function recordVoice() {
 
   //after 60 seconds display finished gif
   // Set background to green, show play button, show delete button
-  setRecordingToFinished();
+  setTimeout(setRecordingToFinished, 60000);
 }
