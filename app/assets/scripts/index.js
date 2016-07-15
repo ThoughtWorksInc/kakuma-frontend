@@ -75,7 +75,7 @@ function clickButtonOnEnterPress(event, questionNumber) {
 
 
 function playAnimation (){
-
+  document.getElementById("mic-gif").src = "../images/mic.gif"
 }
 
 function startTimer () {
