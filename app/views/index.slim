@@ -78,9 +78,10 @@ html(lang="en")
         .question#question-6 data-question-title="voice"
           .recording-container onclick="recordVoice()"
             img#mic-gif src="../images/mic-grey.gif" 
-            #animated-slider
+            #animated-slider-container
               #slider-bar
-              #slider-status
+                #slider-status-fill.slider
+              #slider-status-mark.slider
             #timer
               | 60
           .question-container

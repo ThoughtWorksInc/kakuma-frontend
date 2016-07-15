@@ -83,20 +83,25 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
 .recording-container #mic-gif {
   width: 10vw;
   display: inline-block; }
-.recording-container #animated-slider {
+.recording-container #animated-slider-container {
   padding: 0vw 2.5vw; }
-.recording-container #slider-bar {
+.recording-container #slider-bar, .recording-container #slider-status-fill {
   width: 70vw;
-  height: 2px;
+  height: 2px; }
+.recording-container #slider-bar {
   background-color: #D8D8D8;
   position: relative;
-  bottom: 5vw; }
-.recording-container #slider-status {
-  position: relative;
+  bottom: 5vw;
+  overflow: hidden; }
+.recording-container #slider-status-fill {
+  position: absolute; }
+.recording-container #slider-status-fill, .recording-container #slider-status-mark {
   right: 70vw;
-  height: 11vw;
-  width: 2px;
   background-color: #f3a536; }
+.recording-container #slider-status-mark {
+  position: relative;
+  height: 11vw;
+  width: 2px; }
 .recording-container #timer {
   font-size: 7vw;
   position: relative;

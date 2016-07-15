@@ -146,25 +146,35 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
     display:inline-block;
   }
 
-  #animated-slider {
+  #animated-slider-container {
     padding: 0vw 2.5vw;
   }
 
-  #slider-bar{
+  #slider-bar, #slider-status-fill {
     width: 70vw;
     height: 2px;
+  }
+
+  #slider-bar {
     background-color: $light-grey;
     position: relative;
     bottom: 5vw;
-
+    overflow: hidden;
   }
 
-  #slider-status {
+  #slider-status-fill {
+    position: absolute;
+  }
+
+  #slider-status-fill, #slider-status-mark {
+    right:70vw;
+    background-color: $highlight-text;
+  }
+
+  #slider-status-mark {
     position: relative;
-    right: 70vw;
     height:11vw;
     width: 2px;
-    background-color: $highlight-text;
   }
 
   #timer {

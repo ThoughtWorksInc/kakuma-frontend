@@ -87,16 +87,15 @@ function startTimer () {
         clearInterval(interval);
       }
   }, 1000);
-
-
-  // for (var seconds = 60; seconds > 0; seconds--) {
-  //   setTimeout(function() {document.getElementById("timer").innerHTML = seconds;}, 1000);
-  //
-  // }
 }
 
 function moveSlider() {
-  document.getElementById("slider-status").classList.add("animate");
+  document.getElementById("slider-status-mark").classList.add("animate");
+  document.getElementById("slider-status-fill").classList.add("animate");
+
+  // Array.prototype.map.call(document.getElementsByClassName("slider"), function(element) {
+  //   element.classList.add("animate");
+  // });
 }
 
 function setRecordingToFinished() {
@@ -114,5 +113,6 @@ function recordVoice() {
   moveSlider();
 
   //after 60 seconds display finished gif
+  // Set background to green, show play button, show delete button
   setRecordingToFinished();
 }
