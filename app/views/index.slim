@@ -84,10 +84,19 @@ html(lang="en")
               #slider-status-mark.slider
             #timer
               | 60
-          .question-container
+          #recording-question-container
             p
               | Please leave a voice message
             p.help-text
               | You have 60 seconds to leave a message for the person you are looking for. Tap the microphone to begin.
+          #recording-instructions.hidden
+            p.help-text
+              | Tap on the panel to stop recording.
+          #recording-response-container.hidden 
+            p
+              | Thank you for your message.
+            p.help-text
+              | Tap on the bin to delete and start a new recording.
+    
           
         

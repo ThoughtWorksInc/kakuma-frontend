@@ -87,7 +87,7 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
   padding: 0vw 2.5vw; }
 .recording-container #slider-bar, .recording-container #slider-status-fill {
   width: 70vw;
-  height: 2px; }
+  height: 3px; }
 .recording-container #slider-bar {
   background-color: #D8D8D8;
   position: relative;

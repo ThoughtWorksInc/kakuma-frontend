@@ -73,6 +73,11 @@ function clickButtonOnEnterPress(event, questionNumber) {
   }
 }
 
+
+
+//Voice recording animation stuff
+//TODO good old refactor
+
 function setStopFunction() {
   document.getElementsByClassName("recording-container")[0].onclick = setRecordingToFinished;
 }
@@ -83,7 +88,6 @@ function playAnimation (){
 
 // var interval
 var interval;
-
 
 function startTimer () {
   var seconds = 60;
@@ -111,6 +115,9 @@ function setRecordingToFinished() {
   document.getElementById("slider-bar").classList.add("finished");
   document.getElementById("mic-gif").src = "../images/play-button.png";
   document.getElementById("timer").innerHTML = "done!";
+
+  document.getElementById("recording-instructions").classList.add("hidden");
+  document.getElementById("recording-response-container").classList.remove("hidden");
 }
 
 var isRecording = false;
@@ -127,6 +134,9 @@ function recordVoice() {
 
     // play gif for 60 seconds
     playAnimation();
+
+    document.getElementById("recording-question-container").classList.add("hidden");
+    document.getElementById("recording-instructions").classList.remove("hidden");
 
     //timer counts down from 60 sec
     startTimer();
