@@ -15,7 +15,7 @@ h1 {
   width: 100%; }
 
 p {
-  padding: 5px; }
+  padding: 1vw; }
 
 /* Input Styling*/
 button {
@@ -55,7 +55,7 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
   margin: 0 auto; }
 
 .question {
-  padding: 10px;
+  padding: 3vw;
   border-top: 1px solid #f3a536; }
 
 .help-text {
@@ -110,12 +110,12 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
   top: -3vw; }
 
 #form-button-container {
-  text-align: center; }
+  text-align: center;
+  padding: 3vw; }
   #form-button-container #submit-form-button {
-    margin: 5vw auto;
-    padding: 4vw 0;
+    padding: 3vw 0;
     background-color: #ACD2BC;
-    width: 90vw;
+    width: 100%;
     border-radius: 2vw;
     color: white; }
 
