@@ -114,16 +114,16 @@ function setRecordingToFinished() {
   document.getElementById("slider-status-fill").classList.remove("animate");
   document.getElementById("slider-bar").classList.add("finished");
   document.getElementById("mic-gif").src = "../images/play-button.png";
-  document.getElementById("timer").innerHTML = "done!";
+  document.getElementById("timer").innerHTML = "!!";
 
   document.getElementById("recording-instructions").classList.add("hidden");
   document.getElementById("recording-response-container").classList.remove("hidden");
+  document.getElementById("form-button-container").classList.remove("hidden");
 }
 
 var isRecording = false;
 
 function recordVoice() {
-  // setStopFunction();
 
   if(isRecording) {
     isRecording = false;

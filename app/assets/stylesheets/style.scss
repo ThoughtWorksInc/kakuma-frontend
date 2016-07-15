@@ -15,6 +15,7 @@ $container-background: white;
 $header-text-color: white;
 $highlight-text: $highlight-orange;
 $border-color: $highlight-orange;
+$button-color: $matcha-green;
 
 $header-font-size: 100px;
 $content-font-size: 5vw;
@@ -96,7 +97,7 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
 
 .question {
   padding: 10px;
-  border-bottom: 1px solid $border-color;
+  border-top: 1px solid $border-color;
 }
 
 .help-text {
@@ -185,5 +186,18 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
     font-size: 7vw;
     position: relative;
     top: -3vw;
+  }
+}
+
+#form-button-container {
+  text-align: center;
+
+  #submit-form-button {
+    margin: 5vw auto;
+    padding: 4vw 0;
+    background-color: $button-color;
+    width:90vw;
+    border-radius: 2vw;
+    color: $header-text-color;
   }
 }

@@ -75,7 +75,7 @@ html(lang="en")
             button.send onclick="answerSubmit(5); return false;"
               | send
               
-        .question#question-6 data-question-title="voice"
+        .question#question-6.hidden data-question-title="voice"
           .recording-container onclick="recordVoice()"
             img#mic-gif src="../images/mic-grey.gif" 
             #animated-slider-container
@@ -97,6 +97,10 @@ html(lang="en")
               | Thank you for your message.
             p.help-text
               | Tap on the bin to delete and start a new recording.
+        
+        #form-button-container.hidden      
+          button#submit-form-button
+            | Send the details
     
           
         
