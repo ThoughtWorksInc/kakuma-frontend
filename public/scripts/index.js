@@ -78,17 +78,32 @@ function playAnimation (){
 
 }
 
-function startTimer (){
+function startTimer () {
+  var seconds = 60;
+  var interval = setInterval(function() {
+      seconds--;
+      document.getElementById("timer").innerHTML = seconds;
+      if(seconds == 0) {
+        clearInterval(interval);
+      }
+  }, 1000);
 
+
+  // for (var seconds = 60; seconds > 0; seconds--) {
+  //   setTimeout(function() {document.getElementById("timer").innerHTML = seconds;}, 1000);
+  //
+  // }
 }
 
 function moveSlider() {
   document.getElementById("slider-status").classList.add("animate");
-};
+}
+
+function setRecordingToFinished() {
+
+}
 
 function recordVoice() {
-
-
   // play gif for 60 seconds
   playAnimation();
 
