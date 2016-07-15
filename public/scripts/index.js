@@ -73,14 +73,21 @@ function clickButtonOnEnterPress(event, questionNumber) {
   }
 }
 
+function setStopFunction() {
+  document.getElementsByClassName("recording-container")[0].onclick = setRecordingToFinished;
+}
 
 function playAnimation (){
   document.getElementById("mic-gif").src = "../images/mic.gif"
 }
 
+// var interval
+var interval;
+
+
 function startTimer () {
   var seconds = 60;
-  var interval = setInterval(function() {
+  interval = setInterval(function() {
       seconds--;
       document.getElementById("timer").innerHTML = seconds;
       if(seconds == 0) {
@@ -99,22 +106,36 @@ function moveSlider() {
 }
 
 function setRecordingToFinished() {
-  // document.getElementById("slider-status-mark").classList.remove("animate");
-  // document.getElementById("slider-status-fill").classList.remove("animate");
+  document.getElementById("slider-status-mark").classList.remove("animate");
+  document.getElementById("slider-status-fill").classList.remove("animate");
   document.getElementById("slider-bar").classList.add("finished");
+  document.getElementById("mic-gif").src = "../images/play-button.png";
+  document.getElementById("timer").innerHTML = "done!";
 }
 
+var isRecording = false;
+
 function recordVoice() {
-  // play gif for 60 seconds
-  playAnimation();
+  // setStopFunction();
 
-  //timer counts down from 60 sec
-  startTimer();
+  if(isRecording) {
+    isRecording = false;
+    setRecordingToFinished();
+    clearInterval(interval);
+  } else {
+    isRecording = true;
 
-  //Move
-  moveSlider();
+    // play gif for 60 seconds
+    playAnimation();
 
-  //after 60 seconds display finished gif
-  // Set background to green, show play button, show delete button
-  setTimeout(setRecordingToFinished, 60000);
+    //timer counts down from 60 sec
+    startTimer();
+
+    //Move
+    moveSlider();
+
+    //after 60 seconds display finished gif
+    // Set background to green, show play button, show delete button
+    setTimeout(setRecordingToFinished, 60000);
+  }
 }
