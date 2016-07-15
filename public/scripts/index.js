@@ -75,19 +75,29 @@ function clickButtonOnEnterPress(event, questionNumber) {
 
 
 function playAnimation (){
-  
+
 }
 
 function startTimer (){
 
 }
 
+function moveSlider() {
+  document.getElementById("slider-status").classList.add("animate");
+};
+
 function recordVoice() {
+
+
   // play gif for 60 seconds
   playAnimation();
 
   //timer counts down from 60 sec
   startTimer();
 
+  //Move
+  moveSlider();
+
   //after 60 seconds display finished gif
+  setRecordingToFinished();
 }
