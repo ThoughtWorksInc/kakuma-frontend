@@ -114,11 +114,13 @@ function setRecordingToFinished() {
   document.getElementById("slider-bar").classList.add("finished");
   document.getElementById("play-btn").classList.remove("hidden");
   document.getElementById("mic-gif").classList.add("hidden");
-  document.getElementById("timer").innerHTML = "!!";
-
   document.getElementById("recording-instructions").classList.add("hidden");
+  document.getElementById("timer").innerHTML = "";
+
   document.getElementById("recording-response-container").classList.remove("hidden");
   document.getElementById("form-button-container").classList.remove("hidden");
+  document.getElementById("bin-btn").classList.remove("hidden");
+
   messageCompleted = true;
   isRecording = false;
   isPlaying = false;
@@ -149,6 +151,7 @@ function recordMessage(){
 }
 
 function playMessage() {
+  document.getElementById("bin-btn").classList.remove("hidden");
   isPlaying = true;
   playAnimation();
   moveSlider();
@@ -156,6 +159,7 @@ function playMessage() {
 }
 
 function voiceMessage() {
+
   if(messageCompleted) {
     document.getElementById("recording-question-container").classList.add("hidden");
     moveSlider();
@@ -165,6 +169,7 @@ function voiceMessage() {
   if(isRecording && !messageCompleted) {
     setRecordingToFinished();
     clearInterval(interval);
+
   } else if(!messageCompleted && !isRecording){
     recordMessage();
   } else if (messageCompleted && !isPlaying) {
@@ -173,4 +178,5 @@ function voiceMessage() {
     setRecordingToFinished();
     clearInterval(interval);
   }
+
 }

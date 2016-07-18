@@ -82,6 +82,14 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
   display: inline-block; }
 .recording-container #mic-gif {
   width: 10vw; }
+.recording-container #play-btn {
+  width: 7%;
+  padding-bottom: 0.4em; }
+.recording-container #bin-btn {
+  width: 6%;
+  float: right;
+  padding-top: 0.5em;
+  padding-right: 1em; }
 .recording-container #animated-slider-container {
   padding: 0vw 2.5vw; }
 .recording-container #slider-bar, .recording-container #slider-status-fill {
@@ -117,9 +125,5 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
     width: 100%;
     border-radius: 2vw;
     color: white; }
-
-#play-btn {
-  width: 7%;
-  padding-bottom: 0.4em; }
 
 /*# sourceMappingURL=style.css.map */

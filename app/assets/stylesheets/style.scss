@@ -150,6 +150,18 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
     width: 2 * 5vw;
   }
 
+  #play-btn {
+    width: 7%;
+    padding-bottom: 0.4em;
+  }
+
+  #bin-btn {
+    width: 6%;
+    float: right;
+    padding-top: 0.5em;
+    padding-right: 1em;
+  }
+
   #animated-slider-container {
     padding: 0vw 2.5vw;
   }
@@ -205,7 +217,6 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
   }
 }
 
-#play-btn {
-  width: 7%;
-  padding-bottom: 0.4em;
-}
+
+
+
