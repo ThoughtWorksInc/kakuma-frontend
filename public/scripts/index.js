@@ -86,7 +86,6 @@ function playAnimation (){
   document.getElementById("mic-gif").src = "../images/mic.gif"
 }
 
-// var interval
 var interval;
 
 function startTimer () {
@@ -113,39 +112,65 @@ function setRecordingToFinished() {
   document.getElementById("slider-status-mark").classList.remove("animate");
   document.getElementById("slider-status-fill").classList.remove("animate");
   document.getElementById("slider-bar").classList.add("finished");
-  document.getElementById("mic-gif").src = "../images/play-button.png";
+  document.getElementById("play-btn").classList.remove("hidden");
+  document.getElementById("mic-gif").classList.add("hidden");
   document.getElementById("timer").innerHTML = "!!";
 
   document.getElementById("recording-instructions").classList.add("hidden");
   document.getElementById("recording-response-container").classList.remove("hidden");
   document.getElementById("form-button-container").classList.remove("hidden");
+  messageCompleted = true;
+  isRecording = false;
+  isPlaying = false;
 }
 
 var isRecording = false;
+var messageCompleted = false;
+var isPlaying = false;
 
-function recordVoice() {
+function recordMessage(){
+  isRecording = true;
 
-  if(isRecording) {
-    isRecording = false;
+  // play gif for 60 seconds
+  playAnimation();
+
+  document.getElementById("recording-question-container").classList.add("hidden");
+  document.getElementById("recording-instructions").classList.remove("hidden");
+
+  //timer counts down from 60 sec
+  startTimer();
+
+  //Move
+  moveSlider();
+
+  //after 60 seconds display finished gif
+  // Set background to green, show play button, show delete button
+  setTimeout(setRecordingToFinished, 60000);
+}
+
+function playMessage() {
+  isPlaying = true;
+  playAnimation();
+  moveSlider();
+  setTimeout(setRecordingToFinished, 60000);
+}
+
+function voiceMessage() {
+  if(messageCompleted) {
+    document.getElementById("recording-question-container").classList.add("hidden");
+    moveSlider();
+    setTimeout(setRecordingToFinished, 60000);
+  }
+
+  if(isRecording && !messageCompleted) {
     setRecordingToFinished();
     clearInterval(interval);
+  } else if(!messageCompleted && !isRecording){
+    recordMessage();
+  } else if (messageCompleted && !isPlaying) {
+    playMessage();
   } else {
-    isRecording = true;
-
-    // play gif for 60 seconds
-    playAnimation();
-
-    document.getElementById("recording-question-container").classList.add("hidden");
-    document.getElementById("recording-instructions").classList.remove("hidden");
-
-    //timer counts down from 60 sec
-    startTimer();
-
-    //Move
-    moveSlider();
-
-    //after 60 seconds display finished gif
-    // Set background to green, show play button, show delete button
-    setTimeout(setRecordingToFinished, 60000);
+    setRecordingToFinished();
+    clearInterval(interval);
   }
 }

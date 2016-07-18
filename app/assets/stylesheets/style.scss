@@ -148,7 +148,6 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
 
   #mic-gif{
     width: 2 * 5vw;
-    display:inline-block;
   }
 
   #animated-slider-container {
@@ -204,4 +203,9 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
     border-radius: 2vw;
     color: $header-text-color;
   }
+}
+
+#play-btn {
+  width: 7%;
+  padding-bottom: 0.4em;
 }

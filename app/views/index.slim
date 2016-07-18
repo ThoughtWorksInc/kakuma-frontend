@@ -76,8 +76,9 @@ html(lang="en")
               | send
               
         .question#question-6.hidden data-question-title="voice"
-          .recording-container onclick="recordVoice()"
-            img#mic-gif src="../images/mic-grey.gif" 
+          .recording-container onclick="voiceMessage()"
+            img#mic-gif src="../images/mic-grey.gif"
+            img#play-btn.hidden src="../images/play-button.png"
             #animated-slider-container
               #slider-bar
                 #slider-status-fill.slider
