@@ -4,7 +4,7 @@ Date: 06/07/2016
 
 ## Status
 
-Proposed
+Superseded ADR 7
 
 ## Context
 

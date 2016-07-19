@@ -8,7 +8,7 @@ Accepted
 
 ## Context
 
-We require a HTML templating language to speed up development, reduce code duplication and improve readability. Jade was originally proposed as it is a popular choice within the industry, and it had been used previously by the team.
+We require an HTML templating language to speed up development, reduce code duplication and improve readability. Jade was originally proposed as it is a popular choice within the industry, and it had been used previously by the team.
 
 ## Decision
 
