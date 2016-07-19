@@ -1,5 +1,7 @@
+var allQuestionViews;
+
 function getAllQuestionsArray () {
-  var allQuestionViews = [];
+  allQuestionViews = [];
   var allQuestionNodes = document.getElementsByClassName("question");
   for (i = 1; i <= allQuestionNodes.length; i++) {
     allQuestionViews[i-1] = getQuestionView(i);
