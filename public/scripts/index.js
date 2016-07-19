@@ -1,7 +1,5 @@
-var allQuestionViews;
-
 function getAllQuestionsArray () {
-  allQuestionViews = [];
+  var allQuestionViews = [];
   var allQuestionNodes = document.getElementsByClassName("question");
   for (i = 1; i <= allQuestionNodes.length; i++) {
     allQuestionViews[i-1] = getQuestionView(i);
@@ -80,4 +78,5 @@ function clickButtonOnEnterPress(event, questionNumber) {
 function confirmationMessage() {
   document.getElementsByClassName("confirmation")[0].classList.remove("hidden");
   document.getElementsByClassName("answer")[0].classList.add("hidden");
+  document.getElementsByClassName("logo")[0].classList.add("hidden");
 }

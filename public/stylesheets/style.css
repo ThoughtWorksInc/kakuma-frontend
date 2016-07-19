@@ -14,6 +14,13 @@ h1 {
   text-align: center;
   width: 100%; }
 
+.logo img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: 40px;
+  padding: 0.4em; }
+
 p {
   padding: 1vw; }
 
@@ -133,7 +140,7 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
   padding-right: 1em; }
 
 .confirmation .first {
-  margin-top: 2em; }
+  margin-top: 3em; }
 .confirmation p {
   padding: 1vw;
   padding-left: 1em;
@@ -145,5 +152,7 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
   display: block;
   margin-top: 3em;
   height: 100px; }
+.confirmation #form-button-container {
+  margin-top: 70%; }
 
 /*# sourceMappingURL=style.css.map */

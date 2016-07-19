@@ -78,4 +78,5 @@ function clickButtonOnEnterPress(event, questionNumber) {
 function confirmationMessage() {
   document.getElementsByClassName("confirmation")[0].classList.remove("hidden");
   document.getElementsByClassName("answer")[0].classList.add("hidden");
+  document.getElementsByClassName("logo")[0].classList.add("hidden");
 }

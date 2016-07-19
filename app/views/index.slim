@@ -8,8 +8,8 @@ html(lang="en")
     script src="../scripts/index.js" type="text/javascript"
     title Find Me in Kakuma
   body
-    h1#header
-      | FIND ME
+    #header.logo
+      img src="../images/FindMe_logo.png"
     #dialogue-container
       form.answer onsubmit="return false;" method="post" action="/"
         .question#question-1 data-question-title="name"
