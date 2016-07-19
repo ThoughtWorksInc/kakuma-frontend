@@ -1,7 +1,3 @@
-//var answerArray = [];
-//var progress = null;
-//var selectedQuestion = null;
-
 function getAllQuestionsArray () {
   var allQuestionViews = [];
   var allQuestionNodes = document.getElementsByClassName("question");
@@ -77,4 +73,9 @@ function clickButtonOnEnterPress(event, questionNumber) {
     answerSubmit(questionNumber);
     return false;
   }
+}
+
+function confirmationMessage() {
+  document.getElementsByClassName("confirmation")[0].classList.remove("hidden");
+  document.getElementsByClassName("answer")[0].classList.add("hidden");
 }

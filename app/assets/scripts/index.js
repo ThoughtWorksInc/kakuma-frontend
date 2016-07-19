@@ -74,3 +74,8 @@ function clickButtonOnEnterPress(event, questionNumber) {
     return false;
   }
 }
+
+function confirmationMessage() {
+  document.getElementsByClassName("confirmation")[0].classList.remove("hidden");
+  document.getElementsByClassName("answer")[0].classList.add("hidden");
+}

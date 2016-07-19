@@ -115,8 +115,12 @@ html(lang="en")
           .input-container
         
         #form-button-container.hidden      
-          button#submit-form-button
+          button#submit-form-button onclick="confirmationMessage()"
             | Send the details
-    
-          
-        
+
+      .confirmation.hidden
+        img.confirmation-icon src="../images/dude_icon.png"
+        p.first
+          | Thank you for taking part in testing the application.
+        p
+          | Your feedback is important to us and will be used to improve the application so families can be connected.
