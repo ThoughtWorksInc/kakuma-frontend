@@ -48,6 +48,7 @@ function answerSubmit(questionNumber) {
 
   if (firstUnansweredQuestion) { //There may not be any more unanswered questions.
     firstUnansweredQuestion.show();
+    firstUnansweredQuestion.scrollTo();
   } //else - we're at the end - some kinda confirmation that they are ready to submit
 
   //update progress variable

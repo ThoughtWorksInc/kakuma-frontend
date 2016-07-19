@@ -37,6 +37,9 @@ function getQuestionView(questionNumber) {
       this.showTextbox();
       return this;
     },
+    scrollTo: function(){
+      window.scrollTo(0,document.body.scrollHeight);
+    },
     highlightQuestionForEdit: function() {
       this.questionNode.classList.add("edit-highlight");
     },
