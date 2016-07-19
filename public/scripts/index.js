@@ -1,7 +1,6 @@
-var answerArray = [];
-var progress = null;
-var selectedQuestion = null;
-var isEditing = false;
+//var answerArray = [];
+//var progress = null;
+//var selectedQuestion = null;
 
 function getAllQuestionsArray () {
   var allQuestionViews = [];
@@ -63,7 +62,9 @@ function editResponse(questionNumber) {
   hideAllInputFields();
   removeAllEditHighlights();
   //display input box for the question we /do/ want
-  getQuestionView(questionNumber).showTextbox();
+  getQuestionView(questionNumber)
+      .showTextbox()
+      .removeEditButton();
 
   //modify styling of the current question - apply shiny
   getQuestionView(questionNumber).highlightQuestionForEdit()
