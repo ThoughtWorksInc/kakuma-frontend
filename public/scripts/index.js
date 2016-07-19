@@ -77,16 +77,17 @@ function clickButtonOnEnterPress(event, questionNumber) {
 
 //Voice recording animation stuff
 //TODO good old refactor
-
-function setStopFunction() {
-  document.getElementsByClassName("recording-container")[0].onclick = setRecordingToFinished;
-}
+var isRecording = false;
+var messageCompleted = false;
+var isPlaying = false;
+var interval;
+var setTimeout = setTimeout(setRecordingToFinished, 60000);
 
 function playAnimation (){
-  document.getElementById("mic-gif").src = "../images/mic.gif"
+  document.getElementById("mic-gif").classList.remove("hidden");
+  document.getElementById("mic").classList.add("hidden");
 }
 
-var interval;
 
 function startTimer () {
   var seconds = 60;
@@ -102,81 +103,96 @@ function startTimer () {
 function moveSlider() {
   document.getElementById("slider-status-mark").classList.add("animate");
   document.getElementById("slider-status-fill").classList.add("animate");
-
-  // Array.prototype.map.call(document.getElementsByClassName("slider"), function(element) {
-  //   element.classList.add("animate");
-  // });
 }
 
-function setRecordingToFinished() {
+function stopSlider() {
   document.getElementById("slider-status-mark").classList.remove("animate");
   document.getElementById("slider-status-fill").classList.remove("animate");
   document.getElementById("slider-bar").classList.add("finished");
+}
+
+function setRecordingToFinished() {
+  messageCompleted = true;
+  isRecording = false;
+  isPlaying = false;
+
+  clearTimeout(setTimeout);
+  stopSlider();
+
   document.getElementById("play-btn").classList.remove("hidden");
   document.getElementById("mic-gif").classList.add("hidden");
   document.getElementById("recording-instructions").classList.add("hidden");
-  document.getElementById("timer").innerHTML = "";
+  toggleTimer();
 
   document.getElementById("recording-response-container").classList.remove("hidden");
   document.getElementById("form-button-container").classList.remove("hidden");
   document.getElementById("bin-btn").classList.remove("hidden");
-
-  messageCompleted = true;
-  isRecording = false;
-  isPlaying = false;
 }
 
-var isRecording = false;
-var messageCompleted = false;
-var isPlaying = false;
+function toggleTimer(){
+  var timer = document.getElementById("timer");
+  timer.innerHTML = 60;
 
-function recordMessage(){
+  if(!messageCompleted && !isRecording) {
+    timer.style.display = "inline-block";
+  }else if(!isRecording) {
+    timer.style.display = "none";
+  }
+}
+
+function recordMessage() {
   isRecording = true;
+  isPlaying = false;
 
-  // play gif for 60 seconds
+  toggleTimer();
+
   playAnimation();
 
   document.getElementById("recording-question-container").classList.add("hidden");
   document.getElementById("recording-instructions").classList.remove("hidden");
 
-  //timer counts down from 60 sec
   startTimer();
-
-  //Move
   moveSlider();
-
-  //after 60 seconds display finished gif
-  // Set background to green, show play button, show delete button
-  setTimeout(setRecordingToFinished, 60000);
+  setTimeout;
 }
 
 function playMessage() {
   document.getElementById("bin-btn").classList.remove("hidden");
   isPlaying = true;
-  playAnimation();
+  isRecording = false;
   moveSlider();
-  setTimeout(setRecordingToFinished, 60000);
+  setTimeout;
 }
 
 function voiceMessage() {
-
   if(messageCompleted) {
     document.getElementById("recording-question-container").classList.add("hidden");
     moveSlider();
-    setTimeout(setRecordingToFinished, 60000);
+    setTimeout;
   }
 
-  if(isRecording && !messageCompleted) {
-    setRecordingToFinished();
-    clearInterval(interval);
-
-  } else if(!messageCompleted && !isRecording){
+  if(!messageCompleted && !isRecording){
     recordMessage();
   } else if (messageCompleted && !isPlaying) {
-    playMessage();
-  } else {
-    setRecordingToFinished();
     clearInterval(interval);
+    playMessage();
+  } else  {
+    clearInterval(interval);
+    setRecordingToFinished();
   }
+}
 
+function resetVoiceMessage() {
+  messageCompleted = false;
+  isPlaying = false;
+  stopSlider();
+  toggleTimer();
+
+  document.getElementById("bin-btn").classList.add("hidden");
+  document.getElementById("play-btn").classList.add("hidden");
+  document.getElementById("mic").classList.remove("hidden");
+  document.getElementById("form-button-container").classList.add("hidden");
+
+  document.getElementById("recording-question-container").classList.remove("hidden");
+  document.getElementById("recording-response-container").classList.add("hidden");
 }
