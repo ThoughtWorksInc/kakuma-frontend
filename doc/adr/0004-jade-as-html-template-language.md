@@ -8,7 +8,7 @@ Superseded ADR 7
 
 ## Context
 
-We need a html template language because it helps to reduce development time and duplicate code.
+We need an html template language because it helps to reduce development time and duplicate code.
 
 ## Decision
 
