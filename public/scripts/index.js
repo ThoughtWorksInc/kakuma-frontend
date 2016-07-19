@@ -38,8 +38,7 @@ function answerSubmit(questionNumber) {
     .displayResponseWith(answer)
     .hideQuestionText()
     .displayEditButton()
-    .removeEditHighlight()
-    console.log(getQuestionView(1));
+    .removeEditHighlight();
 
 
   //what is the next unanswered question???

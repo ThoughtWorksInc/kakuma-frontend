@@ -32,25 +32,30 @@ function stopSlider() {
     document.getElementById("slider-bar").classList.add("finished");
 }
 
+function stopTimer() {
+    clearTimeout(setTimeout);
+    clearInterval(interval);
+}
+
 function setRecordingToFinished() {
     messageCompleted = true;
     isRecording = false;
     isPlaying = false;
 
-    clearTimeout(setTimeout);
+    stopTimer();
     stopSlider();
 
     document.getElementById("play-btn").classList.remove("hidden");
     document.getElementById("mic-gif").classList.add("hidden");
     document.getElementById("recording-instructions").classList.add("hidden");
-    toggleTimer();
+    toggleTimerDisplay();
 
     document.getElementById("recording-response-container").classList.remove("hidden");
     document.getElementById("form-button-container").classList.remove("hidden");
     document.getElementById("bin-btn").classList.remove("hidden");
 }
 
-function toggleTimer(){
+function toggleTimerDisplay(){
     var timer = document.getElementById("timer");
     timer.innerHTML = 60;
 
@@ -65,7 +70,7 @@ function recordMessage() {
     isRecording = true;
     isPlaying = false;
 
-    toggleTimer();
+    toggleTimerDisplay();
 
     playAnimation();
 
@@ -98,16 +103,16 @@ function voiceMessage() {
         clearInterval(interval);
         playMessage();
     } else  {
-        clearInterval(interval);
         setRecordingToFinished();
     }
 }
 
 function resetVoiceMessage() {
+    stopTimer();
     messageCompleted = false;
     isPlaying = false;
     stopSlider();
-    toggleTimer();
+    toggleTimerDisplay();
 
     document.getElementById("bin-btn").classList.add("hidden");
     document.getElementById("play-btn").classList.add("hidden");
