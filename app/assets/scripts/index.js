@@ -1,6 +1,7 @@
 var answerArray = [];
 var progress = null;
 var selectedQuestion = null;
+var isEditing = false;
 
 function getAllQuestionsArray () {
   var allQuestionViews = [];
@@ -27,7 +28,7 @@ function removeAllEditHighlights() {
 function getFirstUnansweredQuestion() {
   var isUnanswered = function (question) {
     return !question.hasAnswer();
-  }
+  };
   //what is the next unanswered question???
   return getAllQuestionsArray().find(isUnanswered);
 }
@@ -41,7 +42,10 @@ function answerSubmit(questionNumber) {
   getQuestionView(questionNumber)
     .displayResponseWith(answer)
     .hideQuestionText()
-    .removeEditHighlight();
+    .displayEditButton()
+    .removeEditHighlight()
+    console.log(getQuestionView(1));
+
 
   //what is the next unanswered question???
   var firstUnansweredQuestion = getFirstUnansweredQuestion();

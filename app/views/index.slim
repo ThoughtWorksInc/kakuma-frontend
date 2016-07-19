@@ -25,6 +25,8 @@ html(lang="en")
             input.answer#answer-1 type="text" name="name" onkeydown="clickButtonOnEnterPress(event, 1)"
             button.send onclick="answerSubmit(1); return false;"
               | send
+          .edit-icon.hidden
+            img src="../images/edit_icon.svg"
         
         .question#question-2.hidden data-question-title="location"
           .question-container
@@ -39,6 +41,8 @@ html(lang="en")
             input.answer#answer-2 type="text" name="location" onkeydown="clickButtonOnEnterPress(event, 2)"
             button.send onclick="answerSubmit(2); return false;"
               | send
+          .edit-icon.hidden
+            img src="../images/edit_icon.svg"
               
         .question#question-3.hidden data-question-title="age"
           .question-container
@@ -51,6 +55,8 @@ html(lang="en")
             input.answer#answer-3 type="number" name="age" onkeydown="clickButtonOnEnterPress(event, 3)"
             button.send onclick="answerSubmit(3); return false;"
               | send
+          .edit-icon.hidden
+            img src="../images/edit_icon.svg"
               
         .question#question-4.hidden data-question-title="phoneNumber"
           .question-container
@@ -63,6 +69,8 @@ html(lang="en")
             input.answer#answer-4 type="tel" name="phoneNumber" onkeydown="clickButtonOnEnterPress(event, 4)"
             button.send onclick="answerSubmit(4); return false;"
               | send
+          .edit-icon.hidden
+            img src="../images/edit_icon.svg"
               
         .question#question-5.hidden data-question-title="nameToFind"
           .question-container
@@ -75,6 +83,8 @@ html(lang="en")
             input.answer#answer-5 type="text" name="nameToFind" onkeydown="clickButtonOnEnterPress(event, 5)"
             button.send onclick="answerSubmit(5); return false;"
               | send
+          .edit-icon.hidden
+            img src="../images/edit_icon.svg"
               
         .question#question-6.hidden data-question-title="voice"
           img#bin-btn.hidden src="../images/bin_icon.png" onclick="resetVoiceMessage()"

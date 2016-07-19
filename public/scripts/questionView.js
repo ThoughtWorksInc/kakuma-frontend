@@ -45,6 +45,10 @@ function getQuestionView(questionNumber) {
     },
     removeEditHighlight: function() {
       this.questionNode.classList.remove("edit-highlight");
+    },
+    displayEditButton: function() {
+      this.questionNode.getElementsByClassName("edit-icon")[0].classList.remove("hidden");
+      return this;
     }
   };
   return questionView;

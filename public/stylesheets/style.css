@@ -56,7 +56,12 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
 
 .question {
   padding: 3vw;
-  border-top: 1px solid #f3a536; }
+  border-top: 1px solid #f3a536;
+  position: relative; }
+  .question .edit-icon {
+    right: 15px;
+    top: 16px;
+    position: absolute; }
 
 .help-text {
   color: #f3a536; }
