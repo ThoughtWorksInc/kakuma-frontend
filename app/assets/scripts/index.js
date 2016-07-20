@@ -38,7 +38,7 @@ function answerSubmit(questionNumber) {
     .displayEditButton()
     .removeEditHighlight();
 
-  if (firstUnansweredQuestion)
+  if (firstUnansweredQuestion) {
     firstUnansweredQuestion.show();
     firstUnansweredQuestion.scrollTo();
   }
