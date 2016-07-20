@@ -2,15 +2,37 @@ var isRecording = false;
 var messageCompleted = false;
 var isPlaying = false;
 var interval;
-var setTimeout = setTimeout(setRecordingToFinished, 60000);
+var playTimer;
+var recordingTimer;
 
 function playAnimation (){
     document.getElementById("mic-gif").classList.remove("hidden");
     document.getElementById("mic").classList.add("hidden");
 }
 
+function moveSlider() {
+    document.getElementById("slider-status-mark").classList.add("animate");
+    document.getElementById("slider-status-fill").classList.add("animate");
+}
 
-function startTimer () {
+function stopSlider() {
+    clearInterval(interval);
+    document.getElementById("slider-status-mark").classList.remove("animate");
+    document.getElementById("slider-status-fill").classList.remove("animate");
+    document.getElementById("slider-bar").classList.add("finished");
+}
+
+function displayPlayControls() {
+  document.getElementById("play-btn").classList.remove("hidden");
+  document.getElementById("mic-gif").classList.add("hidden");
+  document.getElementById("recording-instructions").classList.add("hidden");
+  document.getElementById("recording-response-container").classList.remove("hidden");
+  document.getElementById("form-button-container").classList.remove("hidden");
+  document.getElementById("bin-btn").classList.remove("hidden");
+}
+
+function startTimer() {
+    console.log("start timer");
     var seconds = 60;
     interval = setInterval(function() {
         seconds--;
@@ -21,38 +43,9 @@ function startTimer () {
     }, 1000);
 }
 
-function moveSlider() {
-    document.getElementById("slider-status-mark").classList.add("animate");
-    document.getElementById("slider-status-fill").classList.add("animate");
-}
-
-function stopSlider() {
-    document.getElementById("slider-status-mark").classList.remove("animate");
-    document.getElementById("slider-status-fill").classList.remove("animate");
-    document.getElementById("slider-bar").classList.add("finished");
-}
-
-function stopTimer() {
-    clearTimeout(setTimeout);
+function stopTimer(timeOut) {
+    clearTimeout(timeOut);
     clearInterval(interval);
-}
-
-function setRecordingToFinished() {
-    messageCompleted = true;
-    isRecording = false;
-    isPlaying = false;
-
-    stopTimer();
-    stopSlider();
-
-    document.getElementById("play-btn").classList.remove("hidden");
-    document.getElementById("mic-gif").classList.add("hidden");
-    document.getElementById("recording-instructions").classList.add("hidden");
-    toggleTimerDisplay();
-
-    document.getElementById("recording-response-container").classList.remove("hidden");
-    document.getElementById("form-button-container").classList.remove("hidden");
-    document.getElementById("bin-btn").classList.remove("hidden");
 }
 
 function toggleTimerDisplay(){
@@ -68,42 +61,61 @@ function toggleTimerDisplay(){
 
 function recordMessage() {
     isRecording = true;
-    isPlaying = false;
 
+    clearInterval(interval);
     toggleTimerDisplay();
-
+    startTimer();
     playAnimation();
 
     document.getElementById("recording-question-container").classList.add("hidden");
     document.getElementById("recording-instructions").classList.remove("hidden");
 
-    startTimer();
     moveSlider();
-    setTimeout;
+    recordingTimer = setTimeout(stopRecording, 60000);;
+}
+
+function stopRecording() {
+    messageCompleted = true;
+    isRecording = false;
+
+    stopTimer(recordingTimer);
+    stopSlider();
+    console.log("stop recording");
+    displayPlayControls();
+    toggleTimerDisplay();
 }
 
 function playMessage() {
-    document.getElementById("bin-btn").classList.remove("hidden");
+    messageCompleted = true;
     isPlaying = true;
-    isRecording = false;
+
+    clearInterval(interval);
+    document.getElementById("bin-btn").classList.remove("hidden");
     moveSlider();
-    setTimeout;
+    console.log("play message");
+    playTimer = setTimeout(stopPlaying, 60000);
+}
+
+function stopPlaying() {
+    messageCompleted = true;
+    isPlaying = false;
+
+    stopTimer(playTimer);
+    stopSlider();
+    clearInterval(interval);
+    displayPlayControls();
+    console.log("stop playing");
 }
 
 function voiceMessage() {
-    if(messageCompleted) {
-        document.getElementById("recording-question-container").classList.add("hidden");
-        moveSlider();
-        setTimeout;
-    }
-
     if(!messageCompleted && !isRecording){
         recordMessage();
+    } else if(!messageCompleted && isRecording) {
+        stopRecording();
     } else if (messageCompleted && !isPlaying) {
-        clearInterval(interval);
         playMessage();
-    } else  {
-        setRecordingToFinished();
+    } else if(messageCompleted && isPlaying) {
+        stopPlaying();
     }
 }
 

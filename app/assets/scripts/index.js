@@ -24,46 +24,33 @@ function getFirstUnansweredQuestion() {
   var isUnanswered = function (question) {
     return !question.hasAnswer();
   };
-  //what is the next unanswered question???
   return getAllQuestionsArray().find(isUnanswered);
 }
 
 function answerSubmit(questionNumber) {
-
   var answer = getQuestionView(questionNumber).getAnswer();
+  var firstUnansweredQuestion = getFirstUnansweredQuestion();
 
   hideAllInputFields();
-
   getQuestionView(questionNumber)
     .displayResponseWith(answer)
     .hideQuestionText()
     .displayEditButton()
     .removeEditHighlight();
 
-
-  //what is the next unanswered question???
-  var firstUnansweredQuestion = getFirstUnansweredQuestion();
-
-  if (firstUnansweredQuestion) { //There may not be any more unanswered questions.
+  if (firstUnansweredQuestion)
     firstUnansweredQuestion.show();
     firstUnansweredQuestion.scrollTo();
-  } //else - we're at the end - some kinda confirmation that they are ready to submit
-
-  //update progress variable
+  }
 }
 
 function editResponse(questionNumber) {
-  //hide all the text boxes.
   hideAllInputFields();
   removeAllEditHighlights();
-  //display input box for the question we /do/ want
   getQuestionView(questionNumber)
       .showTextbox()
       .removeEditButton();
-
-  //modify styling of the current question - apply shiny
   getQuestionView(questionNumber).highlightQuestionForEdit()
-
 }
 
 function clickButtonOnEnterPress(event, questionNumber) {

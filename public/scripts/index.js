@@ -4,6 +4,8 @@ function getAllQuestionsArray () {
   for (i = 1; i <= allQuestionNodes.length; i++) {
     allQuestionViews[i-1] = getQuestionView(i);
   }
+  // console.log(document.getElementById("userAgent").value = navigator.userAgent;)
+  console.log(navigator.userAgent);
   return allQuestionViews;
 }
 
