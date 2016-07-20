@@ -41,6 +41,7 @@ function getQuestionView(questionNumber) {
       window.scrollTo(0,document.body.scrollHeight);
     },
     highlightQuestionForEdit: function() {
+      console.log("highlight edit");
       this.questionNode.classList.add("edit-highlight");
     },
     removeEditHighlight: function() {

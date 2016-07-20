@@ -1,3 +1,16 @@
+var request = require('request');
+
+request('https://useragentidentifier.expeditedaddons.com/?api_key=' + process.env.USERAGENTIDENTIFIER_API_KEY + '&user_agent=Mozilla', function (error, response, body) {
+  console.log('Status:', response.statusCode);
+  console.log('Headers:', JSON.stringify(response.headers));
+  console.log('Response:', body);
+});
+
+console.log(request.isMobile);
+console.log(request.mobile_browser);
+console.log(request.mobile_brand);
+
+
 function getAllQuestionsArray () {
   var allQuestionViews = [];
   var allQuestionNodes = document.getElementsByClassName("question");
@@ -5,6 +18,16 @@ function getAllQuestionsArray () {
     allQuestionViews[i-1] = getQuestionView(i);
   }
   return allQuestionViews;
+}
+
+function displayAllEditIcons() {
+  var icons = document.getElementsByClassName("edit-icon");
+  for (i = 0; i < icons.length; i++) {
+    if(icons[i].classList.contains("hidden")) {
+      icons[i].classList.remove("hidden");
+    }
+  }
+  return icons;
 }
 
 function hideAllInputFields() {
@@ -18,7 +41,9 @@ function removeAllEditHighlights() {
   getAllQuestionsArray().map(function(questionView) {
     questionView.removeEditHighlight();
   });
+  console.log("removeAllEditHighlights");
 }
+
 
 function getFirstUnansweredQuestion() {
   var isUnanswered = function (question) {
@@ -46,6 +71,7 @@ function answerSubmit(questionNumber) {
 
 function editResponse(questionNumber) {
   hideAllInputFields();
+  displayAllEditIcons();
   removeAllEditHighlights();
   getQuestionView(questionNumber)
       .showTextbox()

@@ -20,6 +20,16 @@ function getAllQuestionsArray () {
   return allQuestionViews;
 }
 
+function displayAllEditIcons() {
+  var icons = document.getElementsByClassName("edit-icon");
+  for (i = 0; i < icons.length; i++) {
+    if(icons[i].classList.contains("hidden")) {
+      icons[i].classList.remove("hidden");
+    }
+  }
+  return icons;
+}
+
 function hideAllInputFields() {
   var inputFieldCollection = document.getElementsByClassName("input-container");
   var inputContainer = Array.prototype.map.call(inputFieldCollection, function(element) {
@@ -32,6 +42,7 @@ function removeAllEditHighlights() {
     questionView.removeEditHighlight();
   });
 }
+
 
 function getFirstUnansweredQuestion() {
   var isUnanswered = function (question) {
@@ -59,6 +70,7 @@ function answerSubmit(questionNumber) {
 
 function editResponse(questionNumber) {
   hideAllInputFields();
+  displayAllEditIcons();
   removeAllEditHighlights();
   getQuestionView(questionNumber)
       .showTextbox()

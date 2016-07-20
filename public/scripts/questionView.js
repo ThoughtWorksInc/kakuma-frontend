@@ -41,12 +41,14 @@ function getQuestionView(questionNumber) {
       window.scrollTo(0,document.body.scrollHeight);
     },
     highlightQuestionForEdit: function() {
+      console.log("highlight edit");
       this.questionNode.classList.add("edit-highlight");
     },
     removeEditHighlight: function() {
       this.questionNode.classList.remove("edit-highlight");
     },
     displayEditButton: function() {
+      console.log(this.questionNode);
       this.questionNode.getElementsByClassName("edit-icon")[0].classList.remove("hidden");
       return this;
     },
