@@ -92,7 +92,7 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
     width: 90vw - $button-width;
     border-radius: 10px;
     outline: none;
-    border: 2px solid $border-color;
+    // border: 2px solid $border-color;
     background-color: $light-grey;
     height: $input-height;
     // margin: 0 15px;
@@ -239,6 +239,10 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
 .confirmation {
   .first {
     margin-top: 3em;
+  }
+
+  .second {
+    margin-top: 10px;
   }
 
   p {
