@@ -1,3 +1,16 @@
+var request = require('request');
+
+request('https://useragentidentifier.expeditedaddons.com/?api_key=' + process.env.USERAGENTIDENTIFIER_API_KEY + '&user_agent=Mozilla', function (error, response, body) {
+  console.log('Status:', response.statusCode);
+  console.log('Headers:', JSON.stringify(response.headers));
+  console.log('Response:', body);
+});
+
+console.log(request.isMobile);
+console.log(request.mobile_browser);
+console.log(request.mobile_brand);
+
+
 function getAllQuestionsArray () {
   var allQuestionViews = [];
   var allQuestionNodes = document.getElementsByClassName("question");
