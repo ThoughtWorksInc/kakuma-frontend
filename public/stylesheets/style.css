@@ -43,6 +43,7 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
 .input-container {
   background-color: white;
   position: fixed;
+  z-index: 1;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -61,7 +62,8 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
 #dialogue-container {
   width: 100vw;
   background-color: white;
-  margin: 0 auto 15vw; }
+  margin: 0 auto 15vw;
+  z-index: 0; }
 
 .question {
   padding: 3vw;
