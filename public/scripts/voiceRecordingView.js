@@ -5,8 +5,8 @@ var interval;
 var playTimer;
 var recordingTimer;
 
-function playAnimation (){
-    document.getElementById("mic-gif").classList.remove("hidden");
+function displayStopButton (){
+    document.getElementById("stop-btn").classList.remove("hidden");
     document.getElementById("mic").classList.add("hidden");
 }
 
@@ -24,7 +24,7 @@ function stopSlider() {
 
 function displayPlayControls() {
   document.getElementById("play-btn").classList.remove("hidden");
-  document.getElementById("mic-gif").classList.add("hidden");
+  document.getElementById("stop-btn").classList.add("hidden");
   document.getElementById("recording-instructions").classList.add("hidden");
   document.getElementById("recording-response-container").classList.remove("hidden");
   document.getElementById("form-button-container").classList.remove("hidden");
@@ -65,7 +65,7 @@ function recordMessage() {
     clearInterval(interval);
     toggleTimerDisplay();
     startTimer();
-    playAnimation();
+    displayStopButton();
 
     document.getElementById("recording-question-container").classList.add("hidden");
     document.getElementById("recording-instructions").classList.remove("hidden");

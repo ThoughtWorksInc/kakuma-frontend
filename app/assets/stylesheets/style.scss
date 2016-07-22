@@ -1,7 +1,8 @@
 $font-stack: Open Sans, Arial, Helvetica, sans-serif;
 
 $highlight-orange: #f3a536;
-$matcha-green: #ACD2BC;
+$light-matcha-green: #ACD2BC;
+$dark-matcha-green: #85B69B;
 $light-grey: #D8D8D8;
 $light-blue: #4A90E2;
 $dark-grey: #C2C2C2;
@@ -15,7 +16,7 @@ $container-background: white;
 $header-text-color: white;
 $highlight-text: $highlight-orange;
 $border-color: $highlight-orange;
-$button-color: $matcha-green;
+$button-color: $dark-matcha-green;
 
 $header-font-size: 100px;
 $content-font-size: 5vw;
@@ -140,7 +141,7 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
 }
 
 .edit-highlight .response-text {
-  background-color: $matcha-green;
+  background-color: $light-matcha-green;
 }
 
 .edit-highlight {
@@ -165,8 +166,12 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
     display:inline-block;
   }
 
-  #mic-gif, #mic{
+  #mic{
     width: 2 * 5vw;
+  }
+
+  #stop-btn{
+    margin-bottom: 7px;
   }
 
   #play-btn {
@@ -190,7 +195,7 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
     overflow: hidden;
 
     &.finished {
-      background-color: $matcha-green;
+      background-color: $light-matcha-green;
     }
   }
 
