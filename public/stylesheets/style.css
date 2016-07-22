@@ -76,6 +76,11 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
 .help-text {
   color: #f3a536; }
 
+.response-container {
+  color: #f3a536; }
+  .response-container .response-text {
+    color: #4d4d4d; }
+
 .hidden {
   display: none; }
 
