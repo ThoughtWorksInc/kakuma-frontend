@@ -5,9 +5,14 @@ var interval;
 var playTimer;
 var recordingTimer;
 
-function displayStopButton (){
-    document.getElementById("stop-btn").classList.remove("hidden");
+function displayStopButton() {
+    var stopButton = document.getElementById("stop-btn");
+    stopButton.classList.remove("hidden");
+
     document.getElementById("mic").classList.add("hidden");
+    if (stopButton.classList.contains("fill-green")) {
+        stopButton.classList.remove("fill-green");
+    }
 }
 
 function moveSlider() {
@@ -23,21 +28,19 @@ function stopSlider() {
 }
 
 function displayPlayControls() {
-  document.getElementById("play-btn").classList.remove("hidden");
-  document.getElementById("stop-btn").classList.add("hidden");
-  document.getElementById("recording-instructions").classList.add("hidden");
-  document.getElementById("recording-response-container").classList.remove("hidden");
-  document.getElementById("form-button-container").classList.remove("hidden");
-  document.getElementById("bin-btn").classList.remove("hidden");
+    document.getElementById("play-btn").classList.remove("hidden");
+    document.getElementById("stop-btn").classList.add("hidden");
+    document.getElementById("recording-instructions").classList.add("hidden");
+    document.getElementById("recording-response-container").classList.remove("hidden");
+    document.getElementById("form-button-container").classList.remove("hidden");
+    document.getElementById("bin-btn").classList.remove("hidden");
 }
-
 function startTimer() {
-    console.log("start timer");
     var seconds = 60;
-    interval = setInterval(function() {
+    interval = setInterval(function () {
         seconds--;
         document.getElementById("timer").innerHTML = seconds;
-        if(seconds == 0) {
+        if (seconds == 0) {
             clearInterval(interval);
         }
     }, 1000);
@@ -48,14 +51,26 @@ function stopTimer(timeOut) {
     clearInterval(interval);
 }
 
-function toggleTimerDisplay(){
+function toggleTimerDisplay() {
     var timer = document.getElementById("timer");
     timer.innerHTML = 60;
 
-    if(!messageCompleted && !isRecording) {
+    if (!messageCompleted && !isRecording) {
         timer.style.display = "inline-block";
-    }else if(!isRecording) {
+    } else if (!isRecording) {
         timer.style.display = "none";
+    }
+}
+
+function toggleStopButtonDisplay() {
+    var stopButton = document.getElementById("stop-btn");
+    if (isPlaying) {
+        stopButton.classList.remove("hidden");
+        stopButton.classList.add("fill-green");
+        document.getElementById("play-btn").classList.add("hidden");
+    } else {
+        document.getElementById("play-btn").classList.remove("hidden");
+        document.getElementById("stop-btn").classList.add("hidden");
     }
 }
 
@@ -71,16 +86,17 @@ function recordMessage() {
     document.getElementById("recording-instructions").classList.remove("hidden");
 
     moveSlider();
-    recordingTimer = setTimeout(stopRecording, 60000);;
+    recordingTimer = setTimeout(stopRecording, 60000);
+    ;
 }
 
 function stopRecording() {
     messageCompleted = true;
     isRecording = false;
+    isPlaying = false;
 
     stopTimer(recordingTimer);
     stopSlider();
-    console.log("stop recording");
     displayPlayControls();
     toggleTimerDisplay();
 }
@@ -89,10 +105,10 @@ function playMessage() {
     messageCompleted = true;
     isPlaying = true;
 
+    toggleStopButtonDisplay();
     clearInterval(interval);
     document.getElementById("bin-btn").classList.remove("hidden");
     moveSlider();
-    console.log("play message");
     playTimer = setTimeout(stopPlaying, 60000);
 }
 
@@ -104,17 +120,16 @@ function stopPlaying() {
     stopSlider();
     clearInterval(interval);
     displayPlayControls();
-    console.log("stop playing");
 }
 
 function voiceMessage() {
-    if(!messageCompleted && !isRecording){
+    if (!messageCompleted && !isRecording) {
         recordMessage();
-    } else if(!messageCompleted && isRecording) {
+    } else if (!messageCompleted && isRecording) {
         stopRecording();
     } else if (messageCompleted && !isPlaying) {
         playMessage();
-    } else if(messageCompleted && isPlaying) {
+    } else if (messageCompleted && isPlaying) {
         stopPlaying();
     }
 }
@@ -125,6 +140,7 @@ function resetVoiceMessage() {
     isPlaying = false;
     stopSlider();
     toggleTimerDisplay();
+    toggleStopButtonDisplay();
 
     document.getElementById("bin-btn").classList.add("hidden");
     document.getElementById("play-btn").classList.add("hidden");

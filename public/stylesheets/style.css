@@ -144,6 +144,9 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
   padding-top: 0.5em;
   padding-right: 1em; }
 
+.fill-green g .color {
+  fill: #85B69B; }
+
 .confirmation .first {
   margin-top: 3em; }
 .confirmation .second {
