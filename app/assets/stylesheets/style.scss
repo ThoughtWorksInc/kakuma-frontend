@@ -25,7 +25,7 @@ $input-height: $content-font-size;
 $button-width: 20vw;
 $input-submit-color: $light-blue;
 
-$question-padding: 3vw;
+$standard-content-padding: 2vw;
 
 /* CSS Reset*/
 
@@ -110,14 +110,18 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
 }
 
 .question {
-  padding: $question-padding;
+  padding: $standard-content-padding;
   border-top: 1px solid $border-color;
   position: relative;
 
   .edit-icon {
-    right: 15px;
-    top: 16px;
-    position: absolute;
+    float:right;
+    margin: 1vw 1vw; 
+
+      &.hidden {
+        display: block;
+      visibility: hidden;
+      }
   }
 }
 
@@ -137,13 +141,15 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
   display: none;
 }
 
-.edit-highlight .response-text {
-  background-color: $light-matcha-green;
-}
-
 .edit-highlight {
   background-color: $highlight-background;
+
+  .response-text {
+  background-color: $light-matcha-green;
+  }
 }
+
+
 
 @keyframes animateSlider {
   0% {
@@ -220,10 +226,10 @@ button, input[type=text], input[type=url], input[type=email], input[type=passwor
 
 #form-button-container {
   text-align: center;
-  padding: $question-padding;
+  padding: $standard-content-padding;
 
   #submit-form-button {
-    padding: $question-padding 0;
+    padding: $standard-content-padding 0;
     background-color: $button-color;
     width: 100%;
     border-radius: 2vw;

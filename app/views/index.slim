@@ -19,12 +19,12 @@ html(lang="en")
             p.help-text
               | Just type in your full name.
           .response-container.hidden onclick="editResponse(1);"
-            p
-              | Hi <span class='response-text'></span>, nice to meet you.
             .edit-icon.hidden
               img src="../images/edit_icon.svg"
+            p
+              | Hi <span class='response-text'></span>, nice to meet you.
           .input-container
-            input.answer#answer-1 type="text" name="name" onkeydown="clickButtonOnEnterPress(event, 1)"
+            input.answer#answer-1 type="text" name="name" onkeydown="clickButtonOnEnterPress(event, 1)" onkeyup="editInProgress(1)"
             button.send onclick="answerSubmit(1); return false;"
               | send
         
@@ -35,12 +35,12 @@ html(lang="en")
             p.help-text
               | Tell us about your village, state and country
           .response-container.hidden onclick="editResponse(2);"
-            p
-              | OK, you are from <span class='response-text'></span>.
             .edit-icon.hidden
               img src="../images/edit_icon.svg"
+            p
+              | OK, you are from <span class='response-text'></span>.
           .input-container
-            input.answer#answer-2 type="text" name="location" onkeydown="clickButtonOnEnterPress(event, 2)"
+            input.answer#answer-2 type="text" name="location" onkeydown="clickButtonOnEnterPress(event, 2)" onkeyup="editInProgress(2)"
             button.send onclick="answerSubmit(2); return false;"
               | send
               
@@ -49,12 +49,12 @@ html(lang="en")
             p
               | How old are you?
           .response-container.hidden onclick="editResponse(3);"
-            p 
-              | So, you are <span class='response-text'></span> years old.
             .edit-icon.hidden
               img src="../images/edit_icon.svg"
+            p 
+              | So, you are <span class='response-text'></span> years old.
           .input-container
-            input.answer#answer-3 type="number" name="age" onkeydown="clickButtonOnEnterPress(event, 3)"
+            input.answer#answer-3 type="number" name="age" onkeydown="clickButtonOnEnterPress(event, 3)" onkeyup="editInProgress(3)"
             button.send onclick="answerSubmit(3); return false;"
               | send
               
@@ -63,12 +63,12 @@ html(lang="en")
             p
               | Please tell us your phone number.
           .response-container.hidden onclick="editResponse(4);"
-            p 
-              | Your phone number is <span class='response-text'></span>.
             .edit-icon.hidden
               img src="../images/edit_icon.svg"
+            p 
+              | Your phone number is <span class='response-text'></span>.
           .input-container
-            input.answer#answer-4 type="tel" name="phoneNumber" onkeydown="clickButtonOnEnterPress(event, 4)"
+            input.answer#answer-4 type="tel" name="phoneNumber" onkeydown="clickButtonOnEnterPress(event, 4)" onkeyup="editInProgress(4)"
             button.send onclick="answerSubmit(4); return false;"
               | send
               
@@ -77,12 +77,12 @@ html(lang="en")
             p
               | What is the name of the person you are looking for?
           .response-container.hidden onclick="editResponse(5);"
-            p 
-              | We will help you find <span class='response-text'></span>.
             .edit-icon.hidden
               img src="../images/edit_icon.svg"
+            p 
+              | We will help you find <span class='response-text'></span>.
           .input-container
-            input.answer#answer-5 type="text" name="nameToFind" onkeydown="clickButtonOnEnterPress(event, 5)"
+            input.answer#answer-5 type="text" name="nameToFind" onkeydown="clickButtonOnEnterPress(event, 5)" onkeyup="editInProgress(5)"
             button.send onclick="answerSubmit(5); return false;"
               | send
               

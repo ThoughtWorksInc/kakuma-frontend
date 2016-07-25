@@ -30,7 +30,6 @@ function stopSlider() {
 function displayPlayControls() {
     document.getElementById("play-btn").classList.remove("hidden");
     document.getElementById("stop-btn").classList.add("hidden");
-    //document.getElementById("mic").classList.add("hidden");
 
     document.getElementById("recording-instructions").classList.add("hidden");
     document.getElementById("recording-response-container").classList.remove("hidden");

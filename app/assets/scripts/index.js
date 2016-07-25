@@ -29,6 +29,19 @@ function removeAllEditHighlights() {
     questionView.removeEditHighlight();
   });
 }
+function displayAllAnsweredQuestions() {
+  getAllQuestionsArray()
+    .map(function(question) { 
+      var answerMaybe = question.getAnswer();
+      if (answerMaybe) {
+        question.displayResponseWith(answerMaybe)
+        .hideQuestionText()
+        .displayEditButton()
+        .removeEditHighlight()
+        .show();
+      }
+    });
+}
 
 
 function getFirstUnansweredQuestion() {
@@ -39,30 +52,36 @@ function getFirstUnansweredQuestion() {
 }
 
 function answerSubmit(questionNumber) {
-  var answer = getQuestionView(questionNumber).getAnswer();
-  var firstUnansweredQuestion = getFirstUnansweredQuestion();
-
   hideAllInputFields();
-  getQuestionView(questionNumber)
-    .displayResponseWith(answer)
-    .hideQuestionText()
-    .displayEditButton()
-    .removeEditHighlight();
 
+  displayAllAnsweredQuestions();
+
+  var firstUnansweredQuestion = getFirstUnansweredQuestion();
   if (firstUnansweredQuestion) {
-    firstUnansweredQuestion.show();
-    firstUnansweredQuestion.scrollTo();
+    firstUnansweredQuestion
+      .show()
+      .showTextbox()
+      .scrollTo();
   }
+}
+
+function editInProgress(questionNumber) {
+  var question = getQuestionView(questionNumber);
+  var answer = question.getAnswer();
+  //copy from text to response (don't display or hide anything)
+  question.updateResponseTextWith(answer);
 }
 
 function editResponse(questionNumber) {
   hideAllInputFields();
+  //put all other answered questions back to normal answered visibility
   displayAllEditIcons();
   removeAllEditHighlights();
+  
   getQuestionView(questionNumber)
       .showTextbox()
-      .removeEditButton();
-  getQuestionView(questionNumber).highlightQuestionForEdit()
+      .removeEditButton()
+      .highlightQuestionForEdit();
 }
 
 function clickButtonOnEnterPress(event, questionNumber) {
@@ -72,7 +91,7 @@ function clickButtonOnEnterPress(event, questionNumber) {
     return false;
   }
 }
-
+  
 function confirmationMessage() {
   document.getElementsByClassName("confirmation")[0].classList.remove("hidden");
   document.getElementsByClassName("answer")[0].classList.add("hidden");

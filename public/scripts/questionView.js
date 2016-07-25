@@ -13,6 +13,10 @@ function getQuestionView(questionNumber) {
 
       return this;
     },
+    show: function() {
+      this.questionNode.classList.remove("hidden");
+      return this;
+    },
     getAnswer: function() {
       return this.questionNode.getElementsByClassName("answer")[0].value;
     },
@@ -23,8 +27,12 @@ function getQuestionView(questionNumber) {
       return false;
     },
     displayResponseWith: function(answer) {
-      this.questionNode.getElementsByClassName("response-text")[0].innerHTML = answer;
+      this.updateResponseTextWith(answer);
       this.questionNode.getElementsByClassName("response-container")[0].classList.remove("hidden");
+      return this;
+    },
+    updateResponseTextWith: function(answer) {
+      this.questionNode.getElementsByClassName("response-text")[0].innerHTML = answer;
       return this;
     },
     hideQuestionText:function() {
@@ -32,19 +40,17 @@ function getQuestionView(questionNumber) {
         .classList.add("hidden");
       return this;
     },
-    show: function() {
-      this.questionNode.classList.remove("hidden");
-      this.showTextbox();
-      return this;
-    },
     scrollTo: function(){
       window.scrollTo(0,document.body.scrollHeight);
+      return this;
     },
     highlightQuestionForEdit: function() {
       this.questionNode.classList.add("edit-highlight");
+      return this;
     },
     removeEditHighlight: function() {
       this.questionNode.classList.remove("edit-highlight");
+      return this;
     },
     displayEditButton: function() {
       this.questionNode.getElementsByClassName("edit-icon")[0].classList.remove("hidden");
