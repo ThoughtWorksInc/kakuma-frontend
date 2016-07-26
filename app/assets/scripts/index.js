@@ -1,3 +1,4 @@
+
 function getAllQuestionsArray () {
   var allQuestionViews = [];
   var allQuestionNodes = document.getElementsByClassName("question");
@@ -103,3 +104,5 @@ function confirmationMessage() {
   document.getElementsByClassName("answer")[0].classList.add("hidden");
   document.getElementsByClassName("logo")[0].classList.add("hidden");
 }
+
+window.onload  = function() {answerSubmit();};
