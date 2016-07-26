@@ -59,6 +59,13 @@ function getQuestionView(questionNumber) {
     removeEditButton: function() {
       this.questionNode.getElementsByClassName("edit-icon")[0].classList.add("hidden");
       return this;
+    },
+    reset: function() {
+      this.questionNode.getElementsByClassName("answer")[0].value = "";
+      this.updateResponseTextWith("");
+    },
+    isNormalQuestion: function() {
+      return this.questionNode.getElementsByClassName("response-container").length > 0;
     }
   };
   return questionView;

@@ -93,6 +93,12 @@ function clickButtonOnEnterPress(event, questionNumber) {
 }
   
 function confirmationMessage() {
+  getAllQuestionsArray().map(function(question){
+    if (question.isNormalQuestion()) {
+      question.reset();
+    }
+  });
+  resetVoiceMessage();
   document.getElementsByClassName("confirmation")[0].classList.remove("hidden");
   document.getElementsByClassName("answer")[0].classList.add("hidden");
   document.getElementsByClassName("logo")[0].classList.add("hidden");
