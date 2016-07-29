@@ -44,6 +44,9 @@ function displayAllAnsweredQuestions() {
     });
 }
 
+function getNameToFind() {
+  return document.getElementById('nameToFind').innerText;
+}
 
 function getFirstUnansweredQuestion() {
   var isUnanswered = function (question) {

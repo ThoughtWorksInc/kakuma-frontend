@@ -27,23 +27,23 @@ html(lang="en")
             input.answer#answer-1 type="text" name="name" onkeydown="clickButtonOnEnterPress(event, 1)" onkeyup="editInProgress(1)"
             button.send onclick="answerSubmit(1); return false;"
               | send
-        
-        .question#question-2.hidden data-question-title="location"
+
+        .question#question-2.hidden data-question-title="gender"
           .question-container
             p
-              | Where are you from?
+              | What is your gender?
             p.help-text
-              | Tell us about your village, state and country
+              | Just type "female" or "male".
           .response-container.hidden onclick="editResponse(2);"
             .edit-icon.hidden
               img src="../images/edit_icon.svg"
             p
-              | OK, you are from <span class='response-text'></span>.
+              | Ok, so you are <span class='response-text'></span>.
           .input-container
-            input.answer#answer-2 type="text" name="location" onkeydown="clickButtonOnEnterPress(event, 2)" onkeyup="editInProgress(2)"
+            input.answer#answer-2 type="text" name="gender" onkeydown="clickButtonOnEnterPress(event, 2)" onkeyup="editInProgress(2)"
             button.send onclick="answerSubmit(2); return false;"
               | send
-              
+
         .question#question-3.hidden data-question-title="age"
           .question-container
             p
@@ -57,36 +57,144 @@ html(lang="en")
             input.answer#answer-3 type="number" name="age" onkeydown="clickButtonOnEnterPress(event, 3)" onkeyup="editInProgress(3)"
             button.send onclick="answerSubmit(3); return false;"
               | send
-              
-        .question#question-4.hidden data-question-title="phoneNumber"
+
+        .question#question-4.hidden data-question-title="tribe"
+          .question-container
+            p
+              | Which tribe do you belong to?
+            p.help-text
+              | If you don't belong to a tribe, just type "none".
+          .response-container.hidden onclick="editResponse(4);"
+            .edit-icon.hidden
+              img src="../images/edit_icon.svg"
+            p
+              | OK, you are from the <span class='response-text'></span> tribe.
+          .input-container
+            input.answer#answer-4 type="text" name="tribe" onkeydown="clickButtonOnEnterPress(event, 4)" onkeyup="editInProgress(4)"
+            button.send onclick="answerSubmit(4); return false;"
+              | send
+
+        .question#question-5.hidden data-question-title="village"
+          .question-container
+            p
+              | Which village are you from?
+          .response-container.hidden onclick="editResponse(5);"
+            .edit-icon.hidden
+              img src="../images/edit_icon.svg"
+            p
+              | OK, you live in <span class='response-text'></span>.
+          .input-container
+            input.answer#answer-5 type="text" name="village" onkeydown="clickButtonOnEnterPress(event, 5)" onkeyup="editInProgress(5)"
+            button.send onclick="answerSubmit(5); return false;"
+              | send
+
+        .question#question-6.hidden data-question-title="country"
+          .question-container
+            p
+              | Which country do you come from?
+          .response-container.hidden onclick="editResponse(6);"
+            .edit-icon.hidden
+              img src="../images/edit_icon.svg"
+            p
+              | OK, you are from <span class='response-text'></span>.
+          .input-container
+            input.answer#answer-6 type="text" name="country" onkeydown="clickButtonOnEnterPress(event, 6)" onkeyup="editInProgress(6)"
+            button.send onclick="answerSubmit(6); return false;"
+              | send
+
+        .question#question-7.hidden data-question-title="phoneNumber"
           .question-container
             p
               | Please tell us your phone number.
-          .response-container.hidden onclick="editResponse(4);"
+          .response-container.hidden onclick="editResponse(7);"
             .edit-icon.hidden
               img src="../images/edit_icon.svg"
             p 
               | Your phone number is <span class='response-text'></span>.
           .input-container
-            input.answer#answer-4 type="tel" name="phoneNumber" onkeydown="clickButtonOnEnterPress(event, 4)" onkeyup="editInProgress(4)"
-            button.send onclick="answerSubmit(4); return false;"
+            input.answer#answer-7 type="tel" name="phoneNumber" onkeydown="clickButtonOnEnterPress(event, 7)" onkeyup="editInProgress(7)"
+            button.send onclick="answerSubmit(7); return false;"
               | send
               
-        .question#question-5.hidden data-question-title="nameToFind"
+        .question#question-8.hidden data-question-title="nameToFind"
           .question-container
             p
               | What is the name of the person you are looking for?
-          .response-container.hidden onclick="editResponse(5);"
+          .response-container.hidden onclick="editResponse(8);"
             .edit-icon.hidden
               img src="../images/edit_icon.svg"
             p 
-              | We will help you find <span class='response-text'></span>.
+              | We will help you find <span id='nameToFind' class='response-text'></span>.
           .input-container
-            input.answer#answer-5 type="text" name="nameToFind" onkeydown="clickButtonOnEnterPress(event, 5)" onkeyup="editInProgress(5)"
-            button.send onclick="answerSubmit(5); return false;"
+            input.answer#answer-8 type="text" name="nameToFind" onkeydown="clickButtonOnEnterPress(event, 8)" onkeyup="editInProgress(8)"
+            button.send onclick="answerSubmit(8); return false;"
               | send
-              
-        .question#question-6.hidden data-question-title="voice"
+
+        .question#question-9.hidden data-question-title="relationToFind"
+          .question-container
+            p
+              | What is their relation to you?
+            p.help-text
+              | For example, you can type "mother", "father", "uncle", "auntie", "friend", or "other".
+          .response-container.hidden onclick="editResponse(9);"
+            .edit-icon.hidden
+              img src="../images/edit_icon.svg"
+            p
+              | We will help you find your <span class='response-text'></span>.
+          .input-container
+            input.answer#answer-9 type="text" name="relationToFind" onkeydown="clickButtonOnEnterPress(event, 9)" onkeyup="editInProgress(9)"
+            button.send onclick="answerSubmit(9); return false;"
+              | send
+
+        .question#question-10.hidden data-question-title="tribeToFind"
+          .question-container
+            p
+              | Which tribe are they from?
+            p.help-text
+              | Just leave blank if you don't know.
+          .response-container.hidden onclick="editResponse(10);"
+            .edit-icon.hidden
+              img src="../images/edit_icon.svg"
+            p
+              | Ok, they are from the <span class='response-text'></span> tribe.
+          .input-container
+            input.answer#answer-10 type="text" name="tribeToFind" onkeydown="clickButtonOnEnterPress(event, 10)" onkeyup="editInProgress(10)"
+            button.send onclick="answerSubmit(10); return false;"
+              | send
+
+        .question#question-11.hidden data-question-title="villageToFind"
+          .question-container
+            p
+              | Which village do they come from?
+            p.help-text
+              | Just leave blank if you don't know.
+          .response-container.hidden onclick="editResponse(11);"
+            .edit-icon.hidden
+              img src="../images/edit_icon.svg"
+            p
+              | Ok, they are from <span class='response-text'></span> village.
+          .input-container
+            input.answer#answer-11 type="text" name="villageToFind" onkeydown="clickButtonOnEnterPress(event, 11)" onkeyup="editInProgress(11)"
+            button.send onclick="answerSubmit(11); return false;"
+              | send
+
+        .question#question-12.hidden data-question-title="countryToFind"
+          .question-container
+            p
+              | Which country are they from?
+            p.help-text
+              | Just type "none" if you don't know.
+          .response-container.hidden onclick="editResponse(12);"
+            .edit-icon.hidden
+              img src="../images/edit_icon.svg"
+            p
+              | Ok, they are from <span class='response-text'></span>.
+          .input-container
+            input.answer#answer-12 type="text" name="villageToFind" onkeydown="clickButtonOnEnterPress(event, 12)" onkeyup="editInProgress(12)"
+            button.send onclick="answerSubmit(12); return false;"
+              | send
+
+        .question#question-13.hidden data-question-title="voice"
           img#bin-btn.hidden src="../images/bin_icon.svg" onclick="resetVoiceMessage()"
           .recording-container onclick="voiceMessage()"
             img#mic src="../images/mic-grey.gif"
@@ -106,14 +214,12 @@ html(lang="en")
           #recording-question-container
             .answer
             p
-              | Please leave a voice message.
+              | Please tap the microphone and speak to leave a voice message.
             p.help-text
-              | To help us identify the person you are looking for, please leave a short message for them.
-              br/
               | For example, you can say "I am [your name] and I am looking for [name]."
               br/
-              br/
-              | Tap the microphone to begin.
+              | This will help us to confirm the identity of the person you are looking for.
+
           #recording-instructions.hidden
             p.help-text
               | Tap on the panel to stop recording.
