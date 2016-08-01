@@ -13,7 +13,3 @@ class MyApp < Sinatra::Base
   run! if app_file == $0
 
 end
-
-# if __FILE__ == $0
-#   MyApp.run! :port => 4567
-# end
