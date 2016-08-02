@@ -26,7 +26,7 @@ Go to localhost:9292
 
 How to build and push to heroku.
 
-First sign up for heroku (if you haven't already). 
+First sign up for heroku (if you haven't already).
 Install the Heroku Toolbelt https://toolbelt.heroku.com/
 Ask Lucy to add your heroku account as a collaborator on the Findme-kakuma app.
 Sign in on the command line
@@ -39,3 +39,17 @@ Add the Heroku git remote to your local get repository.
 
 Then deploy to Heroku by running:
 ``git push heroku master``
+
+## Running ElasticSearch locally
+To set up an ElasticSearch server, clone the dev tools repo from:
+``git@git.thoughtworks.net:amaddiso/kakuma-local-dependencies.git``
+
+In the local dependencies folder run:
+``vagrant up``
+
+This will provision a vagrant box and start the elastic seaerch server.
+To stop the server, SSH into the vagrant box by running:
+``vagrant SSH``
+
+And stop the service with:
+``sudo service elasticsearch stop``
