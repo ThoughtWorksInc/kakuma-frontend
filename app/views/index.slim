@@ -15,14 +15,16 @@ html(lang="en")
         .question#question-1 data-question-title="name"
           .question-container
             p
-              | Hi, let us start. What is your full name?
+              = @questionList[0].questionText
             p.help-text
-              | Just type in your first name, father's name and grandfather's name.
+              = @questionList[0].helperText
           .response-container.hidden onclick="editResponse(1);"
             .edit-icon.hidden
               img src="../images/edit_icon.svg"
             p
-              | Hi <span class='response-text'></span>, nice to meet you.
+              = @questionList[0].preWrapResponseText
+              span class="response-text"
+              = @questionList[0].postWrapResponseText
           .input-container
             input.answer#answer-1 type="text" name="name" onkeydown="clickButtonOnEnterPress(event, 1)" onkeyup="editInProgress(1)"
             button.send onclick="answerSubmit(1); return false;"
