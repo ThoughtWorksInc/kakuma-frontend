@@ -12,158 +12,25 @@ html(lang="en")
       img src="../images/FindMe_logo.png"
     #dialogue-container
       form.answer onsubmit="return false;" method="post" action="/"
-        .question#question-1 data-question-title="name"
-          .question-container
-            p
-              = @questionList[0].questionText
-            p.help-text
-              = @questionList[0].helperText
-          .response-container.hidden onclick="editResponse(1);"
-            .edit-icon.hidden
-              img src="../images/edit_icon.svg"
-            p
-              = @questionList[0].preWrapResponseText
-              span class="response-text"
-              = @questionList[0].postWrapResponseText
-          .input-container
-            input.answer#answer-1 type="text" name="name" onkeydown="clickButtonOnEnterPress(event, 1)" onkeyup="editInProgress(1)"
-            button.send onclick="answerSubmit(1); return false;"
-              | send
-
-        .question#question-2.hidden data-question-title="gender"
-          .question-container
-            p
-              | What is your gender?
-            p.help-text
-              | Just type "female" or "male".
-          .response-container.hidden onclick="editResponse(2);"
-            .edit-icon.hidden
-              img src="../images/edit_icon.svg"
-            p
-              | Ok, so you are <span class='response-text'></span>.
-          .input-container
-            input.answer#answer-2 type="text" name="gender" onkeydown="clickButtonOnEnterPress(event, 2)" onkeyup="editInProgress(2)"
-            button.send onclick="answerSubmit(2); return false;"
-              | send
-
-        .question#question-3.hidden data-question-title="age"
-          .question-container
-            p
-              | How old are you?
-          .response-container.hidden onclick="editResponse(3);"
-            .edit-icon.hidden
-              img src="../images/edit_icon.svg"
-            p 
-              | So, you are <span class='response-text'></span> years old.
-          .input-container
-            input.answer#answer-3 type="number" name="age" onkeydown="clickButtonOnEnterPress(event, 3)" onkeyup="editInProgress(3)"
-            button.send onclick="answerSubmit(3); return false;"
-              | send
-
-        .question#question-4.hidden data-question-title="village"
-          .question-container
-            p
-              | Which village are you from?
-          .response-container.hidden onclick="editResponse(4);"
-            .edit-icon.hidden
-              img src="../images/edit_icon.svg"
-            p
-              | OK, you live in <span class='response-text'></span>.
-          .input-container
-            input.answer#answer-4 type="text" name="village" onkeydown="clickButtonOnEnterPress(event, 4)" onkeyup="editInProgress(4)"
-            button.send onclick="answerSubmit(4); return false;"
-              | send
-
-        .question#question-5.hidden data-question-title="country"
-          .question-container
-            p
-              | Which country do you come from?
-          .response-container.hidden onclick="editResponse(5);"
-            .edit-icon.hidden
-              img src="../images/edit_icon.svg"
-            p
-              | OK, you are from <span class='response-text'></span>.
-          .input-container
-            input.answer#answer-5 type="text" name="country" onkeydown="clickButtonOnEnterPress(event, 5)" onkeyup="editInProgress(5)"
-            button.send onclick="answerSubmit(5); return false;"
-              | send
-
-        .question#question-6.hidden data-question-title="phoneNumber"
-          .question-container
-            p
-              | Please tell us your phone number.
-          .response-container.hidden onclick="editResponse(6);"
-            .edit-icon.hidden
-              img src="../images/edit_icon.svg"
-            p 
-              | Your phone number is <span class='response-text'></span>.
-          .input-container
-            input.answer#answer-6 type="tel" name="phoneNumber" onkeydown="clickButtonOnEnterPress(event, 6)" onkeyup="editInProgress(6)"
-            button.send onclick="answerSubmit(6); return false;"
-              | send
-              
-        .question#question-7.hidden data-question-title="nameToFind"
-          .question-container
-            p
-              | What is the name of the person you are looking for?
-          .response-container.hidden onclick="editResponse(7);"
-            .edit-icon.hidden
-              img src="../images/edit_icon.svg"
-            p 
-              | We will help you find <span id='nameToFind' class='response-text'></span>.
-          .input-container
-            input.answer#answer-7 type="text" name="nameToFind" onkeydown="clickButtonOnEnterPress(event, 7)" onkeyup="editInProgress(7)"
-            button.send onclick="answerSubmit(7); return false;"
-              | send
-
-        .question#question-8.hidden data-question-title="relationToFind"
-          .question-container
-            p
-              | What is their relation to you?
-            p.help-text
-              | For example, you can type "mother", "father", "uncle", "auntie", "friend", or "other".
-          .response-container.hidden onclick="editResponse(8);"
-            .edit-icon.hidden
-              img src="../images/edit_icon.svg"
-            p
-              | We will help you find your <span class='response-text'></span>.
-          .input-container
-            input.answer#answer-8 type="text" name="relationToFind" onkeydown="clickButtonOnEnterPress(event, 8)" onkeyup="editInProgress(8)"
-            button.send onclick="answerSubmit(8); return false;"
-              | send
-
-        .question#question-9.hidden data-question-title="villageToFind"
-          .question-container
-            p
-              | Which village do they come from?
-            p.help-text
-              | Just type "none" if you don't know.
-          .response-container.hidden onclick="editResponse(9);"
-            .edit-icon.hidden
-              img src="../images/edit_icon.svg"
-            p
-              | Ok, they are from <span class='response-text'></span> village.
-          .input-container
-            input.answer#answer-9 type="text" name="villageToFind" onkeydown="clickButtonOnEnterPress(event, 9)" onkeyup="editInProgress(9)"
-            button.send onclick="answerSubmit(9); return false;"
-              | send
-
-        .question#question-10.hidden data-question-title="countryToFind"
-          .question-container
-            p
-              | Which country are they from?
-            p.help-text
-              | Just type "none" if you don't know.
-          .response-container.hidden onclick="editResponse(10);"
-            .edit-icon.hidden
-              img src="../images/edit_icon.svg"
-            p
-              | Ok, they are from <span class='response-text'></span>.
-          .input-container
-            input.answer#answer-10 type="text" name="villageToFind" onkeydown="clickButtonOnEnterPress(event, 10)" onkeyup="editInProgress(10)"
-            button.send onclick="answerSubmit(10); return false;"
-              | send
-
+        - for question in @questionList
+          .question id="question-#{question.id}" class=(question.id != 1 ? "hidden" : nil)
+            .question-container
+              p
+                | #{question.questionText}
+              p.help-text
+                | #{question.helperText}
+            .response-container.hidden onclick="editResponse(#{question.id});"
+              .edit-icon.hidden
+                img src="../images/edit_icon.svg"
+              p
+                | #{question.preWrapResponseText}
+                span class='response-text'
+                | #{question.postWrapResponseText}
+            .input-container
+              input.answer id="answer-#{question.id}" type=(question.id == 3 || 6 ? "tel" : nil) name="#{question.field}" onkeydown="clickButtonOnEnterPress(event, #{question.id})" onkeyup="editInProgress(#{question.id})"
+              button.send onclick="answerSubmit(#{question.id}); return false;"
+                | send
+      
         .question#question-11.hidden data-question-title="voice"
           img#bin-btn.hidden src="../images/bin_icon.svg" onclick="resetVoiceMessage()"
           .recording-container onclick="voiceMessage()"
