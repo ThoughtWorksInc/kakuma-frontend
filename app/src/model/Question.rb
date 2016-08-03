@@ -1,9 +1,10 @@
 class Question
 
-  attr_reader :id, :field, :questionText, :helperText, :preWrapResponseText, :postWrapResponseText
+  attr_reader :id, :inputType, :field, :questionText, :helperText, :preWrapResponseText, :postWrapResponseText
 
-  def initialize(id, field, questionText, helperText, preWrapResponseText, postWrapResponseText)
+  def initialize(id, inputType, field, questionText, helperText, preWrapResponseText, postWrapResponseText)
     @id = id
+    @inputType = inputType
     @field = field
     @questionText = questionText
     @helperText = helperText

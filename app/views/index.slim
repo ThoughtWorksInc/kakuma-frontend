@@ -27,7 +27,7 @@ html(lang="en")
                 span class='response-text'
                 | #{question.postWrapResponseText}
             .input-container
-              input.answer id="answer-#{question.id}" type=(question.field == "age" || "phoneNumber" ? "tel" : nil) name="#{question.field}" onkeydown="clickButtonOnEnterPress(event, #{question.id})" onkeyup="editInProgress(#{question.id})"
+              input.answer id="answer-#{question.id}" type="#{question.inputType}" name="#{question.field}" onkeydown="clickButtonOnEnterPress(event, #{question.id})" onkeyup="editInProgress(#{question.id})"
               button.send onclick="answerSubmit(#{question.id}); return false;"
                 | send
       
