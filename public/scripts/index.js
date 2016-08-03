@@ -32,14 +32,14 @@ function removeAllEditHighlights() {
 }
 function displayAllAnsweredQuestions() {
   getAllQuestionsArray()
-    .map(function(question) { 
+    .map(function(question) {
       var answerMaybe = question.getAnswer();
       if (answerMaybe) {
-        question.displayResponseWith(answerMaybe)
-        .hideQuestionText()
-        .displayEditButton()
-        .removeEditHighlight()
-        .show();
+        // question.displayResponseWith(answerMaybe)
+        // .hideQuestionText()
+        // .displayEditButton()
+        // .removeEditHighlight()
+        question.show();
       }
     });
 }
@@ -55,38 +55,55 @@ function getFirstUnansweredQuestion() {
   return getAllQuestionsArray().find(isUnanswered);
 }
 
-function answerSubmit(questionNumber) {
-  hideAllInputFields();
+function hideAllQuestions() {
+  getAllQuestionsArray()
+    .map(function(question) {
+      question.hide();
+    });
+}
 
-  displayAllAnsweredQuestions();
-
+function answerSubmit() {
+  hideAllQuestions();
   var firstUnansweredQuestion = getFirstUnansweredQuestion();
   if (firstUnansweredQuestion) {
     firstUnansweredQuestion
       .show()
-      .showTextbox()
-      .scrollTo();
   }
 }
 
-function editInProgress(questionNumber) {
-  var question = getQuestionView(questionNumber);
-  var answer = question.getAnswer();
-  //copy from text to response (don't display or hide anything)
-  question.updateResponseTextWith(answer);
+function goToQuestion(questionID) {
+  hideAllQuestions();
+  getQuestionView(questionID).show();
 }
 
-function editResponse(questionNumber) {
-  hideAllInputFields();
-  //put all other answered questions back to normal answered visibility
-  displayAllEditIcons();
-  removeAllEditHighlights();
-  
-  getQuestionView(questionNumber)
-      .showTextbox()
-      .removeEditButton()
-      .highlightQuestionForEdit();
+function validateInput(questionID) {
+   var question = getQuestionView(questionID);
+
+   if(question.inputIsNotEmpty()){
+     question.enableSubmitButton();
+   } else {
+     question.disableSubmitButton();
+   }
 }
+
+// function editInProgress(questionNumber) {
+//   var question = getQuestionView(questionNumber);
+//   var answer = question.getAnswer();
+//   //copy from text to response (don't display or hide anything)
+//   question.updateResponseTextWith(answer);
+// }
+//
+// function editResponse(questionNumber) {
+//   hideAllInputFields();
+//   //put all other answered questions back to normal answered visibility
+//   displayAllEditIcons();
+//   removeAllEditHighlights();
+//
+//   getQuestionView(questionNumber)
+//       .showTextbox()
+//       .removeEditButton()
+//       .highlightQuestionForEdit();
+// }
 
 function clickButtonOnEnterPress(event, questionNumber) {
   if (event.keyCode == 13) {
@@ -95,7 +112,7 @@ function clickButtonOnEnterPress(event, questionNumber) {
     return false;
   }
 }
-  
+
 function confirmationMessage() {
   getAllQuestionsArray().map(function(question){
     if (question.isNormalQuestion()) {

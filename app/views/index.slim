@@ -11,25 +11,24 @@ html(lang="en")
     #header.logo
       img src="../images/FindMe_logo.png"
     #dialogue-container
-      form.answer onsubmit="return false;" method="post" action="/"
+      form onsubmit="return false;" method="post" action="/"
         - for question in @questionList
           .question id="question-#{question.id}" class=(question.id != 1 ? "hidden" : nil)
             .question-container
+              p.progress 
+                | Question #{question.id} of 
+                = @questionList.length
+                | .
               p
                 | #{question.questionText}
+              input.answer id="answer-#{question.id}" type="#{question.inputType}" name="#{question.field}" onkeyup="validateInput(#{question.id})" onkeydown="clickButtonOnEnterPress(event, #{question.id})"
               p.help-text
                 | #{question.helperText}
-            .response-container.hidden onclick="editResponse(#{question.id});"
-              .edit-icon.hidden
-                img src="../images/edit_icon.svg"
-              p
-                | #{question.preWrapResponseText}
-                span class='response-text'
-                | #{question.postWrapResponseText}
-            .input-container
-              input.answer id="answer-#{question.id}" type="#{question.inputType}" name="#{question.field}" onkeydown="clickButtonOnEnterPress(event, #{question.id})" onkeyup="editInProgress(#{question.id})"
-              button.send onclick="answerSubmit(#{question.id}); return false;"
-                | send
+              .button-container
+                button.navigation-button.send onclick="answerSubmit(); return false;" disabled="disabled"
+                  | Click for next question
+                button.navigation-button.back onclick="goToQuestion(#{question.id} - 1); return false;" class=(question.id == 1 ? "hidden" : nil)
+                  | Go back
       
         .question#question-11.hidden data-question-title="voice"
           img#bin-btn.hidden src="../images/bin_icon.svg" onclick="resetVoiceMessage()"
