@@ -15,7 +15,7 @@ html(lang="en")
         - for question in @questionList
           .question id="question-#{question.id}" class=(question.id != 1 ? "hidden" : nil)
             .question-container
-              h6
+              h6.progress 
                 | Question #{question.id} of 
                 = @questionList.length + 1
               p

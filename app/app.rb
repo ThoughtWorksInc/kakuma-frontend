@@ -1,7 +1,7 @@
 require 'slim'
 require 'sass'
 require 'sinatra/base'
-require_relative 'src/QuestionList'
+require_relative 'src/QuestionService'
 
 class MyApp < Sinatra::Base
 

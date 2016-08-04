@@ -92,7 +92,6 @@ function getSummaryView(){
     updateQuestionResponseWith: function(answer, questionID) {
       var response = document.getElementById("summary-response-"+ questionID);
       response.value = answer;
-      console.log("In SUmmary:!!! " + response);
     }
   }
   return summaryView;
