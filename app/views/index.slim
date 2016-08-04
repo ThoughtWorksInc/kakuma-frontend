@@ -10,8 +10,8 @@ html(lang="en")
   body
     #header.logo
       img src="../images/FindMe_logo.png"
-    #dialogue-container
-      form onsubmit="return false;" method="post" action="/"
+    #form-container
+      form.question-form onsubmit="return false;" method="post" action="/"
         - for question in @questionList
           .question id="question-#{question.id}" class=(question.id != 1 ? "hidden" : nil)
             .question-container
@@ -25,9 +25,9 @@ html(lang="en")
               p.help-text
                 | #{question.helperText}
               .button-container
-                button.navigation-button.send onclick="answerSubmit(); return false;" disabled="disabled"
+                button.navigation-button.primary.send onclick="answerSubmit(); return false;" disabled="disabled"
                   | Click for next question
-                button.navigation-button.back onclick="goToQuestion(#{question.id} - 1); return false;" class=(question.id == 1 ? "hidden" : nil)
+                button.navigation-button.secondary.back onclick="goToQuestion(#{question.id} - 1); return false;" class=(question.id == 1 ? "hidden" : nil)
                   | Go back
       
         .question#question-11.hidden data-question-title="voice"
