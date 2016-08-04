@@ -1,10 +1,10 @@
-  function getQuestionNode (questionNumber) {
-  return document.getElementById("question-" + questionNumber);
+  function getQuestionNode (questionID) {
+  return document.getElementById("question-" + questionID);
 }
 
-function getQuestionView(questionNumber) {
+function getQuestionView(questionID) {
   var questionView = {
-    questionNode: getQuestionNode(questionNumber),
+    questionNode: getQuestionNode(questionID),
     show: function() {
       this.questionNode.classList.remove("hidden");
       this.focusInput();
@@ -15,10 +15,10 @@ function getQuestionView(questionNumber) {
       return this;
     },
     focusInput: function() {
-      this.questionNode.getElementsByClassName("answer")[0].focus();
+      this.questionNode.getElementsByClassName("question-input")[0].focus();
     },
     getAnswer: function() {
-      return this.questionNode.getElementsByClassName("answer")[0].value;
+      return this.questionNode.getElementsByClassName("question-input")[0].value;
     },
     hasAnswer: function() {
       if (this.getAnswer()) {
@@ -27,14 +27,14 @@ function getQuestionView(questionNumber) {
       return false;
     },
     reset: function() {
-      this.questionNode.getElementsByClassName("answer")[0].value = "";
+      this.questionNode.getElementsByClassName("question-input")[0].value = "";
       this.updateResponseTextWith("");
     },
     isNormalQuestion: function() {
       return this.questionNode.getElementsByClassName("response-container").length > 0;
     },
     inputIsNotEmpty: function() {
-      return this.questionNode.getElementsByClassName("answer")[0].value.length > 0;
+      return this.questionNode.getElementsByClassName("question-input")[0].value.length > 0;
     },
     enableSubmitButton: function() {
       this.questionNode.getElementsByClassName("send")[0].disabled = false;

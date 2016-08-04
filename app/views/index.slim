@@ -15,13 +15,12 @@ html(lang="en")
         - for question in @questionList
           .question id="question-#{question.id}" class=(question.id != 1 ? "hidden" : nil)
             .question-container
-              p.progress 
+              h6
                 | Question #{question.id} of 
-                = @questionList.length
-                | .
+                = @questionList.length + 1
               p
                 | #{question.questionText}
-              input.answer id="answer-#{question.id}" type="#{question.inputType}" name="#{question.field}" onkeyup="validateInput(#{question.id})" onkeydown="clickButtonOnEnterPress(event, #{question.id})"
+              input.question-input type="#{question.inputType}" name="#{question.field}" onkeyup="validateInput(#{question.id}); updateSummaryField(#{question.id})" onkeydown="clickButtonOnEnterPress(event, #{question.id})"
               p.help-text
                 | #{question.helperText}
               .button-container
@@ -48,7 +47,7 @@ html(lang="en")
             #timer
               | 60
           #recording-question-container
-            .answer
+            .answer.hidden
             p
               | Please tap the microphone and speak to leave a voice message.
             p.help-text
@@ -64,11 +63,26 @@ html(lang="en")
               | Thank you for your message.
             p.help-text
               | Tap on the bin to delete and start a new recording.
-          .input-container
+          .input-container.hidden
         
-        #form-button-container.hidden      
-          button#submit-form-button onclick="confirmationMessage()"
-            | Send the details
+        / #form-button-container.hidden      
+        /   button#submit-form-button onclick="confirmationMessage()"
+        /     | Send the details
+          .button-container
+            button.navigation-button.primary.send onclick="goToSummaryQuestions(); return false;" disabled="disabled"
+              | Click for the summary page
+            button.navigation-button.secondary.back onclick="goToQuestion(10); return false;"
+              | Go back
+
+        #form-summary.question
+          - for question in @questionList
+            .field-summary-container
+              h6.field-label
+                | #{question.fieldLabel}
+              input.field-answer id="summary-response-#{question.id}" disabled="disabled"
+              button.edit
+                | Edit
+                
 
       .confirmation.hidden
         img.confirmation-icon src="../images/dude_icon.png"

@@ -86,12 +86,30 @@ function validateInput(questionID) {
    }
 }
 
-// function editInProgress(questionNumber) {
-//   var question = getQuestionView(questionNumber);
-//   var answer = question.getAnswer();
-//   //copy from text to response (don't display or hide anything)
-//   question.updateResponseTextWith(answer);
-// }
+function getSummaryView(){
+  var summaryView = {
+    node: document.getElementById("form-summary"),
+    updateQuestionResponseWith: function(answer, questionID) {
+      var response = document.getElementById("summary-response-"+ questionID);
+      response.value = answer;
+      console.log("In SUmmary:!!! " + response);
+    }
+  }
+  return summaryView;
+}
+
+function updateSummaryField(questionID) {
+  var question = getQuestionView(questionID);
+  var answer = question.getAnswer();
+
+  //copy from text to response (don't display or hide anything)
+  // question.updateResponseTextWith(answer);
+
+  var summary = getSummaryView();
+  summary.updateQuestionResponseWith(answer, questionID);
+}
+
+
 //
 // function editResponse(questionNumber) {
 //   hideAllInputFields();

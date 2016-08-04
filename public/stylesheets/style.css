@@ -16,6 +16,33 @@ h1 {
   text-align: center;
   width: 100%; }
 
+h6 {
+  font-size: 4vw;
+  font-weight: normal;
+  color: #C2C2C2;
+  padding: 0; }
+
+p, h6 {
+  padding: 0.5vw 0; }
+
+button {
+  background-color: transparent; }
+
+button, input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  outline: none;
+  border: none;
+  font: 5vw Open Sans, Arial, Helvetica, sans-serif; }
+
+input {
+  margin: 4vw auto;
+  height: 12vw;
+  padding: 0 7px;
+  box-sizing: border-box;
+  color: #4d4d4d; }
+
 #header {
   height: 10%;
   border-bottom: 1px solid #f3a536; }
@@ -55,28 +82,10 @@ h1 {
   font-size: 4vw;
   color: #C2C2C2; }
 
-p {
-  padding: 0.5vw 1vw; }
-
-button, input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel], input[type=number] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  display: inline-block;
-  outline: none;
-  font-size: 5vw;
-  border: none;
-  font: 5vw Open Sans, Arial, Helvetica, sans-serif; }
-
-input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel], input[type=number] {
-  margin: 4vw auto; }
-
-.answer {
+.question-input {
   width: 100%;
   border-radius: 3px;
-  background-color: #D8D8D8;
-  height: 12vw;
-  padding: 0 7px;
-  box-sizing: border-box; }
+  background-color: #D8D8D8; }
 
 .button-container {
   bottom: 0; }
@@ -184,5 +193,20 @@ input[type=text], input[type=url], input[type=email], input[type=password], inpu
   height: 100px; }
 .confirmation #form-button-container {
   margin-top: 40px; }
+
+.field-summary-container {
+  border-bottom: 1px solid #D8D8D8;
+  margin: 0 0 2vw 0;
+  box-sizing: border-box; }
+  .field-summary-container .field-answer {
+    margin: 3vw 0;
+    width: 85%;
+    padding: 0;
+    height: auto; }
+  .field-summary-container .edit {
+    color: #85B69B;
+    width: 15%;
+    padding: 0;
+    font-size: 4vw; }
 
 /*# sourceMappingURL=style.css.map */

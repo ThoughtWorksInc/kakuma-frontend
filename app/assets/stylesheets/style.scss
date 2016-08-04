@@ -28,8 +28,11 @@ $button-disabled-shadow: $darker-grey;
 $entry-field-color: #EAEDF0;
 $button-shadow: $dark-green;
 
+$summary-border: $light-grey;
+
 $header-font-size: 100px;
 $content-font-size: 5vw;
+$smaller-text-size: 4vw;
 
 $input-height: 12vw;
 $button-width: 20vw;
@@ -60,6 +63,39 @@ h1 {
   text-align: center;
   width: 100%;
 }
+
+h6 {
+  font-size: $smaller-text-size;
+  font-weight: normal;
+  color: $dark-grey;
+  padding: 0;
+}
+
+p, h6 {
+  padding: 0.5vw 0;
+}
+
+button {
+  background-color: transparent;
+}
+
+button, input{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  outline: none;
+  border: none;
+  font: $content-font-size $font-stack;
+}
+
+input{
+  margin: $input-margin auto;
+  height: $input-height;
+  padding: 0 7px;
+  box-sizing: border-box;
+  color: #4d4d4d;
+}
+
 
 #header {
   height: 10%;
@@ -112,37 +148,15 @@ h1 {
   }
 }
 
-
 .progress {
   font-size: 4vw;
   color: $dark-grey;
 }
 
-p {
-  padding: 0.5vw 1vw;
-}
-
-button, input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel], input[type=number] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  display: inline-block;
-  outline: none;
-  font-size: $content-font-size;
-  border: none;
-  font: $content-font-size $font-stack;
-}
-
-input[type=text], input[type=url], input[type=email], input[type=password], input[type=tel], input[type=number] {
-  margin: $input-margin auto;
-}
-
-.answer {
+.question-input {
   width: 100%;
   border-radius: 3px;
   background-color: $light-grey;
-  height: $input-height;
-  padding: 0 7px;
-  box-sizing: border-box;
 }
 
 .button-container {
@@ -308,5 +322,25 @@ input[type=text], input[type=url], input[type=email], input[type=password], inpu
 
   #form-button-container {
     margin-top: 40px;
+  }
+}
+
+.field-summary-container {
+  border-bottom: 1px solid $summary-border;
+  margin: 0 0 2vw 0;
+  box-sizing: border-box;
+
+  .field-answer{
+    margin: $standard-content-padding 0;
+    width:85%;
+    padding: 0;
+    height: auto;
+  }
+
+  .edit {
+    color: $secondary-button-text;
+    width:15%;
+    padding: 0;
+    font-size: $smaller-text-size;
   }
 }
