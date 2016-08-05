@@ -116,17 +116,14 @@ input{
   background-color: $container-background;
 
   .question-form {
-    height: 100%;
 
     .screen-container {
-      height: 100%;
+      margin-bottom: 8vh;
       padding: $standard-content-padding;
-      position: relative;
       box-sizing: border-box;
 
       .question-container {
         height: 100%;
-        position: relative;
 
         .button-container {
           position: absolute;
@@ -161,6 +158,17 @@ input{
 
 .button-container {
   bottom: 0;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  padding: 0 $standard-content-padding $standard-content-padding $standard-content-padding;
+  box-sizing: border-box;
+
+  &.summary {
+    background-color: ghostwhite;
+    border-top: 1px lightgrey solid;
+    box-shadow: 0 0 8px 0 lightgrey;
+  }
 
   .navigation-button{
     width: 100%;
@@ -273,19 +281,6 @@ input{
   }
 }
 
-#form-button-container {
-  text-align: center;
-  padding: $standard-content-padding;
-
-  #submit-form-button {
-    padding: $standard-content-padding 0;
-    background-color: $button-color;
-    width: 100%;
-    border-radius: 2vw;
-    color: $header-text-color;
-  }
-}
-
 #bin-btn {
   width: 6%;
   float: right;
@@ -298,26 +293,18 @@ input{
 }
 
 .confirmation {
-  .first {
-    margin-top: 3em;
-  }
-
-  .second {
-    margin-top: 10px;
-  }
+  padding-top: 10vh;
 
   p {
-    padding: 1vw;
-    padding-left: 1em;
+    padding: $standard-content-padding 2*$standard-content-padding;
     font-size: smaller;
-    padding-right: 1em;
   }
   .confirmation-icon {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    margin-top: 3em;
     height: 100px;
+    padding-bottom: 3em
   }
 
   #form-button-container {

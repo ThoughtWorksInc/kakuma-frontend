@@ -57,26 +57,22 @@ input {
   width: 100%;
   height: 90%;
   background-color: white; }
-  #form-container .question-form {
-    height: 100%; }
-    #form-container .question-form .screen-container {
-      height: 100%;
-      padding: 3vw;
-      position: relative;
-      box-sizing: border-box; }
-      #form-container .question-form .screen-container .question-container {
-        height: 100%;
-        position: relative; }
-        #form-container .question-form .screen-container .question-container .button-container {
-          position: absolute;
-          width: 100%;
-          bottom: 0; }
-      #form-container .question-form .screen-container .edit-icon {
-        float: right;
-        margin: 1vw 1vw; }
-        #form-container .question-form .screen-container .edit-icon.hidden {
-          display: block;
-          visibility: hidden; }
+  #form-container .question-form .screen-container {
+    margin-bottom: 8vh;
+    padding: 3vw;
+    box-sizing: border-box; }
+    #form-container .question-form .screen-container .question-container {
+      height: 100%; }
+      #form-container .question-form .screen-container .question-container .button-container {
+        position: absolute;
+        width: 100%;
+        bottom: 0; }
+    #form-container .question-form .screen-container .edit-icon {
+      float: right;
+      margin: 1vw 1vw; }
+      #form-container .question-form .screen-container .edit-icon.hidden {
+        display: block;
+        visibility: hidden; }
 
 .progress {
   font-size: 4vw;
@@ -88,7 +84,16 @@ input {
   background-color: #D8D8D8; }
 
 .button-container {
-  bottom: 0; }
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  padding: 0 3vw 3vw 3vw;
+  box-sizing: border-box; }
+  .button-container.summary {
+    background-color: ghostwhite;
+    border-top: 1px lightgrey solid;
+    box-shadow: 0 0 8px 0 lightgrey; }
   .button-container .navigation-button {
     width: 100%;
     padding: 3vw;
@@ -157,16 +162,6 @@ input {
   position: relative;
   top: -3vw; }
 
-#form-button-container {
-  text-align: center;
-  padding: 3vw; }
-  #form-button-container #submit-form-button {
-    padding: 3vw 0;
-    background-color: #85B69B;
-    width: 100%;
-    border-radius: 2vw;
-    color: white; }
-
 #bin-btn {
   width: 6%;
   float: right;
@@ -176,23 +171,19 @@ input {
 .fill-green g .color {
   fill: #85B69B; }
 
-.confirmation .first {
-  margin-top: 3em; }
-.confirmation .second {
-  margin-top: 10px; }
-.confirmation p {
-  padding: 1vw;
-  padding-left: 1em;
-  font-size: smaller;
-  padding-right: 1em; }
-.confirmation .confirmation-icon {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  margin-top: 3em;
-  height: 100px; }
-.confirmation #form-button-container {
-  margin-top: 40px; }
+.confirmation {
+  padding-top: 10vh; }
+  .confirmation p {
+    padding: 3vw 6vw;
+    font-size: smaller; }
+  .confirmation .confirmation-icon {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 100px;
+    padding-bottom: 3em; }
+  .confirmation #form-button-container {
+    margin-top: 40px; }
 
 .field-summary-container {
   border-bottom: 1px solid #D8D8D8;

@@ -33,7 +33,7 @@ function displayPlayControls() {
 
     document.getElementById("recording-instructions").classList.add("hidden");
     document.getElementById("recording-response-container").classList.remove("hidden");
-    document.getElementById("form-button-container").classList.remove("hidden");
+    // document.getElementById("form-button-container").classList.remove("hidden");
     document.getElementById("bin-btn").classList.remove("hidden");
 }
 function startTimer() {
@@ -163,7 +163,7 @@ function resetVoiceMessage() {
     document.getElementById("bin-btn").classList.add("hidden");
     document.getElementById("play-btn").classList.add("hidden");
     document.getElementById("mic").classList.remove("hidden");
-    document.getElementById("form-button-container").classList.add("hidden");
+    // document.getElementById("form-button-container").classList.add("hidden");
 
     document.getElementById("recording-question-container").classList.remove("hidden");
     document.getElementById("recording-response-container").classList.add("hidden");

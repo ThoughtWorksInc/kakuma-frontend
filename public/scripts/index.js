@@ -77,7 +77,6 @@ function validateInput(questionID) {
 
 function showSummary(){
   hideAllQuestions();
-
   getSummaryView().show();
 }
 
@@ -90,6 +89,9 @@ function getSummaryView(){
     },
     show: function() {
       this.node.classList.remove("hidden");
+    },
+    hide: function() {
+      this.node.classList.add("hidden");
     }
   }
   return summaryView;
@@ -131,10 +133,10 @@ function confirmationMessage() {
       question.reset();
     }
   });
+
+  getSummaryView().hide();
   resetVoiceMessage();
   document.getElementsByClassName("confirmation")[0].classList.remove("hidden");
-  document.getElementsByClassName("answer")[0].classList.add("hidden");
-  document.getElementsByClassName("logo")[0].classList.add("hidden");
 }
 
 window.onload  = function() {answerSubmit();};

@@ -30,6 +30,11 @@ html(lang="en")
                   | Go back
       
         .question.screen-container#question-11.hidden data-question-title="voice"
+          h6.progress 
+            | Question 
+            = @questionList.length + 1
+            |  of 
+            = @questionList.length + 1 
           img#bin-btn.hidden src="../images/bin_icon.svg" onclick="resetVoiceMessage()"
           .recording-container onclick="voiceMessage()"
             img#mic src="../images/mic-grey.gif"
@@ -63,19 +68,11 @@ html(lang="en")
               | Tap on the bin to delete and start a new recording.
           .button-container
             button.navigation-button.primary.next onclick="showSummary(); return false;" disabled="disabled"
-              | Click for next question
-            button.navigation-button.secondary.back onclick="goToQuestion(#{question.id} - 1); return false;" class=(question.id == 1 ? "hidden" : nil)
-              | Go back
-          input.question-input.hidden
-        
-        / #form-button-container.hidden      
-        /   button#submit-form-button onclick="confirmationMessage()"
-        /     | Send the details
-          .button-container
-            button.navigation-button.primary.send onclick="goToSummaryQuestions(); return false;" disabled="disabled"
-              | Click for the summary page
+              | Click for summary page
             button.navigation-button.secondary.back onclick="goToQuestion(10); return false;"
               | Go back
+          input.question-input.hidden
+      
 
         #form-summary.screen-container.hidden
           - for question in @questionList
@@ -85,8 +82,13 @@ html(lang="en")
               input.field-answer id="summary-response-#{question.id}" disabled="disabled"
               button.edit
                 | Edit
-              .question-input.hidden
-                
+          .button-container.summary
+            button.navigation-button.primary.submit onclick="confirmationMessage(); return false;"
+              | Submit responses
+            / button.navigation-button.secondary.back onclick="goToQuestion(11); return false;"
+            /   | Go back
+          .question-input.hidden
+              
                 
 
       .confirmation.hidden
@@ -96,6 +98,6 @@ html(lang="en")
         p.second
           | Your feedback is important to us and will be used to improve the application so families can be connected.
 
-        #form-button-container
-          button#submit-form-button onclick="window.location.reload()"
+        .button-container.confirmation
+          button#submit-form-button.navigation-button.primary onclick="window.location.reload()"
             | Add a new person
