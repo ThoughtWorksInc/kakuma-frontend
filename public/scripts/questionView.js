@@ -33,9 +33,6 @@ function getQuestionView(questionID) {
     isNormalQuestion: function() {
       return this.questionNode.getElementsByClassName("response-container").length > 0;
     },
-    inputIsNotEmpty: function() {
-      return this.questionNode.getElementsByClassName("question-input")[0].value.length > 0;
-    },
     enableSubmitButton: function() {
       this.questionNode.getElementsByClassName("next")[0].disabled = false;
     },

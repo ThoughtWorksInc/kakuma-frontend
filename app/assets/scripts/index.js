@@ -68,7 +68,7 @@ function goToQuestion(questionID) {
 function validateInput(questionID) {
    var question = getQuestionView(questionID);
 
-   if(question.inputIsNotEmpty()){
+   if(question.hasAnswer()){
      question.enableSubmitButton();
    } else {
      question.disableSubmitButton();
