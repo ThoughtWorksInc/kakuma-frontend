@@ -37,10 +37,10 @@ function getQuestionView(questionID) {
       return this.questionNode.getElementsByClassName("question-input")[0].value.length > 0;
     },
     enableSubmitButton: function() {
-      this.questionNode.getElementsByClassName("send")[0].disabled = false;
+      this.questionNode.getElementsByClassName("next")[0].disabled = false;
     },
     disableSubmitButton: function() {
-      this.questionNode.getElementsByClassName("send")[0].disabled = true;
+      this.questionNode.getElementsByClassName("next")[0].disabled = true;
     },
   };
   return questionView;

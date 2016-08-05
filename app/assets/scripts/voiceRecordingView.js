@@ -91,6 +91,18 @@ function recordMessage() {
     ;
 }
 
+function setQuestionToDone() {
+  view = getQuestionView(11);
+  view.enableSubmitButton();
+  view.questionNode.getElementsByClassName("question-input")[0].value = "done";
+}
+
+function setQuestionToNotDone() {
+  view = getQuestionView(11);
+  view.disableSubmitButton();
+  view.questionNode.getElementsByClassName("question-input")[0].value = "";
+}
+
 function stopRecording() {
     messageCompleted = true;
     isRecording = false;
@@ -100,6 +112,8 @@ function stopRecording() {
     stopSlider();
     displayPlayControls();
     toggleTimerDisplay();
+
+    setQuestionToDone();
 }
 
 function playMessage() {
@@ -143,6 +157,8 @@ function resetVoiceMessage() {
     stopSlider();
     toggleTimerDisplay();
     toggleStopButtonDisplay();
+
+    setQuestionToNotDone();
 
     document.getElementById("bin-btn").classList.add("hidden");
     document.getElementById("play-btn").classList.add("hidden");

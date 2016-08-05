@@ -18,13 +18,6 @@ function displayAllEditIcons() {
   return icons;
 }
 
-function hideAllInputFields() {
-  var inputFieldCollection = document.getElementsByClassName("input-container");
-  var inputContainer = Array.prototype.map.call(inputFieldCollection, function(element) {
-    element.classList.add("hidden");
-  });
-}
-
 function removeAllEditHighlights() {
   getAllQuestionsArray().map(function(questionView) {
     questionView.removeEditHighlight();
@@ -35,10 +28,6 @@ function displayAllAnsweredQuestions() {
     .map(function(question) {
       var answerMaybe = question.getAnswer();
       if (answerMaybe) {
-        // question.displayResponseWith(answerMaybe)
-        // .hideQuestionText()
-        // .displayEditButton()
-        // .removeEditHighlight()
         question.show();
       }
     });
@@ -86,12 +75,21 @@ function validateInput(questionID) {
    }
 }
 
+function showSummary(){
+  hideAllQuestions();
+
+  getSummaryView().show();
+}
+
 function getSummaryView(){
   var summaryView = {
     node: document.getElementById("form-summary"),
     updateQuestionResponseWith: function(answer, questionID) {
       var response = document.getElementById("summary-response-"+ questionID);
       response.value = answer;
+    },
+    show: function() {
+      this.node.classList.remove("hidden");
     }
   }
   return summaryView;
@@ -100,9 +98,6 @@ function getSummaryView(){
 function updateSummaryField(questionID) {
   var question = getQuestionView(questionID);
   var answer = question.getAnswer();
-
-  //copy from text to response (don't display or hide anything)
-  // question.updateResponseTextWith(answer);
 
   var summary = getSummaryView();
   summary.updateQuestionResponseWith(answer, questionID);

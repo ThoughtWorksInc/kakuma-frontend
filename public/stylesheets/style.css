@@ -59,22 +59,22 @@ input {
   background-color: white; }
   #form-container .question-form {
     height: 100%; }
-    #form-container .question-form .question {
+    #form-container .question-form .screen-container {
       height: 100%;
       padding: 3vw;
       position: relative;
       box-sizing: border-box; }
-      #form-container .question-form .question .question-container {
+      #form-container .question-form .screen-container .question-container {
         height: 100%;
         position: relative; }
-        #form-container .question-form .question .question-container .button-container {
+        #form-container .question-form .screen-container .question-container .button-container {
           position: absolute;
           width: 100%;
           bottom: 0; }
-      #form-container .question-form .question .edit-icon {
+      #form-container .question-form .screen-container .edit-icon {
         float: right;
         margin: 1vw 1vw; }
-        #form-container .question-form .question .edit-icon.hidden {
+        #form-container .question-form .screen-container .edit-icon.hidden {
           display: block;
           visibility: hidden; }
 

@@ -13,7 +13,7 @@ html(lang="en")
     #form-container
       form.question-form onsubmit="return false;" method="post" action="/"
         - for question in @questionList
-          .question id="question-#{question.id}" class=(question.id != 1 ? "hidden" : nil)
+          .question.screen-container id="question-#{question.id}" class=(question.id != 1 ? "hidden" : nil)
             .question-container
               h6.progress 
                 | Question #{question.id} of 
@@ -24,12 +24,12 @@ html(lang="en")
               p.help-text
                 | #{question.helperText}
               .button-container
-                button.navigation-button.primary.send onclick="answerSubmit(); return false;" disabled="disabled"
+                button.navigation-button.primary.next onclick="answerSubmit(); return false;" disabled="disabled"
                   | Click for next question
                 button.navigation-button.secondary.back onclick="goToQuestion(#{question.id} - 1); return false;" class=(question.id == 1 ? "hidden" : nil)
                   | Go back
       
-        .question#question-11.hidden data-question-title="voice"
+        .question.screen-container#question-11.hidden data-question-title="voice"
           img#bin-btn.hidden src="../images/bin_icon.svg" onclick="resetVoiceMessage()"
           .recording-container onclick="voiceMessage()"
             img#mic src="../images/mic-grey.gif"
@@ -47,14 +47,12 @@ html(lang="en")
             #timer
               | 60
           #recording-question-container
-            .answer.hidden
             p
               | Please tap the microphone and speak to leave a voice message.
             p.help-text
               | For example, you can say "I am [your name] and I am looking for [name]."
               br/
               | This will help us to confirm the identity of the person you are looking for.
-
           #recording-instructions.hidden
             p.help-text
               | Tap on the panel to stop recording.
@@ -63,7 +61,12 @@ html(lang="en")
               | Thank you for your message.
             p.help-text
               | Tap on the bin to delete and start a new recording.
-          .input-container.hidden
+          .button-container
+            button.navigation-button.primary.next onclick="showSummary(); return false;" disabled="disabled"
+              | Click for next question
+            button.navigation-button.secondary.back onclick="goToQuestion(#{question.id} - 1); return false;" class=(question.id == 1 ? "hidden" : nil)
+              | Go back
+          input.question-input.hidden
         
         / #form-button-container.hidden      
         /   button#submit-form-button onclick="confirmationMessage()"
@@ -74,7 +77,7 @@ html(lang="en")
             button.navigation-button.secondary.back onclick="goToQuestion(10); return false;"
               | Go back
 
-        #form-summary.question
+        #form-summary.screen-container.hidden
           - for question in @questionList
             .field-summary-container
               h6.field-label
@@ -82,6 +85,8 @@ html(lang="en")
               input.field-answer id="summary-response-#{question.id}" disabled="disabled"
               button.edit
                 | Edit
+              .question-input.hidden
+                
                 
 
       .confirmation.hidden
