@@ -163,6 +163,7 @@ input{
   left: 0;
   padding: 0 $standard-content-padding $standard-content-padding $standard-content-padding;
   box-sizing: border-box;
+  background-color: white;
 
   &.summary {
     background-color: ghostwhite;
@@ -177,6 +178,12 @@ input{
     border-radius: 3px;
     border-bottom-width: 4px;
     border-bottom-style: solid;
+    // -webkit-transition: border 0.05s;
+    // transition: border 0.05s;
+
+    &:active {
+      border-bottom-width: 0px;
+    }
 
     &.primary {
       color: white;
@@ -322,6 +329,10 @@ input{
     width:85%;
     padding: 0;
     height: auto;
+
+    &[disabled] {
+      color: $main-font-color;
+    }
   }
 
   .edit {

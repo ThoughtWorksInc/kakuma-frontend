@@ -89,7 +89,8 @@ input {
   width: 100%;
   left: 0;
   padding: 0 3vw 3vw 3vw;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background-color: white; }
   .button-container.summary {
     background-color: ghostwhite;
     border-top: 1px lightgrey solid;
@@ -101,6 +102,8 @@ input {
     border-radius: 3px;
     border-bottom-width: 4px;
     border-bottom-style: solid; }
+    .button-container .navigation-button:active {
+      border-bottom-width: 0px; }
     .button-container .navigation-button.primary {
       color: white;
       background-color: #85B69B;
@@ -194,6 +197,8 @@ input {
     width: 85%;
     padding: 0;
     height: auto; }
+    .field-summary-container .field-answer[disabled] {
+      color: #4d4d4d; }
   .field-summary-container .edit {
     color: #85B69B;
     width: 15%;
