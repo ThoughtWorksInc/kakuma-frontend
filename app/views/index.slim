@@ -18,16 +18,18 @@ html(lang="en")
               h6.progress 
                 | Question #{question.id} of 
                 = @questionList.length + 1
-              p
+              p.question-text
                 | #{question.questionText}
               
               - if question.field == "gender"
-                label for="male"
-                  | Male
-                input.question-input.radio type="#{question.inputType}" value="Male" name="#{question.field}" onclick="updateSummaryField(#{question.id}), validateInput(#{question.id});"
-                label for="female"
-                  | Female
-                input.question-input.radio type="#{question.inputType}" value="Female" name="#{question.field}" onclick="updateSummaryField(#{question.id}), validateInput(#{question.id});"
+                label title="male"
+                  input.question-input.radio.hidden type="#{question.inputType}" value="Male" name="#{question.field}" onclick="updateSummaryField(#{question.id}), validateInput(#{question.id});"
+                  .radio-checkbox
+                  | male
+                label title="female"
+                  input.question-input.radio.hidden type="#{question.inputType}" value="female" name="#{question.field}" onclick="updateSummaryField(#{question.id}), validateInput(#{question.id});"
+                  .radio-checkbox
+                  | female
               - else
                 input.question-input type="#{question.inputType}" name="#{question.field}" onkeyup="validateInput(#{question.id}); updateSummaryField(#{question.id})" onkeydown="clickButtonOnEnterPress(event, #{question.id})"
               p.help-text 

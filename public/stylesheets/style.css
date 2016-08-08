@@ -36,9 +36,6 @@ button, input[type=text], input[type=tel], input[type=number] {
   border: none;
   font: 5vw Open Sans, Arial, Helvetica, sans-serif; }
 
-input[type=radio] {
-  display: inline; }
-
 input[type=text], input[type=tel], input[type=number] {
   margin: 4vw auto;
   height: 12vw;
@@ -66,6 +63,8 @@ input[type=text], input[type=tel], input[type=number] {
     box-sizing: border-box; }
     #form-container .question-form .screen-container .question-container {
       height: 100%; }
+      #form-container .question-form .screen-container .question-container .question-text {
+        font-weight: 600; }
       #form-container .question-form .screen-container .question-container .button-container {
         position: absolute;
         width: 100%;
@@ -73,6 +72,25 @@ input[type=text], input[type=tel], input[type=number] {
     #form-container .question-form .screen-container .edit-icon {
       float: right;
       margin: 1vw 1vw; }
+  #form-container .question-form label {
+    display: block;
+    padding: 2vw 0vw;
+    border-bottom: 1px solid #D8D8D8; }
+    #form-container .question-form label .radio-checkbox {
+      display: inline-block;
+      background: none;
+      height: 30px;
+      width: 30px;
+      padding: 0px;
+      vertical-align: bottom;
+      border-radius: 1vw;
+      border: 1px solid #D8D8D8;
+      margin-right: 6vw; }
+    #form-container .question-form label input:checked + .radio-checkbox {
+      background: url(../images/tick_icon.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 30px 30px; }
 
 .progress {
   font-size: 4vw;

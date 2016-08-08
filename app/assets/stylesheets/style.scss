@@ -88,10 +88,6 @@ button, input[type=text], input[type=tel], input[type=number]{
   font: $content-font-size $font-stack;
 }
 
-input[type=radio] {
-  display:inline;
-}
-
 input[type=text], input[type=tel], input[type=number]{
   margin: $input-margin auto;
   height: $input-height;
@@ -129,6 +125,10 @@ input[type=text], input[type=tel], input[type=number]{
       .question-container {
         height: 100%;
 
+        .question-text {
+          font-weight: 600;
+        }
+
         .button-container {
           position: absolute;
           width: 100%;
@@ -141,8 +141,36 @@ input[type=text], input[type=tel], input[type=number]{
         margin: 1vw 1vw;
       }
     }
+
+
+    label {
+      display: block;
+      padding: 2vw 0vw;
+      border-bottom: 1px solid $light-grey;
+
+      .radio-checkbox {
+        display: inline-block;
+        background: none;
+        height:30px;
+        width:30px;
+        padding: 0px;
+        vertical-align: bottom;
+        border-radius: 1vw;
+        border: 1px solid $light-grey;
+        margin-right: 2*$standard-content-padding;
+      }
+
+      input:checked + .radio-checkbox {
+        background: url(../images/tick_icon.svg);
+        background-repeat: no-repeat;
+        background-position:center center;
+        background-size:30px 30px;
+      }
+    }
   }
 }
+
+
 
 .progress {
   font-size: 4vw;
