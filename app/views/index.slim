@@ -20,11 +20,20 @@ html(lang="en")
                 = @questionList.length + 1
               p
                 | #{question.questionText}
-              input.question-input type="#{question.inputType}" name="#{question.field}" onkeyup="validateInput(#{question.id}); updateSummaryField(#{question.id})" onkeydown="clickButtonOnEnterPress(event, #{question.id})"
-              p.help-text
+              
+              - if question.field == "gender"
+                label for="male"
+                  | Male
+                input.question-input.radio type="#{question.inputType}" value="Male" name="#{question.field}" onclick="updateSummaryField(#{question.id}), validateInput(#{question.id});"
+                label for="female"
+                  | Female
+                input.question-input.radio type="#{question.inputType}" value="Female" name="#{question.field}" onclick="updateSummaryField(#{question.id}), validateInput(#{question.id});"
+              - else
+                input.question-input type="#{question.inputType}" name="#{question.field}" onkeyup="validateInput(#{question.id}); updateSummaryField(#{question.id})" onkeydown="clickButtonOnEnterPress(event, #{question.id})"
+              p.help-text 
                 | #{question.helperText}
               .button-container
-                button.navigation-button.primary.next onclick="answerSubmit(); return false;" disabled="disabled"
+                button.navigation-button.primary.next onclick="answerSubmit(#{question.id}); return false;" disabled="disabled"
                   | Click for next question
                 button.navigation-button.secondary.back onclick="goToQuestion(#{question.id} - 1); return false;" class=(question.id == 1 ? "hidden" : nil)
                   | Go back
@@ -79,7 +88,7 @@ html(lang="en")
             .field-summary-container
               h6.field-label
                 | #{question.fieldLabel}
-              input.field-answer id="summary-response-#{question.id}" disabled="disabled"
+              input.field-answer type="text" id="summary-response-#{question.id}" disabled="disabled"
               button.edit
                 | Edit
           .button-container.summary

@@ -18,7 +18,20 @@ function getQuestionView(questionID) {
       this.questionNode.getElementsByClassName("question-input")[0].focus();
     },
     getAnswer: function() {
-      return this.questionNode.getElementsByClassName("question-input")[0].value;
+      var answerInput;
+      var answerRadios =  this.questionNode.getElementsByClassName("radio");
+
+      if(answerRadios.length > 0) {
+        for (var i = 0;i < answerRadios.length; i++) {
+          radio = answerRadios[i];
+          if(radio.checked === true) {
+            answerInput = radio;
+          }
+        };
+      } else {
+        answerInput = this.questionNode.getElementsByClassName("question-input")[0];
+      };
+      return answerInput.value;
     },
     hasAnswer: function() {
       if (this.getAnswer()) {

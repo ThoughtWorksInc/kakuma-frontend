@@ -23,6 +23,7 @@ function removeAllEditHighlights() {
     questionView.removeEditHighlight();
   });
 }
+
 function displayAllAnsweredQuestions() {
   getAllQuestionsArray()
     .map(function(question) {
@@ -51,13 +52,15 @@ function hideAllQuestions() {
     });
 }
 
-function answerSubmit() {
-  hideAllQuestions();
-  var firstUnansweredQuestion = getFirstUnansweredQuestion();
-  if (firstUnansweredQuestion) {
-    firstUnansweredQuestion
-      .show()
-  }
+function answerSubmit(questionID) {
+  // hideAllQuestions();
+  // var firstUnansweredQuestion = getFirstUnansweredQuestion();
+  // if (firstUnansweredQuestion) {
+  //   firstUnansweredQuestion
+  //     .show()
+  // }
+
+  goToQuestion(questionID + 1);
 }
 
 function goToQuestion(questionID) {
@@ -139,4 +142,4 @@ function confirmationMessage() {
   document.getElementsByClassName("confirmation")[0].classList.remove("hidden");
 }
 
-window.onload  = function() {answerSubmit();};
+// window.onload  = function() {answerSubmit();};

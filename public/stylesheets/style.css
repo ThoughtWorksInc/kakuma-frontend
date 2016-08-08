@@ -28,7 +28,7 @@ p, h6 {
 button {
   background-color: transparent; }
 
-button, input {
+button, input[type=text], input[type=tel], input[type=number] {
   -webkit-appearance: none;
   -moz-appearance: none;
   display: inline-block;
@@ -36,7 +36,10 @@ button, input {
   border: none;
   font: 5vw Open Sans, Arial, Helvetica, sans-serif; }
 
-input {
+input[type=radio] {
+  display: inline; }
+
+input[type=text], input[type=tel], input[type=number] {
   margin: 4vw auto;
   height: 12vw;
   padding: 0 7px;
@@ -70,9 +73,6 @@ input {
     #form-container .question-form .screen-container .edit-icon {
       float: right;
       margin: 1vw 1vw; }
-      #form-container .question-form .screen-container .edit-icon.hidden {
-        display: block;
-        visibility: hidden; }
 
 .progress {
   font-size: 4vw;
@@ -82,6 +82,8 @@ input {
   width: 100%;
   border-radius: 3px;
   background-color: #D8D8D8; }
+  .question-input.radio {
+    width: auto; }
 
 .button-container {
   bottom: 0;
@@ -99,18 +101,18 @@ input {
     width: 100%;
     padding: 3vw;
     margin: 3vw auto 0 auto;
-    border-radius: 3px;
-    border-bottom-width: 4px;
-    border-bottom-style: solid; }
-    .button-container .navigation-button:active {
-      border-bottom-width: 0px; }
+    border-radius: 3px; }
     .button-container .navigation-button.primary {
       color: white;
       background-color: #85B69B;
+      border-bottom-width: 4px;
+      border-bottom-style: solid;
       border-bottom-color: #538569; }
       .button-container .navigation-button.primary[disabled] {
         background-color: #C2C2C2;
         border-bottom-color: #9B9B9B; }
+      .button-container .navigation-button.primary:active {
+        border-bottom-width: 0px; }
     .button-container .navigation-button.secondary {
       color: #85B69B;
       border: #85B69B 1px solid;

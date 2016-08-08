@@ -79,7 +79,7 @@ button {
   background-color: transparent;
 }
 
-button, input{
+button, input[type=text], input[type=tel], input[type=number]{
   -webkit-appearance: none;
   -moz-appearance: none;
   display: inline-block;
@@ -88,7 +88,11 @@ button, input{
   font: $content-font-size $font-stack;
 }
 
-input{
+input[type=radio] {
+  display:inline;
+}
+
+input[type=text], input[type=tel], input[type=number]{
   margin: $input-margin auto;
   height: $input-height;
   padding: 0 7px;
@@ -135,11 +139,6 @@ input{
       .edit-icon {
         float:right;
         margin: 1vw 1vw;
-
-        &.hidden {
-          display: block;
-          visibility: hidden;
-        }
       }
     }
   }
@@ -154,6 +153,10 @@ input{
   width: 100%;
   border-radius: 3px;
   background-color: $light-grey;
+
+  &.radio{
+    width:auto;
+  }
 }
 
 .button-container {
@@ -176,23 +179,21 @@ input{
     padding: $standard-content-padding;
     margin: $standard-content-padding auto 0 auto;
     border-radius: 3px;
-    border-bottom-width: 4px;
-    border-bottom-style: solid;
-    // -webkit-transition: border 0.05s;
-    // transition: border 0.05s;
-
-    &:active {
-      border-bottom-width: 0px;
-    }
 
     &.primary {
       color: white;
       background-color: $button-color;
+      border-bottom-width: 4px;
+      border-bottom-style: solid;
       border-bottom-color: $button-shadow-color;
 
       &[disabled] {
         background-color: $button-disabled-color;
         border-bottom-color: $button-disabled-shadow;
+      }
+
+      &:active {
+        border-bottom-width: 0px;
       }
     }
 
@@ -201,7 +202,6 @@ input{
       border: $secondary-button-border;
       background-color: $body-color;
     }
-
   }
 }
 
