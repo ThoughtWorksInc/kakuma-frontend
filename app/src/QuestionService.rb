@@ -14,7 +14,7 @@ class QuestionService
 
   def setQuestionList
     q1 = Question.new(1, "text", "name", "Your Name", "Hi, let us start. What is your full name?", "Just type in your first name, father's name and grandfather's name.", "Hi ", ", nice to meet you.")
-    q2 = Question.new(2, "radio", "gender", "Your gender",  "What is your gender?", "", "Ok, so you are ", ".")
+    q2 = Question.new(2, "radio", "gender", "Your gender",  "What is your gender?", "Just tap to select your gender.", "Ok, so you are ", ".")
     q3 = Question.new(3, "number", "age", "Your age", "How old are you?", "", "So, you are ", " years old.")
     q4 = Question.new(4, "text", "village", "Your village", "Which village are you from?", "", "OK, you live in ", ".")
     q5 = Question.new(5, "text", "country", "Your country", "Which country do you come from?", "", "OK, you are from ", ".")

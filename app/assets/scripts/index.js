@@ -132,9 +132,7 @@ function clickButtonOnEnterPress(event, questionNumber) {
 
 function confirmationMessage() {
   getAllQuestionsArray().map(function(question){
-    if (question.isNormalQuestion()) {
-      question.reset();
-    }
+    question.reset();
   });
 
   getSummaryView().hide();

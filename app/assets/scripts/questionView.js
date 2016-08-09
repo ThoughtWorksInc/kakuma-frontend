@@ -17,20 +17,33 @@ function getQuestionView(questionID) {
     focusInput: function() {
       this.questionNode.getElementsByClassName("question-input")[0].focus();
     },
+    getRadios: function() {
+      var radios =  this.questionNode.getElementsByClassName("radio");
+      return radios.length > 0 ? radios : null;
+    },
+    getCheckedRadioButton: function(radios) {
+      for (var i = 0; i < radios.length; i++) {
+        radio = radios[i];
+        if(radio.checked === true) {
+          return radio;
+        }
+      }
+      return null;
+    },
     getAnswer: function() {
       var answerInput;
-      var answerRadios =  this.questionNode.getElementsByClassName("radio");
 
-      if(answerRadios.length > 0) {
-        for (var i = 0;i < answerRadios.length; i++) {
-          radio = answerRadios[i];
-          if(radio.checked === true) {
-            answerInput = radio;
-          }
-        };
+      var radios = this.getRadios();
+      if(radios) {
+        var checkedRadioButton = this.getCheckedRadioButton(radios);
+        if(checkedRadioButton) {
+          answerInput = checkedRadioButton;
+        } else {
+          return null;
+        }
       } else {
         answerInput = this.questionNode.getElementsByClassName("question-input")[0];
-      };
+      }
       return answerInput.value;
     },
     hasAnswer: function() {
@@ -39,12 +52,15 @@ function getQuestionView(questionID) {
       }
       return false;
     },
+
     reset: function() {
+      var radios = this.getRadios();
+      if(radios){
+        var checkedRadioButton = this.getCheckedRadioButton(radios)
+        checkedRadioButton.checked = false;
+      } else {
       this.questionNode.getElementsByClassName("question-input")[0].value = "";
-      this.updateResponseTextWith("");
-    },
-    isNormalQuestion: function() {
-      return this.questionNode.getElementsByClassName("response-container").length > 0;
+      }
     },
     enableSubmitButton: function() {
       this.questionNode.getElementsByClassName("next")[0].disabled = false;
