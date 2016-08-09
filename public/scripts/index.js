@@ -1,3 +1,6 @@
+window.onload  = function() {getNextScreen()};
+
+
 function getAllQuestionsArray () {
   var allQuestionViews = [];
   var allQuestionNodes = document.getElementsByClassName("question");
@@ -7,31 +10,25 @@ function getAllQuestionsArray () {
   return allQuestionViews;
 }
 
-function displayAllEditIcons() {
-  var icons = document.getElementsByClassName("edit-icon");
-  for (i = 0; i < icons.length; i++) {
-    if(icons[i].classList.contains("hidden")) {
-      icons[i].classList.remove("hidden");
-    }
-  }
-  return icons;
-}
-
-function removeAllEditHighlights() {
-  getAllQuestionsArray().map(function(questionView) {
-    questionView.removeEditHighlight();
-  });
-}
 
 function getNameToFind() {
   return document.getElementById('nameToFind').innerText;
 }
 
 function getFirstUnansweredQuestion() {
+  hideAllQuestions();
+  validateAllQuestions();
   var isUnanswered = function (question) {
     return !question.hasAnswer();
   };
   return getAllQuestionsArray().find(isUnanswered);
+}
+
+function getNextScreen() {
+  var nextQuestion = getFirstUnansweredQuestion();
+  var nextScreen = nextQuestion ? nextQuestion : getSummaryView();
+
+  return nextScreen.show();
 }
 
 function hideAllQuestions() {
@@ -76,7 +73,7 @@ function getSummaryView(){
     hide: function() {
       this.node.classList.add("hidden");
     }
-  }
+  };
   return summaryView;
 }
 
@@ -120,4 +117,20 @@ function confirmationMessage() {
   document.getElementsByClassName("confirmation")[0].classList.remove("hidden");
 }
 
-window.onload  = function() {validateAllQuestions()};
+
+
+//function displayAllEditIcons() {
+//  var icons = document.getElementsByClassName("edit-icon");
+//  for (i = 0; i < icons.length; i++) {
+//    if(icons[i].classList.contains("hidden")) {
+//      icons[i].classList.remove("hidden");
+//    }
+//  }
+//  return icons;
+//}
+//
+//function removeAllEditHighlights() {
+//  getAllQuestionsArray().map(function(questionView) {
+//    questionView.removeEditHighlight();
+//  });
+//}
