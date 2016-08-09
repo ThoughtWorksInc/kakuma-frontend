@@ -1,5 +1,7 @@
-window.onload  = function() {getNextScreen()};
-
+window.onload  = function() {
+  validateAllQuestions();
+  showNextScreen();
+};
 
 function getAllQuestionsArray () {
   var allQuestionViews = [];
@@ -10,21 +12,15 @@ function getAllQuestionsArray () {
   return allQuestionViews;
 }
 
-
-function getNameToFind() {
-  return document.getElementById('nameToFind').innerText;
-}
-
 function getFirstUnansweredQuestion() {
-  hideAllQuestions();
-  validateAllQuestions();
   var isUnanswered = function (question) {
     return !question.hasAnswer();
   };
   return getAllQuestionsArray().find(isUnanswered);
 }
 
-function getNextScreen() {
+function showNextScreen() {
+  hideAllQuestions();
   var nextQuestion = getFirstUnansweredQuestion();
   var nextScreen = nextQuestion ? nextQuestion : getSummaryView();
 
@@ -43,15 +39,15 @@ function goToQuestion(questionID) {
   getQuestionView(questionID).show();
 }
 
-function validateInput(questionID) {
+function validateAnswer(questionID) {
    var question = getQuestionView(questionID);
-   question.validateInput();
+   question.validateFormInput();
 }
 
 function validateAllQuestions(){
   getAllQuestionsArray()
     .map(function(question) {
-      question.validateInput();
+      question.validateFormInput();
     });
 }
 
@@ -60,44 +56,12 @@ function showSummary(){
   getSummaryView().show();
 }
 
-function getSummaryView(){
-  var summaryView = {
-    node: document.getElementById("form-summary"),
-    updateQuestionResponseWith: function(answer, questionID) {
-      var response = document.getElementById("summary-response-"+ questionID);
-      response.value = answer;
-    },
-    show: function() {
-      this.node.classList.remove("hidden");
-    },
-    hide: function() {
-      this.node.classList.add("hidden");
-    }
-  };
-  return summaryView;
-}
-
 function updateSummaryField(questionID) {
-  var question = getQuestionView(questionID);
-  var answer = question.getAnswer();
+  var answer = getQuestionView(questionID).getAnswer();
 
   var summary = getSummaryView();
   summary.updateQuestionResponseWith(answer, questionID);
 }
-
-
-//
-// function editResponse(questionNumber) {
-//   hideAllInputFields();
-//   //put all other answered questions back to normal answered visibility
-//   displayAllEditIcons();
-//   removeAllEditHighlights();
-//
-//   getQuestionView(questionNumber)
-//       .showTextbox()
-//       .removeEditButton()
-//       .highlightQuestionForEdit();
-// }
 
 function clickButtonOnEnterPress(event, questionNumber) {
   if (event.keyCode == 13) {
@@ -118,19 +82,31 @@ function confirmationMessage() {
 }
 
 
-
-//function displayAllEditIcons() {
-//  var icons = document.getElementsByClassName("edit-icon");
-//  for (i = 0; i < icons.length; i++) {
-//    if(icons[i].classList.contains("hidden")) {
-//      icons[i].classList.remove("hidden");
-//    }
-//  }
-//  return icons;
-//}
+// function editResponse(questionNumber) {
+//   hideAllInputFields();
+//   //put all other answered questions back to normal answered visibility
+//   displayAllEditIcons();
+//   removeAllEditHighlights();
 //
-//function removeAllEditHighlights() {
-//  getAllQuestionsArray().map(function(questionView) {
-//    questionView.removeEditHighlight();
-//  });
-//}
+//   getQuestionView(questionNumber)
+//       .showTextbox()
+//       .removeEditButton()
+//       .highlightQuestionForEdit();
+// }
+
+
+// function displayAllEditIcons() {
+//   var icons = document.getElementsByClassName("edit-icon");
+//   for (i = 0; i < icons.length; i++) {
+//     if(icons[i].classList.contains("hidden")) {
+//       icons[i].classList.remove("hidden");
+//     }
+//   }
+//   return icons;
+// }
+
+// function removeAllEditHighlights() {
+//   getAllQuestionsArray().map(function(questionView) {
+//     questionView.removeEditHighlight();
+//   });
+// }

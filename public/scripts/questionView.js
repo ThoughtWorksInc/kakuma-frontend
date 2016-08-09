@@ -52,7 +52,6 @@ function getQuestionView(questionID) {
       }
       return false;
     },
-
     reset: function() {
       var radios = this.getRadios();
       if(radios){
@@ -62,7 +61,7 @@ function getQuestionView(questionID) {
       this.questionNode.getElementsByClassName("question-input")[0].value = "";
       }
     },
-    validateInput: function() {
+    validateFormInput: function() {
       if(this.hasAnswer()){
         this.enableSubmitButton();
       } else {
