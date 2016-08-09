@@ -1,10 +1,3 @@
-screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
-
-if (screen.lockOrientationUniversal("portrait-primary")) {
-  console.log("screen is locked");
-}
-
-
 function getAllQuestionsArray () {
   var allQuestionViews = [];
   var allQuestionNodes = document.getElementsByClassName("question");
@@ -30,16 +23,6 @@ function removeAllEditHighlights() {
   });
 }
 
-function displayAllAnsweredQuestions() {
-  getAllQuestionsArray()
-    .map(function(question) {
-      var answerMaybe = question.getAnswer();
-      if (answerMaybe) {
-        question.show();
-      }
-    });
-}
-
 function getNameToFind() {
   return document.getElementById('nameToFind').innerText;
 }
@@ -58,17 +41,6 @@ function hideAllQuestions() {
     });
 }
 
-function answerSubmit(questionID) {
-  // hideAllQuestions();
-  // var firstUnansweredQuestion = getFirstUnansweredQuestion();
-  // if (firstUnansweredQuestion) {
-  //   firstUnansweredQuestion
-  //     .show()
-  // }
-
-  goToQuestion(questionID + 1);
-}
-
 function goToQuestion(questionID) {
   hideAllQuestions();
   getQuestionView(questionID).show();
@@ -76,12 +48,14 @@ function goToQuestion(questionID) {
 
 function validateInput(questionID) {
    var question = getQuestionView(questionID);
+   question.validateInput();
+}
 
-   if(question.hasAnswer()){
-     question.enableSubmitButton();
-   } else {
-     question.disableSubmitButton();
-   }
+function validateAllQuestions(){
+  getAllQuestionsArray()
+    .map(function(question) {
+      question.validateInput();
+    });
 }
 
 function showSummary(){
@@ -131,7 +105,7 @@ function updateSummaryField(questionID) {
 function clickButtonOnEnterPress(event, questionNumber) {
   if (event.keyCode == 13) {
     event.preventDefault();
-    answerSubmit(questionNumber);
+    goToQuestion(questionNumber+1);
     return false;
   }
 }
@@ -146,4 +120,4 @@ function confirmationMessage() {
   document.getElementsByClassName("confirmation")[0].classList.remove("hidden");
 }
 
-// window.onload  = function() {answerSubmit();};
+window.onload  = function() {validateAllQuestions()};

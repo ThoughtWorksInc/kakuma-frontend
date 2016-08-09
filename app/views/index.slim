@@ -35,7 +35,7 @@ html(lang="en")
               p.help-text 
                 | #{question.helperText}
               .button-container
-                button.navigation-button.primary.next onclick="answerSubmit(#{question.id}); return false;" disabled="disabled"
+                button.navigation-button.primary.next onclick="goToQuestion(#{question.id} + 1); return false;" disabled="disabled"
                   | Click for next question
                 button.navigation-button.secondary.back onclick="goToQuestion(#{question.id} - 1); return false;" class=(question.id == 1 ? "hidden" : nil)
                   | Go back

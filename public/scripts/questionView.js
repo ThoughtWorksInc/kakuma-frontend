@@ -62,6 +62,14 @@ function getQuestionView(questionID) {
       this.questionNode.getElementsByClassName("question-input")[0].value = "";
       }
     },
+    validateInput: function() {
+      if(this.hasAnswer()){
+        this.enableSubmitButton();
+      } else {
+        this.disableSubmitButton();
+      }
+      return this;
+    },
     enableSubmitButton: function() {
       this.questionNode.getElementsByClassName("next")[0].disabled = false;
     },
