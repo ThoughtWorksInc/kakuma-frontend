@@ -1,3 +1,9 @@
+screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
+
+if (screen.lockOrientationUniversal("portrait-primary")) {
+  console.log("screen is locked");
+}
+
 
 function getAllQuestionsArray () {
   var allQuestionViews = [];
