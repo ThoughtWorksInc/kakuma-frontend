@@ -41,7 +41,7 @@ html(lang="en")
                 button.navigation-button.secondary.back onclick="goToQuestion(#{question.id} - 1); return false;" class=(question.id == 1 ? "hidden" : nil)
                   | Go back
       
-        .question.screen-container#question-11.hidden data-question-title="voice"
+        .question.screen-container.hidden id=("question-#{@questionList.length + 1}") data-question-title="voice"
           h6.progress 
             | Question 
             = @questionList.length + 1
@@ -72,7 +72,7 @@ html(lang="en")
               | This will help us to confirm the identity of the person you are looking for.
           #recording-instructions.hidden
             p.help-text
-              | Tap on the panel to stop recording.
+              | Tap again to stop the recording.
           #recording-response-container.hidden 
             p
               | Thank you for your message.
