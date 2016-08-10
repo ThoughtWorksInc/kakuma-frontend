@@ -1,0 +1,44 @@
+$font-stack: Open Sans, Arial, Helvetica, sans-serif;
+
+/* App theme colours */
+$app-primary-orange: #f3a536;
+$light-matcha-green: #ACD2BC;
+$dark-matcha-green: #538569;
+$matcha-green: #85B69B;
+$light-grey: #D8D8D8;
+$grey: #C2C2C2;
+$dark-grey: #9B9B9B;
+$off-black: #4d4d4d;
+
+/* Colour Categorisation */
+$main-font-color: $off-black;
+$help-text-color: $app-primary-orange;
+$lighter-text-color: $grey;
+$main-app-theme-color: $app-primary-orange;
+$complementary-color: $matcha-green;
+$complementary-darker: $dark-matcha-green;
+$complementary-lighter: $light-matcha-green;
+$app-background-color: white;
+
+/* Element styles */
+$body-color: $app-background-color;
+$progress-text-color: $dark-grey;
+$button-color: $matcha-green;
+$button-shadow-color: $dark-matcha-green;
+$button-disabled-color: $grey;
+$button-disabled-shadow: $dark-grey;
+$secondary-button-text: $matcha-green;
+$secondary-button-border: $matcha-green 1px solid;
+
+$content-border: $light-grey 1px solid;
+
+/* Element sizing */
+$standard-content-padding: 3vw;
+$landscape-content-padding: 1.5vw;
+$content-font-size: 5vw;
+$landscape-font-size: 3vw;
+$smaller-text-size: 4vw;
+
+$standard-input-height: 2*$content-font-size;
+$landscape-input-height: 2*$landscape-font-size;
+$input-margin: $standard-content-padding;
