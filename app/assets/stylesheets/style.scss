@@ -1,46 +1,47 @@
 $font-stack: Open Sans, Arial, Helvetica, sans-serif;
 
-$highlight-orange: #f3a536;
+/* App theme colours */
+$app-primary-orange: #f3a536;
 $light-matcha-green: #ACD2BC;
-$dark-green: #538569;
-$dark-matcha-green: #85B69B;
+$dark-matcha-green: #538569;
+$matcha-green: #85B69B;
 $light-grey: #D8D8D8;
-$light-blue: #4A90E2;
-$dark-grey: #C2C2C2;
-$darker-grey: #9B9B9B;
-$highlight-background: #FDE7C4;
+$grey: #C2C2C2;
+$dark-grey: #9B9B9B;
+$off-black: #4d4d4d;
 
-$body-color: white;
-$banner-color: $highlight-orange;
-$main-font-color: #4d4d4d;
-$incomplete-progress-status: #c2c2c2;
-$container-background: white;
-$header-text-color: white;
-$highlight-text: $highlight-orange;
-$progress-text-color: $darker-grey;
-$border-color: $highlight-orange;
-$button-color: $dark-matcha-green;
-$button-shadow-color: $dark-green;
-$secondary-button-text: $dark-matcha-green;
-$secondary-button-border: $dark-matcha-green 1px solid;
-$button-disabled-color: $dark-grey;
-$button-disabled-shadow: $darker-grey;
-$entry-field-color: #EAEDF0;
-$button-shadow: $dark-green;
+/* Colour Categorisation */
+$main-font-color: $off-black;
+$help-text-color: $app-primary-orange;
+$lighter-text-color: $grey;
+$main-app-theme-color: $app-primary-orange;
+$complementary-color: $matcha-green;
+$complementary-darker: $dark-matcha-green;
+$complementary-lighter: $light-matcha-green;
+$app-background-color: white;
 
-$summary-border: $light-grey;
+/* Element styles */
+$body-color: $app-background-color;
+$progress-text-color: $dark-grey;
+$button-color: $matcha-green;
+$button-shadow-color: $dark-matcha-green;
+$button-disabled-color: $grey;
+$button-disabled-shadow: $dark-grey;
+$secondary-button-text: $matcha-green;
+$secondary-button-border: $matcha-green 1px solid;
 
-$header-font-size: 100px;
+$content-border: $light-grey 1px solid;
+
+/* Element sizing */
+$standard-content-padding: 3vw;
+$landscape-content-padding: 1.5vw;
 $content-font-size: 5vw;
+$landscape-font-size: 3vw;
 $smaller-text-size: 4vw;
 
-$input-height: 12vw;
-$button-width: 20vw;
-$input-submit-color: $light-blue;
-
-$standard-content-padding: 3vw;
+$standard-input-height: 2*$content-font-size;
+$landscape-input-height: 2*$landscape-font-size;
 $input-margin: $standard-content-padding;
-
 
 * {
   margin: 0;
@@ -52,22 +53,19 @@ html, body {
 
 body {
   font: $content-font-size $font-stack;
+
+  @media all and (orientation: landscape) {
+    font: $landscape-font-size $font-stack;
+  }
+
   background-color: $body-color;
   color: $main-font-color;
-  padding: 0px;
-}
-
-h1 {
-  color: $header-text-color;
-  background-color: $banner-color;
-  text-align: center;
-  width: 100%;
 }
 
 h6 {
   font-size: $smaller-text-size;
   font-weight: normal;
-  color: $dark-grey;
+  color: $grey;
   padding: 0;
 }
 
@@ -85,12 +83,17 @@ button, input[type=text], input[type=tel], input[type=number]{
   display: inline-block;
   outline: none;
   border: none;
-  font: $content-font-size $font-stack;
+  font: inherit;
 }
 
 input[type=text], input[type=tel], input[type=number]{
   margin: $input-margin auto;
-  height: $input-height;
+  height: $standard-input-height;
+
+  @media all and (orientation: landscape) {
+    height: $landscape-input-height;
+  }
+
   padding: 0 7px;
   box-sizing: border-box;
   color: #4d4d4d;
@@ -102,7 +105,7 @@ input[type=text], input[type=tel], input[type=number]{
 
 #header {
   height: 10%;
-  border-bottom: 1px solid $highlight-orange;
+  border-bottom: 1px solid $main-app-theme-color;
 
   img {
     margin-left: auto;
@@ -114,7 +117,10 @@ input[type=text], input[type=tel], input[type=number]{
 }
 
 #app-container {
-  background-color: $container-background;
+  @media all and (orientation: landscape) {
+    width: 80%;
+    margin: 0 auto;
+  }
 
   .screen-container {
     margin-bottom: 8vh;
@@ -122,14 +128,14 @@ input[type=text], input[type=tel], input[type=number]{
     box-sizing: border-box;
 
     .help-text {
-      color: $highlight-text;
+      color: $help-text-color;
       margin-bottom: 3vw;
     }
 
     .question-container {
       .progress {
-        font-size: 4vw;
-        color: $dark-grey;
+        font-size: 0.8em;
+        color: $grey;
       }
 
       .question-text {
@@ -147,13 +153,13 @@ input[type=text], input[type=tel], input[type=number]{
       }
 
       .radio-inputs {
-        border-top: $light-grey 1px solid;
+        border-top: $content-border;
         margin: $standard-content-padding 0;
 
         label {
           display: block;
           padding: 2vw 0vw;
-          border-bottom: 1px solid $light-grey;
+          border-bottom: $content-border;
 
           .radio-checkbox {
             display: inline-block;
@@ -163,7 +169,7 @@ input[type=text], input[type=tel], input[type=number]{
             padding: 0px;
             vertical-align: -0.5em;
             border-radius: 1vw;
-            border: 1px solid $light-grey;
+            border: $content-border;
             margin-right: 2*$standard-content-padding;
           }
 
@@ -178,7 +184,7 @@ input[type=text], input[type=tel], input[type=number]{
     }
 
     .field-summary-container {
-      border-bottom: 1px solid $summary-border;
+      border-bottom: $content-border;
       margin: 0 0 2vw 0;
       box-sizing: border-box;
 
@@ -228,7 +234,7 @@ input[type=text], input[type=tel], input[type=number]{
 
       &.summary {
         background-color: ghostwhite;
-        border-top: 1px $light-grey solid;
+        border-top: $content-border;
         box-shadow: 0 0 8px 0 $light-grey;
         bottom: 0;
         position: fixed;
@@ -317,7 +323,7 @@ input[type=text], input[type=tel], input[type=number]{
     overflow: hidden;
 
     &.finished {
-      background-color: $light-matcha-green;
+      background-color: $complementary-lighter;
     }
   }
 
@@ -327,7 +333,7 @@ input[type=text], input[type=tel], input[type=number]{
 
   #slider-status-fill, #slider-status-mark {
     right: 70vw;
-    background-color: $highlight-text;
+    background-color: $help-text-color;
   }
 
   #slider-status-mark {
@@ -351,5 +357,5 @@ input[type=text], input[type=tel], input[type=number]{
 }
 
 .fill-green g .color {
-  fill: $dark-matcha-green;
+  fill: $complementary-color;
 }
