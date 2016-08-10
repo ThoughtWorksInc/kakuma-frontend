@@ -43,6 +43,9 @@ input[type=text], input[type=tel], input[type=number] {
   box-sizing: border-box;
   color: #4d4d4d; }
 
+.hidden {
+  display: none; }
+
 #header {
   height: 10%;
   border-bottom: 1px solid #f3a536; }
@@ -54,93 +57,95 @@ input[type=text], input[type=tel], input[type=number] {
     padding: 2vh; }
 
 #form-container {
-  width: 100%;
-  height: 90%;
   background-color: white; }
-  #form-container .question-form .screen-container {
+  #form-container .screen-container {
     margin-bottom: 8vh;
     padding: 3vw;
     box-sizing: border-box; }
-    #form-container .question-form .screen-container .question-container {
-      height: 100%; }
-      #form-container .question-form .screen-container .question-container .question-text {
-        font-weight: 600; }
-      #form-container .question-form .screen-container .question-container .button-container {
-        position: absolute;
-        width: 100%;
-        bottom: 0; }
-    #form-container .question-form .screen-container .edit-icon {
-      float: right;
-      margin: 1vw 1vw; }
-  #form-container .question-form label {
-    display: block;
-    padding: 2vw 0vw;
-    border-bottom: 1px solid #D8D8D8; }
-    #form-container .question-form label .radio-checkbox {
-      display: inline-block;
-      background: none;
-      height: 30px;
-      width: 30px;
-      padding: 0px;
-      vertical-align: bottom;
-      border-radius: 1vw;
-      border: 1px solid #D8D8D8;
-      margin-right: 6vw; }
-    #form-container .question-form label input:checked + .radio-checkbox {
-      background: url(../images/tick_icon.svg);
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 30px 30px; }
-
-.progress {
-  font-size: 4vw;
-  color: #C2C2C2; }
-
-.question-input {
-  width: 100%;
-  border-radius: 3px;
-  background-color: #D8D8D8; }
-  .question-input.radio {
-    width: auto; }
-
-.button-container {
-  bottom: 0;
-  position: fixed;
-  width: 100%;
-  left: 0;
-  padding: 0 3vw 3vw 3vw;
-  box-sizing: border-box;
-  background-color: white; }
-  .button-container.summary {
-    background-color: ghostwhite;
-    border-top: 1px lightgrey solid;
-    box-shadow: 0 0 8px 0 lightgrey; }
-  .button-container .navigation-button {
+    #form-container .screen-container .question-container .progress {
+      font-size: 4vw;
+      color: #C2C2C2; }
+    #form-container .screen-container .question-container .question-text {
+      font-weight: 600; }
+    #form-container .screen-container .question-container .question-input {
+      width: 100%;
+      border-radius: 3px;
+      background-color: #D8D8D8; }
+      #form-container .screen-container .question-container .question-input.radio {
+        width: auto; }
+    #form-container .screen-container .help-text {
+      color: #f3a536;
+      margin-bottom: 3vw; }
+    #form-container .screen-container .radio-inputs {
+      border-top: #D8D8D8 1px solid;
+      margin: 3vw 0; }
+      #form-container .screen-container .radio-inputs label {
+        display: block;
+        padding: 2vw 0vw;
+        border-bottom: 1px solid #D8D8D8; }
+        #form-container .screen-container .radio-inputs label .radio-checkbox {
+          display: inline-block;
+          background: none;
+          height: 30px;
+          width: 30px;
+          padding: 0px;
+          vertical-align: bottom;
+          border-radius: 1vw;
+          border: 1px solid #D8D8D8;
+          margin-right: 6vw; }
+        #form-container .screen-container .radio-inputs label input:checked + .radio-checkbox {
+          background: url(../images/tick_icon.svg);
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: 30px 30px; }
+  #form-container .button-container {
     width: 100%;
-    padding: 3vw;
-    margin: 3vw auto 0 auto;
-    border-radius: 3px; }
-    .button-container .navigation-button.primary {
-      color: white;
-      background-color: #85B69B;
-      border-bottom-width: 4px;
-      border-bottom-style: solid;
-      border-bottom-color: #538569; }
-      .button-container .navigation-button.primary[disabled] {
-        background-color: #C2C2C2;
-        border-bottom-color: #9B9B9B; }
-      .button-container .navigation-button.primary:active {
-        border-bottom-width: 0px; }
-    .button-container .navigation-button.secondary {
+    left: 0;
+    box-sizing: border-box;
+    background-color: white; }
+    #form-container .button-container.summary {
+      background-color: ghostwhite;
+      border-top: 1px #D8D8D8 solid;
+      box-shadow: 0 0 8px 0 #D8D8D8;
+      bottom: 0;
+      position: fixed;
+      padding: 3vw 3vw 0 3vw; }
+    #form-container .button-container .navigation-button {
+      width: 100%;
+      padding: 3vw;
+      margin-bottom: 3vw;
+      border-radius: 3px; }
+      #form-container .button-container .navigation-button.primary-button {
+        color: white;
+        background-color: #85B69B;
+        border-bottom-width: 4px;
+        border-bottom-style: solid;
+        border-bottom-color: #538569; }
+        #form-container .button-container .navigation-button.primary-button[disabled] {
+          background-color: #C2C2C2;
+          border-bottom-color: #9B9B9B; }
+        #form-container .button-container .navigation-button.primary-button:active {
+          border-bottom-width: 0px; }
+      #form-container .button-container .navigation-button.secondary-button {
+        color: #85B69B;
+        border: #85B69B 1px solid;
+        background-color: white; }
+  #form-container .field-summary-container {
+    border-bottom: 1px solid #D8D8D8;
+    margin: 0 0 2vw 0;
+    box-sizing: border-box; }
+    #form-container .field-summary-container .field-answer {
+      margin: 3vw 0;
+      width: 85%;
+      padding: 0;
+      height: auto; }
+      #form-container .field-summary-container .field-answer[disabled] {
+        color: #4d4d4d; }
+    #form-container .field-summary-container .edit {
       color: #85B69B;
-      border: #85B69B 1px solid;
-      background-color: white; }
-
-.help-text {
-  color: #f3a536; }
-
-.hidden {
-  display: none; }
+      width: 15%;
+      padding: 0;
+      font-size: 4vw; }
 
 @keyframes animateSlider {
   0% {
@@ -205,24 +210,5 @@ input[type=text], input[type=tel], input[type=number] {
     display: block;
     height: 100px;
     padding-bottom: 3em; }
-  .confirmation #form-button-container {
-    margin-top: 40px; }
-
-.field-summary-container {
-  border-bottom: 1px solid #D8D8D8;
-  margin: 0 0 2vw 0;
-  box-sizing: border-box; }
-  .field-summary-container .field-answer {
-    margin: 3vw 0;
-    width: 85%;
-    padding: 0;
-    height: auto; }
-    .field-summary-container .field-answer[disabled] {
-      color: #4d4d4d; }
-  .field-summary-container .edit {
-    color: #85B69B;
-    width: 15%;
-    padding: 0;
-    font-size: 4vw; }
 
 /*# sourceMappingURL=style.css.map */

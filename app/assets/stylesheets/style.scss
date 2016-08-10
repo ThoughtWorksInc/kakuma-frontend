@@ -96,6 +96,9 @@ input[type=text], input[type=tel], input[type=number]{
   color: #4d4d4d;
 }
 
+.hidden {
+  display: none;
+}
 
 #header {
   height: 10%;
@@ -111,137 +114,142 @@ input[type=text], input[type=tel], input[type=number]{
 }
 
 #form-container {
-  width: 100%;
-  height: 90%;
   background-color: $container-background;
 
-  .question-form {
-
-    .screen-container {
-      margin-bottom: 8vh;
-      padding: $standard-content-padding;
-      box-sizing: border-box;
-
-      .question-container {
-        height: 100%;
-
-        .question-text {
-          font-weight: 600;
-        }
-
-        .button-container {
-          position: absolute;
-          width: 100%;
-          bottom: 0;
-        }
-      }
-
-      .edit-icon {
-        float:right;
-        margin: 1vw 1vw;
-      }
-    }
-
-
-    label {
-      display: block;
-      padding: 2vw 0vw;
-      border-bottom: 1px solid $light-grey;
-
-      .radio-checkbox {
-        display: inline-block;
-        background: none;
-        height:30px;
-        width:30px;
-        padding: 0px;
-        vertical-align: bottom;
-        border-radius: 1vw;
-        border: 1px solid $light-grey;
-        margin-right: 2*$standard-content-padding;
-      }
-
-      input:checked + .radio-checkbox {
-        background: url(../images/tick_icon.svg);
-        background-repeat: no-repeat;
-        background-position:center center;
-        background-size:30px 30px;
-      }
-    }
-  }
-}
-
-
-
-.progress {
-  font-size: 4vw;
-  color: $dark-grey;
-}
-
-.question-input {
-  width: 100%;
-  border-radius: 3px;
-  background-color: $light-grey;
-
-  &.radio{
-    width:auto;
-  }
-}
-
-.button-container {
-  bottom: 0;
-  position: fixed;
-  width: 100%;
-  left: 0;
-  padding: 0 $standard-content-padding $standard-content-padding $standard-content-padding;
-  box-sizing: border-box;
-  background-color: white;
-
-  &.summary {
-    background-color: ghostwhite;
-    border-top: 1px lightgrey solid;
-    box-shadow: 0 0 8px 0 lightgrey;
-  }
-
-  .navigation-button{
-    width: 100%;
+  .screen-container {
+    margin-bottom: 8vh;
     padding: $standard-content-padding;
-    margin: $standard-content-padding auto 0 auto;
-    border-radius: 3px;
+    box-sizing: border-box;
 
-    &.primary {
-      color: white;
-      background-color: $button-color;
-      border-bottom-width: 4px;
-      border-bottom-style: solid;
-      border-bottom-color: $button-shadow-color;
+    .question-container {
+      .progress {
+        font-size: 4vw;
+        color: $dark-grey;
+      }
+
+      .question-text {
+        font-weight: 600;
+      }
+
+      .question-input {
+        width: 100%;
+        border-radius: 3px;
+        background-color: $light-grey;
+
+        &.radio{
+          width:auto;
+        }
+      }
+    }
+
+    .help-text {
+      color: $highlight-text;
+      margin-bottom: 3vw;
+    }
+
+    .radio-inputs {
+      border-top: $light-grey 1px solid;
+      margin: $standard-content-padding 0;
+
+      label {
+        display: block;
+        padding: 2vw 0vw;
+        border-bottom: 1px solid $light-grey;
+
+        .radio-checkbox {
+          display: inline-block;
+          background: none;
+          height:30px;
+          width:30px;
+          padding: 0px;
+          vertical-align: bottom;
+          border-radius: 1vw;
+          border: 1px solid $light-grey;
+          margin-right: 2*$standard-content-padding;
+        }
+
+        input:checked + .radio-checkbox {
+          background: url(../images/tick_icon.svg);
+          background-repeat: no-repeat;
+          background-position:center center;
+          background-size:30px 30px;
+        }
+      }
+    }
+  }
+
+  .button-container {
+    width: 100%;
+    left: 0;
+    box-sizing: border-box;
+    background-color: white;
+
+    &.summary {
+      background-color: ghostwhite;
+      border-top: 1px $light-grey solid;
+      box-shadow: 0 0 8px 0 $light-grey;
+      bottom: 0;
+      position: fixed;
+      padding: $standard-content-padding $standard-content-padding 0 $standard-content-padding;
+    }
+
+    .navigation-button{
+      width: 100%;
+      padding: $standard-content-padding;
+      margin-bottom: $standard-content-padding;
+      border-radius: 3px;
+
+      &.primary-button{
+        color: white;
+        background-color: $button-color;
+        border-bottom-width: 4px;
+        border-bottom-style: solid;
+        border-bottom-color: $button-shadow-color;
+
+        &[disabled] {
+          background-color: $button-disabled-color;
+          border-bottom-color: $button-disabled-shadow;
+        }
+
+        &:active {
+          border-bottom-width: 0px;
+        }
+      }
+
+      &.secondary-button {
+        color: $secondary-button-text;
+        border: $secondary-button-border;
+        background-color: $body-color;
+      }
+    }
+  }
+
+  .field-summary-container {
+    border-bottom: 1px solid $summary-border;
+    margin: 0 0 2vw 0;
+    box-sizing: border-box;
+
+    .field-answer{
+      margin: $standard-content-padding 0;
+      width:85%;
+      padding: 0;
+      height: auto;
 
       &[disabled] {
-        background-color: $button-disabled-color;
-        border-bottom-color: $button-disabled-shadow;
-      }
-
-      &:active {
-        border-bottom-width: 0px;
+        color: $main-font-color;
       }
     }
 
-    &.secondary {
+    .edit {
       color: $secondary-button-text;
-      border: $secondary-button-border;
-      background-color: $body-color;
+      width:15%;
+      padding: 0;
+      font-size: $smaller-text-size;
     }
   }
 }
 
 
-
-.help-text {
-  color: $highlight-text;
-}
-
-.hidden {
-  display: none;
-}
 
 @keyframes animateSlider {
   0% {
@@ -340,33 +348,5 @@ input[type=text], input[type=tel], input[type=number]{
     display: block;
     height: 100px;
     padding-bottom: 3em
-  }
-
-  #form-button-container {
-    margin-top: 40px;
-  }
-}
-
-.field-summary-container {
-  border-bottom: 1px solid $summary-border;
-  margin: 0 0 2vw 0;
-  box-sizing: border-box;
-
-  .field-answer{
-    margin: $standard-content-padding 0;
-    width:85%;
-    padding: 0;
-    height: auto;
-
-    &[disabled] {
-      color: $main-font-color;
-    }
-  }
-
-  .edit {
-    color: $secondary-button-text;
-    width:15%;
-    padding: 0;
-    font-size: $smaller-text-size;
   }
 }

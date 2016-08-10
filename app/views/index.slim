@@ -23,23 +23,25 @@ html(lang="en")
                 | #{question.questionText}
               
               - if question.field == "gender"
-                label title="male"
-                  input.question-input.radio.hidden type="#{question.inputType}" value="male" name="#{question.field}" onclick="updateSummaryField(#{question.id}), validateAnswer(#{question.id});"
-                  .radio-checkbox
-                  | male
-                label title="female"
-                  input.question-input.radio.hidden type="#{question.inputType}" value="female" name="#{question.field}" onclick="updateSummaryField(#{question.id}), validateAnswer(#{question.id});"
-                  .radio-checkbox
-                  | female
+                .radio-inputs
+                  label title="male"
+                    input.question-input.radio.hidden type="#{question.inputType}" value="male" name="#{question.field}" onclick="updateSummaryField(#{question.id}), validateAnswer(#{question.id});"
+                    .radio-checkbox
+                    | male
+                  label title="female"
+                    input.question-input.radio.hidden type="#{question.inputType}" value="female" name="#{question.field}" onclick="updateSummaryField(#{question.id}), validateAnswer(#{question.id});"
+                    .radio-checkbox
+                    | female
               - else
                 input.question-input type="#{question.inputType}" name="#{question.field}" onkeyup="validateAnswer(#{question.id}); updateSummaryField(#{question.id})" onkeydown="clickButtonOnEnterPress(event, #{question.id})"
-              p.help-text 
-                | #{question.helperText}
-              .button-container
-                button.navigation-button.primary.next onclick="goToQuestion(#{question.id} + 1); return false;" disabled="disabled"
-                  | Click for next question
-                button.navigation-button.secondary.back onclick="goToQuestion(#{question.id} - 1); return false;" class=(question.id == 1 ? "hidden" : nil)
-                  | Go back
+              - if question.helperText.length != 0
+                p.help-text 
+                  | #{question.helperText}
+            .button-container
+              button.navigation-button.primary-button.next onclick="goToQuestion(#{question.id} + 1); return false;" disabled="disabled"
+                | Click for next question
+              button.navigation-button.secondary-button.back onclick="goToQuestion(#{question.id} - 1); return false;" class=(question.id == 1 ? "hidden" : nil)
+                | Go back
       
         .question.screen-container.hidden id=("question-#{@questionList.length + 1}") data-question-title="voice"
           h6.progress 
@@ -48,7 +50,7 @@ html(lang="en")
             |  of 
             = @questionList.length + 1 
           img#bin-btn.hidden src="../images/bin_icon.svg" onclick="resetVoiceMessage()"
-          .recording-container onclick="voiceMessage()"
+          .recording-container.question-container onclick="voiceMessage()"
             img#mic src="../images/mic-grey.gif"
 
             svg#stop-btn.hidden height="24px" version="1.1" viewbox=("0 0 24 24") width="24px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -79,9 +81,9 @@ html(lang="en")
             p.help-text
               | Tap on the bin to delete and start a new recording.
           .button-container
-            button.navigation-button.primary.next onclick="showSummary(); return false;" disabled="disabled"
+            button.navigation-button.primary-button.next onclick="showSummary(); return false;" disabled="disabled"
               | Click for summary page
-            button.navigation-button.secondary.back onclick="goToQuestion(10); return false;"
+            button.navigation-button.secondary-button.back onclick="goToQuestion(10); return false;"
               | Go back
           input.question-input.hidden
       
@@ -95,9 +97,9 @@ html(lang="en")
               button.edit
                 | Edit
           .button-container.summary
-            button.navigation-button.primary.submit onclick="confirmationMessage(); return false;"
+            button.navigation-button.primary-button.submit onclick="confirmationMessage(); return false;"
               | Finish
-            / button.navigation-button.secondary.back onclick="goToQuestion(11); return false;"
+            / button.navigation-button.secondary-button-button.back onclick="goToQuestion(11); return false;"
             /   | Go back
           .question-input.hidden
               
@@ -111,5 +113,5 @@ html(lang="en")
           | Your feedback is important to us and will be used to improve the application so families can be connected.
 
         .button-container.confirmation
-          button#submit-form-button.navigation-button.primary onclick="window.location.reload()"
+          button#submit-form-button.navigation-button.primary-button onclick="window.location.reload()"
             | Add a new person
