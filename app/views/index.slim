@@ -11,8 +11,8 @@ html(lang="en")
   body
     #header.logo
       img src="../images/FindMe_logo.png"
-    #form-container
-      form.question-form onsubmit="return false;" method="post" action="/"
+    #app-container
+      form#question-form onsubmit="return false;" method="post" action="/"
         - for question in @questionList
           .question.screen-container id="question-#{question.id}" class=(question.id != 1 ? "hidden" : nil)
             .question-container
@@ -102,14 +102,12 @@ html(lang="en")
             / button.navigation-button.secondary-button-button.back onclick="goToQuestion(11); return false;"
             /   | Go back
           .question-input.hidden
-              
-                
-
-      .confirmation.hidden
+                    
+      #confirmation.screen-container.hidden
         img.confirmation-icon src="../images/dude_icon.png"
-        p.first
+        p
           | Thank you for taking part in testing the application.
-        p.second
+        p
           | Your feedback is important to us and will be used to improve the application so families can be connected.
 
         .button-container.confirmation

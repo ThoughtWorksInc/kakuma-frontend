@@ -39,7 +39,7 @@ $button-width: 20vw;
 $input-submit-color: $light-blue;
 
 $standard-content-padding: 3vw;
-$input-margin: 4vw;
+$input-margin: $standard-content-padding;
 
 
 * {
@@ -113,13 +113,18 @@ input[type=text], input[type=tel], input[type=number]{
   }
 }
 
-#form-container {
+#app-container {
   background-color: $container-background;
 
   .screen-container {
     margin-bottom: 8vh;
     padding: $standard-content-padding;
     box-sizing: border-box;
+
+    .help-text {
+      color: $highlight-text;
+      margin-bottom: 3vw;
+    }
 
     .question-container {
       .progress {
@@ -140,111 +145,125 @@ input[type=text], input[type=tel], input[type=number]{
           width:auto;
         }
       }
-    }
 
-    .help-text {
-      color: $highlight-text;
-      margin-bottom: 3vw;
-    }
+      .radio-inputs {
+        border-top: $light-grey 1px solid;
+        margin: $standard-content-padding 0;
 
-    .radio-inputs {
-      border-top: $light-grey 1px solid;
-      margin: $standard-content-padding 0;
+        label {
+          display: block;
+          padding: 2vw 0vw;
+          border-bottom: 1px solid $light-grey;
 
-      label {
-        display: block;
-        padding: 2vw 0vw;
-        border-bottom: 1px solid $light-grey;
+          .radio-checkbox {
+            display: inline-block;
+            background: none;
+            height:30px;
+            width:30px;
+            padding: 0px;
+            vertical-align: -0.5em;
+            border-radius: 1vw;
+            border: 1px solid $light-grey;
+            margin-right: 2*$standard-content-padding;
+          }
 
-        .radio-checkbox {
-          display: inline-block;
-          background: none;
-          height:30px;
-          width:30px;
-          padding: 0px;
-          vertical-align: bottom;
-          border-radius: 1vw;
-          border: 1px solid $light-grey;
-          margin-right: 2*$standard-content-padding;
-        }
-
-        input:checked + .radio-checkbox {
-          background: url(../images/tick_icon.svg);
-          background-repeat: no-repeat;
-          background-position:center center;
-          background-size:30px 30px;
+          input:checked + .radio-checkbox {
+            background: url(../images/tick_icon.svg);
+            background-repeat: no-repeat;
+            background-position:center center;
+            background-size:30px 30px;
+          }
         }
       }
     }
-  }
 
-  .button-container {
-    width: 100%;
-    left: 0;
-    box-sizing: border-box;
-    background-color: white;
+    .field-summary-container {
+      border-bottom: 1px solid $summary-border;
+      margin: 0 0 2vw 0;
+      box-sizing: border-box;
 
-    &.summary {
-      background-color: ghostwhite;
-      border-top: 1px $light-grey solid;
-      box-shadow: 0 0 8px 0 $light-grey;
-      bottom: 0;
-      position: fixed;
-      padding: $standard-content-padding $standard-content-padding 0 $standard-content-padding;
-    }
-
-    .navigation-button{
-      width: 100%;
-      padding: $standard-content-padding;
-      margin-bottom: $standard-content-padding;
-      border-radius: 3px;
-
-      &.primary-button{
-        color: white;
-        background-color: $button-color;
-        border-bottom-width: 4px;
-        border-bottom-style: solid;
-        border-bottom-color: $button-shadow-color;
+      .field-answer{
+        margin: $standard-content-padding 0;
+        width:85%;
+        padding: 0;
+        height: auto;
 
         &[disabled] {
-          background-color: $button-disabled-color;
-          border-bottom-color: $button-disabled-shadow;
-        }
-
-        &:active {
-          border-bottom-width: 0px;
+          color: $main-font-color;
         }
       }
 
-      &.secondary-button {
+      .edit {
         color: $secondary-button-text;
-        border: $secondary-button-border;
-        background-color: $body-color;
-      }
-    }
-  }
-
-  .field-summary-container {
-    border-bottom: 1px solid $summary-border;
-    margin: 0 0 2vw 0;
-    box-sizing: border-box;
-
-    .field-answer{
-      margin: $standard-content-padding 0;
-      width:85%;
-      padding: 0;
-      height: auto;
-
-      &[disabled] {
-        color: $main-font-color;
+        width:15%;
+        padding: 0;
+        font-size: $smaller-text-size;
       }
     }
 
-    .edit {
-      color: $secondary-button-text;
-      width:15%;
-      padding: 0;
-      font-size: $smaller-text-size;
+    &#confirmation {
+      p {
+        padding: $standard-content-padding 2*$standard-content-padding;
+        font-size: smaller;
+      }
+
+      .confirmation-icon {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        height: 100px;
+        padding: 3*$standard-content-padding 0;
+      }
+
+      .button-container {
+        margin-top: $standard-content-padding;
+      }
+    }
+
+    .button-container {
+      width: 100%;
+      left: 0;
+      box-sizing: border-box;
+      background-color: white;
+
+      &.summary {
+        background-color: ghostwhite;
+        border-top: 1px $light-grey solid;
+        box-shadow: 0 0 8px 0 $light-grey;
+        bottom: 0;
+        position: fixed;
+        padding: $standard-content-padding $standard-content-padding 0 $standard-content-padding;
+      }
+
+      .navigation-button{
+        width: 100%;
+        padding: $standard-content-padding;
+        margin-bottom: $standard-content-padding;
+        border-radius: 3px;
+
+        &.primary-button{
+          color: white;
+          background-color: $button-color;
+          border-bottom-width: 4px;
+          border-bottom-style: solid;
+          border-bottom-color: $button-shadow-color;
+
+          &[disabled] {
+            background-color: $button-disabled-color;
+            border-bottom-color: $button-disabled-shadow;
+          }
+
+          &:active {
+            border-bottom-width: 0px;
+          }
+        }
+
+        &.secondary-button {
+          color: $secondary-button-text;
+          border: $secondary-button-border;
+          background-color: $body-color;
+        }
+      }
     }
   }
 }
@@ -333,20 +352,4 @@ input[type=text], input[type=tel], input[type=number]{
 
 .fill-green g .color {
   fill: $dark-matcha-green;
-}
-
-.confirmation {
-  padding-top: 10vh;
-
-  p {
-    padding: $standard-content-padding 2*$standard-content-padding;
-    font-size: smaller;
-  }
-  .confirmation-icon {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    height: 100px;
-    padding-bottom: 3em
-  }
 }

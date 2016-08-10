@@ -78,7 +78,7 @@ function confirmationMessage() {
 
   getSummaryView().hide();
   resetVoiceMessage();
-  document.getElementsByClassName("confirmation")[0].classList.remove("hidden");
+  document.getElementById("confirmation").classList.remove("hidden");
 }
 
 
