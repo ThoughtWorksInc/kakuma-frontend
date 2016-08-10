@@ -181,11 +181,18 @@ input[type=text], input[type=tel], input[type=number] {
         border: #85B69B 1px solid;
         background-color: white; }
 
-@keyframes animateSlider {
-  0% {
-    right: 70vw; }
-  100% {
-    right: 0vw; } }
+@media all and (orientation: landscape) {
+  @keyframes animateSlider {
+    0% {
+      right: 55vw; }
+    100% {
+      right: 0vw; } } }
+@media all and (orientation: portrait) {
+  @keyframes animateSlider {
+    0% {
+      right: 70vw; }
+    100% {
+      right: 0vw; } } }
 .animate {
   animation: animateSlider 60s linear; }
 
@@ -193,16 +200,29 @@ input[type=text], input[type=tel], input[type=number] {
   display: inline-block; }
 .recording-container #mic {
   width: 10vw; }
+  @media all and (orientation: landscape) {
+    .recording-container #mic {
+      width: 8vw; } }
 .recording-container #stop-btn {
   margin-bottom: 7px; }
+  @media all and (orientation: landscape) {
+    .recording-container #stop-btn {
+      margin-bottom: 20px; } }
 .recording-container #play-btn {
   width: 7%;
   padding-bottom: 0.4em; }
+  @media all and (orientation: landscape) {
+    .recording-container #play-btn {
+      width: 6%;
+      padding-bottom: 1em; } }
 .recording-container #animated-slider-container {
   padding: 0vw 2.5vw; }
 .recording-container #slider-bar, .recording-container #slider-status-fill {
   width: 70vw;
   height: 3px; }
+  @media all and (orientation: landscape) {
+    .recording-container #slider-bar, .recording-container #slider-status-fill {
+      width: 55vw; } }
 .recording-container #slider-bar {
   background-color: #D8D8D8;
   position: relative;
@@ -215,6 +235,9 @@ input[type=text], input[type=tel], input[type=number] {
 .recording-container #slider-status-fill, .recording-container #slider-status-mark {
   right: 70vw;
   background-color: #f3a536; }
+  @media all and (orientation: landscape) {
+    .recording-container #slider-status-fill, .recording-container #slider-status-mark {
+      right: 55vw; } }
 .recording-container #slider-status-mark {
   position: relative;
   height: 11vw;
@@ -223,6 +246,9 @@ input[type=text], input[type=tel], input[type=number] {
   font-size: 7vw;
   position: relative;
   top: -3vw; }
+  @media all and (orientation: landscape) {
+    .recording-container #timer {
+      font-size: 6vw; } }
 
 #bin-btn {
   width: 6%;
