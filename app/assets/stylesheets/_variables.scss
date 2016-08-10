@@ -34,11 +34,12 @@ $content-border: $light-grey 1px solid;
 
 /* Element sizing */
 $standard-content-padding: 3vw;
-$landscape-content-padding: 1.5vw;
 $content-font-size: 5vw;
-$landscape-font-size: 3vw;
 $smaller-text-size: 4vw;
 
 $standard-input-height: 2*$content-font-size;
-$landscape-input-height: 2*$landscape-font-size;
 $input-margin: $standard-content-padding;
+
+$landscape-content-padding: 1vw;
+$landscape-font-size: 3vw;
+$landscape-input-height: 2*$landscape-font-size;

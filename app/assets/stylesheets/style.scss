@@ -8,13 +8,28 @@ html, body {
   height: 100%;
 }
 
-body {
-  font: $content-font-size $font-stack;
-
+@mixin landscape-font-size {
   @media all and (orientation: landscape) {
     font: $landscape-font-size $font-stack;
   }
+}
 
+@mixin landscape-standard-padding($padding: $landscape-content-padding ) {
+  @media all and (orientation: landscape) {
+    padding: $padding;
+  }
+}
+
+@mixin landscape-input-height{
+  @media all and (orientation: landscape) {
+    height: $landscape-input-height;
+  }
+
+}
+
+body {
+  @include landscape-font-size();
+  font: $content-font-size $font-stack;
   background-color: $body-color;
   color: $main-font-color;
 }
@@ -44,13 +59,9 @@ button, input[type=text], input[type=tel], input[type=number]{
 }
 
 input[type=text], input[type=tel], input[type=number]{
+  @include landscape-input-height();
   margin: $input-margin auto;
   height: $standard-input-height;
-
-  @media all and (orientation: landscape) {
-    height: $landscape-input-height;
-  }
-
   padding: 0 7px;
   box-sizing: border-box;
   color: #4d4d4d;
@@ -80,6 +91,7 @@ input[type=text], input[type=tel], input[type=number]{
   }
 
   .screen-container {
+    @include landscape-standard-padding();
     margin-bottom: 8vh;
     padding: $standard-content-padding;
     box-sizing: border-box;
@@ -114,6 +126,7 @@ input[type=text], input[type=tel], input[type=number]{
         margin: $standard-content-padding 0;
 
         label {
+          @include landscape-standard-padding();
           display: block;
           padding: 2vw 0vw;
           border-bottom: $content-border;
@@ -166,6 +179,7 @@ input[type=text], input[type=tel], input[type=number]{
 
     &#confirmation {
       p {
+        @include landscape-standard-padding(2*$landscape-content-padding);
         padding: $standard-content-padding 2*$standard-content-padding;
         font-size: smaller;
       }
@@ -175,6 +189,7 @@ input[type=text], input[type=tel], input[type=number]{
         margin-right: auto;
         display: block;
         height: 100px;
+        @include landscape-standard-padding(3*$landscape-content-padding);
         padding: 3*$standard-content-padding 0;
       }
 
@@ -190,6 +205,7 @@ input[type=text], input[type=tel], input[type=number]{
       background-color: white;
 
       &.summary {
+        @include landscape-standard-padding();
         background-color: ghostwhite;
         border-top: $content-border;
         box-shadow: 0 0 8px 0 $light-grey;
@@ -199,6 +215,7 @@ input[type=text], input[type=tel], input[type=number]{
       }
 
       .navigation-button{
+        @include landscape-standard-padding();
         width: 100%;
         padding: $standard-content-padding;
         margin-bottom: $standard-content-padding;

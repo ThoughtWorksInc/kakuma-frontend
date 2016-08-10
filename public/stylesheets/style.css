@@ -67,6 +67,9 @@ input[type=text], input[type=tel], input[type=number] {
   margin-bottom: 8vh;
   padding: 3vw;
   box-sizing: border-box; }
+  @media all and (orientation: landscape) {
+    #app-container .screen-container {
+      padding: 1vw; } }
   #app-container .screen-container .help-text {
     color: #f3a536;
     margin-bottom: 3vw; }
@@ -88,6 +91,9 @@ input[type=text], input[type=tel], input[type=number] {
       display: block;
       padding: 2vw 0vw;
       border-bottom: #D8D8D8 1px solid; }
+      @media all and (orientation: landscape) {
+        #app-container .screen-container .question-container .radio-inputs label {
+          padding: 1vw; } }
       #app-container .screen-container .question-container .radio-inputs label .radio-checkbox {
         display: inline-block;
         background: none;
@@ -122,12 +128,18 @@ input[type=text], input[type=tel], input[type=number] {
   #app-container .screen-container#confirmation p {
     padding: 3vw 6vw;
     font-size: smaller; }
+    @media all and (orientation: landscape) {
+      #app-container .screen-container#confirmation p {
+        padding: 2vw; } }
   #app-container .screen-container#confirmation .confirmation-icon {
     margin-left: auto;
     margin-right: auto;
     display: block;
     height: 100px;
     padding: 9vw 0; }
+    @media all and (orientation: landscape) {
+      #app-container .screen-container#confirmation .confirmation-icon {
+        padding: 3vw; } }
   #app-container .screen-container#confirmation .button-container {
     margin-top: 3vw; }
   #app-container .screen-container .button-container {
@@ -142,11 +154,17 @@ input[type=text], input[type=tel], input[type=number] {
       bottom: 0;
       position: fixed;
       padding: 3vw 3vw 0 3vw; }
+      @media all and (orientation: landscape) {
+        #app-container .screen-container .button-container.summary {
+          padding: 1vw; } }
     #app-container .screen-container .button-container .navigation-button {
       width: 100%;
       padding: 3vw;
       margin-bottom: 3vw;
       border-radius: 3px; }
+      @media all and (orientation: landscape) {
+        #app-container .screen-container .button-container .navigation-button {
+          padding: 1vw; } }
       #app-container .screen-container .button-container .navigation-button.primary-button {
         color: white;
         background-color: #85B69B;
