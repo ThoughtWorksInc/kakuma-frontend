@@ -16,6 +16,7 @@ function getSummaryView(){
       response.disabled = false;
       response.classList.add("editing");
       response.nextSibling.classList.add("hidden");
+      response.focus();
     },
     disableEdit: function(questionID) {
       var response = document.getElementById("summary-response-"+ questionID);

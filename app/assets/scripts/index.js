@@ -63,10 +63,10 @@ function updateSummaryField(questionID) {
   summary.updateQuestionResponseWith(answer, questionID);
 }
 
-function clickButtonOnEnterPress(event, questionNumber) {
+function clickButtonOnEnterPress(event, callback, questionID) {
   if (event.keyCode == 13) {
     event.preventDefault();
-    goToQuestion(questionNumber+1);
+    callback(questionID);
     return false;
   }
 }

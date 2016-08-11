@@ -33,7 +33,7 @@ html(lang="en")
                     .radio-checkbox
                     | female
               - else
-                input.question-input type="#{question.inputType}" name="#{question.field}" onkeyup="validateAnswer(#{question.id}); updateSummaryField(#{question.id})" onkeydown="clickButtonOnEnterPress(event, #{question.id})"
+                input.question-input type="#{question.inputType}" name="#{question.field}" onkeyup="validateAnswer(#{question.id}); updateSummaryField(#{question.id})" onkeydown="clickButtonOnEnterPress(event, goToQuestion, #{question.id} + 1)"
               - if question.helperText.length != 0
                 p.help-text 
                   | #{question.helperText}
@@ -95,7 +95,7 @@ html(lang="en")
               li.field-summary-container
                 h6.field-label
                   | #{question.fieldLabel}
-                input.field-answer type="text" id="summary-response-#{question.id}" disabled="disabled" onblur="finishEditing(#{question.id})"
+                input.field-answer type="text" id="summary-response-#{question.id}" disabled="disabled" onblur="finishEditing(#{question.id})" onkeydown="clickButtonOnEnterPress(event, finishEditing, #{question.id})"
                 button.edit onclick="startEditing(#{question.id})"
                   | Edit
             .button-container.summary
