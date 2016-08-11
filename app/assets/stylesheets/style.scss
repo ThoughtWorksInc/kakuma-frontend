@@ -177,10 +177,12 @@ input[type=text], input[type=tel], input[type=number]{
             padding: 1.5vw;
           }
 
-          &[disabled] {
+          &:disabled {
             color: $main-font-color;
             -webkit-text-fill-color: $main-font-color;
             background-color: transparent;
+            opacity: 1.0;
+
           }
         }
 

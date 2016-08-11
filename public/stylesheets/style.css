@@ -134,10 +134,11 @@ input[type=text], input[type=tel], input[type=number] {
         border: 1px solid black;
         border-radius: 6px;
         padding: 1.5vw; }
-      #app-container .screen-container #summary-list .field-summary-container .field-answer[disabled] {
+      #app-container .screen-container #summary-list .field-summary-container .field-answer:disabled {
         color: #4d4d4d;
         -webkit-text-fill-color: #4d4d4d;
-        background-color: transparent; }
+        background-color: transparent;
+        opacity: 1.0; }
     #app-container .screen-container #summary-list .field-summary-container .edit {
       color: #85B69B;
       width: 15%;
