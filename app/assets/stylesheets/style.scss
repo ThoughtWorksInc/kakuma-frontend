@@ -9,7 +9,7 @@ html, body {
 }
 
 @mixin landscape-padding($padding-tb: $landscape-content-spacing, $padding-lr: null) {
-  @media all and (orientation: landscape) {
+  @media all and (orientation: landscape) and (min-width: 854px) {
     padding: $padding-tb $padding-lr;
   }
 }
