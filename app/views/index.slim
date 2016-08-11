@@ -90,19 +90,20 @@ html(lang="en")
       
 
         #form-summary.screen-container.hidden
-          - for question in @questionList
-            .field-summary-container
-              h6.field-label
-                | #{question.fieldLabel}
-              input.field-answer type="text" id="summary-response-#{question.id}" disabled="disabled"
-              button.edit
-                | Edit
-          .button-container.summary
-            button.navigation-button.primary-button.submit onclick="confirmationMessage(); return false;"
-              | Finish
-            / button.navigation-button.secondary-button-button.back onclick="goToQuestion(11); return false;"
-            /   | Go back
-          .question-input.hidden
+          ul#summary-list
+            - for question in @questionList
+              li.field-summary-container
+                h6.field-label
+                  | #{question.fieldLabel}
+                input.field-answer type="text" id="summary-response-#{question.id}" disabled="disabled"
+                button.edit
+                  | Edit
+            .button-container.summary
+              button.navigation-button.primary-button.submit onclick="confirmationMessage(); return false;"
+                | Finish
+              / button.navigation-button.secondary-button-button.back onclick="goToQuestion(11); return false;"
+              /   | Go back
+            .question-input.hidden
                     
       #confirmation.screen-container.hidden
         img.confirmation-icon src="../images/dude_icon.png"

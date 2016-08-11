@@ -19,11 +19,14 @@ body {
 h6 {
   font-size: 0.8em;
   font-weight: normal;
-  color: #C2C2C2;
-  padding: 0; }
+  color: #C2C2C2; }
 
 p, h6 {
   padding: 0.5vw 0; }
+
+ul {
+  padding: 0;
+  list-style: none; }
 
 button {
   background-color: transparent; }
@@ -67,7 +70,6 @@ input[type=text], input[type=tel], input[type=number] {
     width: 80%;
     margin: 0 auto; } }
 #app-container .screen-container {
-  margin-bottom: 8vh;
   padding: 3vw;
   box-sizing: border-box; }
   @media all and (orientation: landscape) {
@@ -115,25 +117,33 @@ input[type=text], input[type=tel], input[type=number] {
         background-repeat: no-repeat;
         background-position: center center;
         background-size: 30px 30px; }
-  #app-container .screen-container .field-summary-container {
+  #app-container .screen-container #summary-list .field-summary-container {
     border-bottom: #D8D8D8 1px solid;
     margin: 0 0 2vw 0;
     box-sizing: border-box; }
-    #app-container .screen-container .field-summary-container .field-answer {
+    #app-container .screen-container #summary-list .field-summary-container .field-answer {
       margin: 3vw 0;
       width: 85%;
       padding: 0;
       height: auto; }
       @media all and (orientation: landscape) {
-        #app-container .screen-container .field-summary-container .field-answer {
+        #app-container .screen-container #summary-list .field-summary-container .field-answer {
           margin: 1vw 0; } }
-      #app-container .screen-container .field-summary-container .field-answer[disabled] {
-        color: #4d4d4d; }
-    #app-container .screen-container .field-summary-container .edit {
+      #app-container .screen-container #summary-list .field-summary-container .field-answer[disabled] {
+        color: #4d4d4d;
+        -webkit-text-fill-color: #4d4d4d;
+        background-color: transparent; }
+    #app-container .screen-container #summary-list .field-summary-container .edit {
       color: #85B69B;
       width: 15%;
       padding: 0;
-      font-size: 0.8em; }
+      font-size: 0.8em;
+      text-align: right; }
+  #app-container .screen-container #summary-list li:last-of-type {
+    margin-bottom: 10vh; }
+    @media all and (orientation: landscape) {
+      #app-container .screen-container #summary-list li:last-of-type {
+        margin-bottom: 18vh; } }
   #app-container .screen-container#confirmation p {
     padding: 3vw 6vw;
     font-size: smaller; }

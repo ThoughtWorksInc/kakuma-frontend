@@ -34,11 +34,15 @@ h6 {
   font-size: $smaller-text-size;
   font-weight: normal;
   color: $grey;
-  padding: 0;
 }
 
 p, h6 {
   padding: 0.5vw 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
 }
 
 button {
@@ -91,11 +95,7 @@ input[type=text], input[type=tel], input[type=number]{
   }
 
   .screen-container {
-    margin-bottom: 8vh;
-    @media all and (orientation: landscape) {
-      margin-bottom: 18vh;
-    }
-    
+
     @include landscape-padding();
     padding: $standard-content-spacing;
     box-sizing: border-box;
@@ -156,30 +156,41 @@ input[type=text], input[type=tel], input[type=number]{
       }
     }
 
-    .field-summary-container {
-      border-bottom: $content-border;
-      margin: 0 0 2vw 0;
-      box-sizing: border-box;
+    #summary-list {
+      .field-summary-container {
+        border-bottom: $content-border;
+        margin: 0 0 2vw 0;
+        box-sizing: border-box;
 
-      .field-answer{
-        @include landscape-margin($landscape-content-spacing 0);
+        .field-answer{
+          @include landscape-margin($landscape-content-spacing 0);
 
-        margin: $standard-content-spacing 0;
-        width:85%;
-        padding: 0;
-        height: auto;
+          margin: $standard-content-spacing 0;
+          width:85%;
+          padding: 0;
+          height: auto;
 
-        &[disabled] {
-          color: $main-font-color;
+          &[disabled] {
+            color: $main-font-color;
+            -webkit-text-fill-color: $main-font-color;
+            background-color: transparent;
+          }
+        }
+
+        .edit {
+          color: $secondary-button-text;
+          width:15%;
+          padding: 0;
+          font-size: $smaller-text-size;
+          text-align: right;
         }
       }
 
-      .edit {
-        color: $secondary-button-text;
-        width:15%;
-        padding: 0;
-        font-size: $smaller-text-size;
-        text-align: right;
+      li:last-of-type {
+        margin-bottom: 10vh;
+        @media all and (orientation: landscape) {
+          margin-bottom: 18vh;
+        }
       }
     }
 
