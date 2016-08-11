@@ -8,9 +8,15 @@ html, body {
   height: 100%;
 }
 
-@mixin landscape-standard-padding($padding: $landscape-content-padding ) {
+@mixin landscape-padding($padding-tb: $landscape-content-spacing, $padding-lr: null) {
   @media all and (orientation: landscape) {
-    padding: $padding;
+    padding: $padding-tb $padding-lr;
+  }
+}
+
+@mixin landscape-margin($margin-tb: $landscape-content-spacing, $margin-lr: null) {
+  @media all and (orientation: landscape) {
+    margin: $margin-tb $margin-lr;
   }
 }
 
@@ -52,9 +58,10 @@ input[type=text], input[type=tel], input[type=number]{
   @media all and (orientation: landscape) {
     height: $landscape-input-height;
   }
-  
-  margin: $input-margin auto;
   height: $standard-input-height;
+
+  @include landscape-margin($landscape-content-spacing, auto);
+  margin: $input-margin auto;
   padding: 0 7px;
   box-sizing: border-box;
   color: #4d4d4d;
@@ -84,22 +91,24 @@ input[type=text], input[type=tel], input[type=number]{
   }
 
   .screen-container {
-    @include landscape-standard-padding();
     margin-bottom: 8vh;
-    padding: $standard-content-padding;
+    @media all and (orientation: landscape) {
+      margin-bottom: 18vh;
+    }
+    
+    @include landscape-padding();
+    padding: $standard-content-spacing;
     box-sizing: border-box;
 
     .help-text {
       color: $help-text-color;
-      margin-bottom: 3vw;
+      margin-bottom: $standard-content-spacing;
+      @media all and (orientation: landscape) {
+        margin-bottom: $landscape-content-spacing;
+      }
     }
 
     .question-container {
-      .progress {
-        font-size: 0.8em;
-        color: $grey;
-      }
-
       .question-text {
         font-weight: 600;
       }
@@ -116,10 +125,11 @@ input[type=text], input[type=tel], input[type=number]{
 
       .radio-inputs {
         border-top: $content-border;
-        margin: $standard-content-padding 0;
+        margin: $standard-content-spacing 0;
+        @include landscape-margin($landscape-content-spacing 0);
 
         label {
-          @include landscape-standard-padding();
+          @include landscape-padding();
           display: block;
           padding: 2vw 0vw;
           border-bottom: $content-border;
@@ -133,7 +143,7 @@ input[type=text], input[type=tel], input[type=number]{
             vertical-align: -0.5em;
             border-radius: 1vw;
             border: $content-border;
-            margin-right: 2*$standard-content-padding;
+            margin-right: 2*$standard-content-spacing;
           }
 
           input:checked + .radio-checkbox {
@@ -152,7 +162,9 @@ input[type=text], input[type=tel], input[type=number]{
       box-sizing: border-box;
 
       .field-answer{
-        margin: $standard-content-padding 0;
+        @include landscape-margin($landscape-content-spacing 0);
+
+        margin: $standard-content-spacing 0;
         width:85%;
         padding: 0;
         height: auto;
@@ -167,13 +179,14 @@ input[type=text], input[type=tel], input[type=number]{
         width:15%;
         padding: 0;
         font-size: $smaller-text-size;
+        text-align: right;
       }
     }
 
     &#confirmation {
       p {
-        @include landscape-standard-padding(2*$landscape-content-padding);
-        padding: $standard-content-padding 2*$standard-content-padding;
+        @include landscape-padding($landscape-content-spacing, $landscape-content-spacing*2);
+        padding: $standard-content-spacing 2*$standard-content-spacing;
         font-size: smaller;
       }
 
@@ -182,12 +195,12 @@ input[type=text], input[type=tel], input[type=number]{
         margin-right: auto;
         display: block;
         height: 100px;
-        @include landscape-standard-padding(3*$landscape-content-padding);
-        padding: 3*$standard-content-padding 0;
+        @include landscape-padding(3*$landscape-content-spacing);
+        padding: 3*$standard-content-spacing 0;
       }
 
       .button-container {
-        margin-top: $standard-content-padding;
+        margin-top: $standard-content-spacing;
       }
     }
 
@@ -198,20 +211,19 @@ input[type=text], input[type=tel], input[type=number]{
       background-color: white;
 
       &.summary {
-        @include landscape-standard-padding();
+        @include landscape-padding();
+        padding: $standard-content-spacing;
         background-color: ghostwhite;
         border-top: $content-border;
         box-shadow: 0 0 8px 0 $light-grey;
         bottom: 0;
         position: fixed;
-        padding: $standard-content-padding $standard-content-padding 0 $standard-content-padding;
       }
 
       .navigation-button{
-        @include landscape-standard-padding();
+        @include landscape-padding();
+        padding: $standard-content-spacing;
         width: 100%;
-        padding: $standard-content-padding;
-        margin-bottom: $standard-content-padding;
         border-radius: 3px;
 
         &.primary-button{
@@ -235,6 +247,8 @@ input[type=text], input[type=tel], input[type=number]{
           color: $secondary-button-text;
           border: $secondary-button-border;
           background-color: $body-color;
+          margin-top: $standard-content-spacing;
+          @include landscape-margin($landscape-content-spacing, 0)
         }
       }
     }

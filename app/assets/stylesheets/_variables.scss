@@ -33,13 +33,13 @@ $secondary-button-border: $matcha-green 1px solid;
 $content-border: $light-grey 1px solid;
 
 /* Element sizing */
-$standard-content-padding: 3vw;
+$standard-content-spacing: 3vw;
 $content-font-size: 5vw;
-$smaller-text-size: 4vw;
+$smaller-text-size: 0.8em;
 
 $standard-input-height: 2*$content-font-size;
-$input-margin: $standard-content-padding;
+$input-margin: $standard-content-spacing;
 
-$landscape-content-padding: 1vw;
+$landscape-content-spacing: 1vw;
 $landscape-font-size: 3vw;
 $landscape-input-height: 2*$landscape-font-size;

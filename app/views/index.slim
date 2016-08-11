@@ -44,42 +44,43 @@ html(lang="en")
                 | Go back
       
         .question.screen-container.hidden id=("question-#{@questionList.length + 1}") data-question-title="voice"
-          h6.progress 
-            | Question 
-            = @questionList.length + 1
-            |  of 
-            = @questionList.length + 1 
-          img#bin-btn.hidden src="../images/bin_icon.svg" onclick="resetVoiceMessage()"
-          .recording-container.question-container onclick="voiceMessage()"
-            img#mic src="../images/mic-grey.gif"
+          .question-container
+            h6.progress 
+              | Question 
+              = @questionList.length + 1
+              |  of 
+              = @questionList.length + 1 
+            img#bin-btn.hidden src="../images/bin_icon.svg" onclick="resetVoiceMessage()"
+            .recording-container.question-container onclick="voiceMessage()"
+              img#mic src="../images/mic-grey.gif"
 
-            svg#stop-btn.hidden height="24px" version="1.1" viewbox=("0 0 24 24") width="24px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-              g#Page-1 fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"
-                g#FindMe16b.color fill="#EF7D00" transform="translate(-16.000000, -404.000000)"
-                  path d="M40.0000286,404.999975 C40.0000286,404.453099 39.5469031,403.999974 39.0000274,403.999974 L17.0000012,403.999974 C16.4531255,403.999974 16,404.453099 16,404.999975 L16,427.000001 C16,427.546877 16.4531255,428.000002 17.0000012,428.000002 L39.0000274,428.000002 C39.5469031,428.000002 40.0000286,427.546877 40.0000286,427.000001 L40.0000286,404.999975 Z" id=""
+              svg#stop-btn.hidden height="24px" version="1.1" viewbox=("0 0 24 24") width="24px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                g#Page-1 fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"
+                  g#FindMe16b.color fill="#EF7D00" transform="translate(-16.000000, -404.000000)"
+                    path d="M40.0000286,404.999975 C40.0000286,404.453099 39.5469031,403.999974 39.0000274,403.999974 L17.0000012,403.999974 C16.4531255,403.999974 16,404.453099 16,404.999975 L16,427.000001 C16,427.546877 16.4531255,428.000002 17.0000012,428.000002 L39.0000274,428.000002 C39.5469031,428.000002 40.0000286,427.546877 40.0000286,427.000001 L40.0000286,404.999975 Z" id=""
 
-            img#play-btn.hidden src="../images/play-button.svg"
-            #animated-slider-container
-              #slider-bar
-                #slider-status-fill.slider
-              #slider-status-mark.slider
-            #timer
-              | 60
-          #recording-question-container
-            p
-              | Please tap the microphone and speak to leave a voice message.
-            p.help-text
-              | For example, you can say "I am [your name] and I am looking for [name]."
-              br/
-              | This will help us to confirm the identity of the person you are looking for.
-          #recording-instructions.hidden
-            p.help-text
-              | Tap again to stop the recording.
-          #recording-response-container.hidden 
-            p
-              | Thank you for your message.
-            p.help-text
-              | Tap on the bin to delete and start a new recording.
+              img#play-btn.hidden src="../images/play-button.svg"
+              #animated-slider-container
+                #slider-bar
+                  #slider-status-fill.slider
+                #slider-status-mark.slider
+              #timer
+                | 60
+            #recording-question-container
+              p
+                | Please tap the microphone and speak to leave a voice message.
+              p.help-text
+                | For example, you can say "I am [your name] and I am looking for [name]."
+                br/
+                | This will help us to confirm the identity of the person you are looking for.
+            #recording-instructions.hidden
+              p.help-text
+                | Tap again to stop the recording.
+            #recording-response-container.hidden 
+              p
+                | Thank you for your message.
+              p.help-text
+                | Tap on the bin to delete and start a new recording.
           .button-container
             button.navigation-button.primary-button.next onclick="showSummary(); return false;" disabled="disabled"
               | Click for summary page
