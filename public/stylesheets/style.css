@@ -129,6 +129,11 @@ input[type=text], input[type=tel], input[type=number] {
       @media all and (orientation: landscape) {
         #app-container .screen-container #summary-list .field-summary-container .field-answer {
           margin: 1vw 0; } }
+      #app-container .screen-container #summary-list .field-summary-container .field-answer.editing {
+        color: orange;
+        border: 1px solid black;
+        border-radius: 6px;
+        padding: 1.5vw; }
       #app-container .screen-container #summary-list .field-summary-container .field-answer[disabled] {
         color: #4d4d4d;
         -webkit-text-fill-color: #4d4d4d;

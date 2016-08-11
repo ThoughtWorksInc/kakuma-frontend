@@ -82,17 +82,13 @@ function confirmationMessage() {
 }
 
 
-// function editResponse(questionNumber) {
-//   hideAllInputFields();
-//   //put all other answered questions back to normal answered visibility
-//   displayAllEditIcons();
-//   removeAllEditHighlights();
-//
-//   getQuestionView(questionNumber)
-//       .showTextbox()
-//       .removeEditButton()
-//       .highlightQuestionForEdit();
-// }
+ function startEditing(questionID) {
+   getSummaryView().enableEdit(questionID);
+ }
+
+function finishEditing(questionID) {
+  getSummaryView().disableEdit(questionID);
+}
 
 
 // function displayAllEditIcons() {

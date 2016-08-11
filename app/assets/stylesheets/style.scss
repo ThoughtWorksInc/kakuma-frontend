@@ -170,6 +170,13 @@ input[type=text], input[type=tel], input[type=number]{
           padding: 0;
           height: auto;
 
+          &.editing {
+            color: orange;
+            border: 1px solid black;
+            border-radius: 6px;
+            padding: 1.5vw;
+          }
+
           &[disabled] {
             color: $main-font-color;
             -webkit-text-fill-color: $main-font-color;

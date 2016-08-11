@@ -74,7 +74,7 @@ function getQuestionView(questionID) {
     },
     disableSubmitButton: function() {
       this.questionNode.getElementsByClassName("next")[0].disabled = true;
-    },
+    }
   };
   return questionView;
 }
