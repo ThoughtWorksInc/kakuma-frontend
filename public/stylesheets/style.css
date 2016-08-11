@@ -12,7 +12,7 @@ body {
   font: 5vw Open Sans, Arial, Helvetica, sans-serif;
   background-color: white;
   color: #4d4d4d; }
-  @media all and (orientation: landscape) {
+  @media screen and (min-aspect-ratio: 13 / 9) {
     body {
       font: 3vw Open Sans, Arial, Helvetica, sans-serif; } }
 
@@ -45,10 +45,10 @@ input[type=text], input[type=tel], input[type=number] {
   padding: 0 7px;
   box-sizing: border-box;
   color: #4d4d4d; }
-  @media all and (orientation: landscape) {
+  @media screen and (min-aspect-ratio: 13 / 9) {
     input[type=text], input[type=tel], input[type=number] {
       height: 6vw; } }
-  @media all and (orientation: landscape) {
+  @media screen and (min-aspect-ratio: 13 / 9) {
     input[type=text], input[type=tel], input[type=number] {
       margin: 1vw auto; } }
 
@@ -65,20 +65,20 @@ input[type=text], input[type=tel], input[type=number] {
     height: 6vh;
     padding: 2vh; }
 
-@media all and (orientation: landscape) {
+@media screen and (min-aspect-ratio: 13 / 9) {
   #app-container {
     width: 80%;
     margin: 0 auto; } }
 #app-container .screen-container {
   padding: 3vw;
   box-sizing: border-box; }
-  @media all and (orientation: landscape) {
+  @media screen and (min-aspect-ratio: 13 / 9) {
     #app-container .screen-container {
       padding: 1vw; } }
   #app-container .screen-container .help-text {
     color: #f3a536;
     margin-bottom: 3vw; }
-    @media all and (orientation: landscape) {
+    @media screen and (min-aspect-ratio: 13 / 9) {
       #app-container .screen-container .help-text {
         margin-bottom: 1vw; } }
   #app-container .screen-container .question-container .question-text {
@@ -92,14 +92,14 @@ input[type=text], input[type=tel], input[type=number] {
   #app-container .screen-container .question-container .radio-inputs {
     border-top: #D8D8D8 1px solid;
     margin: 3vw 0; }
-    @media all and (orientation: landscape) {
+    @media screen and (min-aspect-ratio: 13 / 9) {
       #app-container .screen-container .question-container .radio-inputs {
         margin: 1vw 0; } }
     #app-container .screen-container .question-container .radio-inputs label {
       display: block;
       padding: 2vw 0vw;
       border-bottom: #D8D8D8 1px solid; }
-      @media all and (orientation: landscape) {
+      @media screen and (min-aspect-ratio: 13 / 9) {
         #app-container .screen-container .question-container .radio-inputs label {
           padding: 1vw; } }
       #app-container .screen-container .question-container .radio-inputs label .radio-checkbox {
@@ -126,7 +126,7 @@ input[type=text], input[type=tel], input[type=number] {
       width: 85%;
       padding: 0;
       height: auto; }
-      @media all and (orientation: landscape) {
+      @media screen and (min-aspect-ratio: 13 / 9) {
         #app-container .screen-container #summary-list .field-summary-container .field-answer {
           margin: 1vw 0; } }
       #app-container .screen-container #summary-list .field-summary-container .field-answer.editing {
@@ -147,13 +147,13 @@ input[type=text], input[type=tel], input[type=number] {
       text-align: right; }
   #app-container .screen-container #summary-list li:last-of-type {
     margin-bottom: 10vh; }
-    @media all and (orientation: landscape) {
+    @media screen and (min-aspect-ratio: 13 / 9) {
       #app-container .screen-container #summary-list li:last-of-type {
         margin-bottom: 18vh; } }
   #app-container .screen-container#confirmation p {
     padding: 3vw 6vw;
     font-size: smaller; }
-    @media all and (orientation: landscape) {
+    @media screen and (min-aspect-ratio: 13 / 9) {
       #app-container .screen-container#confirmation p {
         padding: 1vw 2vw; } }
   #app-container .screen-container#confirmation .confirmation-icon {
@@ -162,7 +162,7 @@ input[type=text], input[type=tel], input[type=number] {
     display: block;
     height: 100px;
     padding: 9vw 0; }
-    @media all and (orientation: landscape) {
+    @media screen and (min-aspect-ratio: 13 / 9) {
       #app-container .screen-container#confirmation .confirmation-icon {
         padding: 3vw; } }
   #app-container .screen-container#confirmation .button-container {
@@ -179,14 +179,14 @@ input[type=text], input[type=tel], input[type=number] {
       box-shadow: 0 0 8px 0 #D8D8D8;
       bottom: 0;
       position: fixed; }
-      @media all and (orientation: landscape) {
+      @media screen and (min-aspect-ratio: 13 / 9) {
         #app-container .screen-container .button-container.summary {
           padding: 1vw; } }
     #app-container .screen-container .button-container .navigation-button {
       padding: 3vw;
       width: 100%;
       border-radius: 3px; }
-      @media all and (orientation: landscape) {
+      @media screen and (min-aspect-ratio: 13 / 9) {
         #app-container .screen-container .button-container .navigation-button {
           padding: 1vw; } }
       #app-container .screen-container .button-container .navigation-button.primary-button {
@@ -205,11 +205,11 @@ input[type=text], input[type=tel], input[type=number] {
         border: #85B69B 1px solid;
         background-color: white;
         margin-top: 3vw; }
-        @media all and (orientation: landscape) {
+        @media screen and (min-aspect-ratio: 13 / 9) {
           #app-container .screen-container .button-container .navigation-button.secondary-button {
             margin: 1vw 0; } }
 
-@media all and (orientation: landscape) {
+@media screen and (min-aspect-ratio: 13 / 9) {
   @keyframes animateSlider {
     0% {
       right: 55vw; }
@@ -228,18 +228,18 @@ input[type=text], input[type=tel], input[type=number] {
   display: inline-block; }
 .recording-container #mic {
   width: 10vw; }
-  @media all and (orientation: landscape) {
+  @media screen and (min-aspect-ratio: 13 / 9) {
     .recording-container #mic {
       width: 8vw; } }
 .recording-container #stop-btn {
   margin-bottom: 7px; }
-  @media all and (orientation: landscape) {
+  @media screen and (min-aspect-ratio: 13 / 9) {
     .recording-container #stop-btn {
       margin-bottom: 20px; } }
 .recording-container #play-btn {
   width: 7%;
   padding-bottom: 0.4em; }
-  @media all and (orientation: landscape) {
+  @media screen and (min-aspect-ratio: 13 / 9) {
     .recording-container #play-btn {
       width: 6%;
       padding-bottom: 1em; } }
@@ -248,7 +248,7 @@ input[type=text], input[type=tel], input[type=number] {
 .recording-container #slider-bar, .recording-container #slider-status-fill {
   width: 70vw;
   height: 3px; }
-  @media all and (orientation: landscape) {
+  @media screen and (min-aspect-ratio: 13 / 9) {
     .recording-container #slider-bar, .recording-container #slider-status-fill {
       width: 55vw; } }
 .recording-container #slider-bar {
@@ -263,7 +263,7 @@ input[type=text], input[type=tel], input[type=number] {
 .recording-container #slider-status-fill, .recording-container #slider-status-mark {
   right: 70vw;
   background-color: #f3a536; }
-  @media all and (orientation: landscape) {
+  @media screen and (min-aspect-ratio: 13 / 9) {
     .recording-container #slider-status-fill, .recording-container #slider-status-mark {
       right: 55vw; } }
 .recording-container #slider-status-mark {
@@ -274,7 +274,7 @@ input[type=text], input[type=tel], input[type=number] {
   font-size: 7vw;
   position: relative;
   top: -3vw; }
-  @media all and (orientation: landscape) {
+  @media screen and (min-aspect-ratio: 13 / 9) {
     .recording-container #timer {
       font-size: 6vw; } }
 

@@ -9,19 +9,19 @@ html, body {
 }
 
 @mixin landscape-padding($padding-tb: $landscape-content-spacing, $padding-lr: null) {
-  @media all and (orientation: landscape) and (min-width: 854px) {
+  @media screen and (min-aspect-ratio: 13/9) {
     padding: $padding-tb $padding-lr;
   }
 }
 
 @mixin landscape-margin($margin-tb: $landscape-content-spacing, $margin-lr: null) {
-  @media all and (orientation: landscape) {
+  @media screen and (min-aspect-ratio: 13/9)  {
     margin: $margin-tb $margin-lr;
   }
 }
 
 body {
-  @media all and (orientation: landscape) {
+  @media screen and (min-aspect-ratio: 13/9)  {
     font: $landscape-font-size $font-stack;
   }
 
@@ -59,7 +59,7 @@ button, input[type=text], input[type=tel], input[type=number]{
 }
 
 input[type=text], input[type=tel], input[type=number]{
-  @media all and (orientation: landscape) {
+  @media screen and (min-aspect-ratio: 13/9)  {
     height: $landscape-input-height;
   }
   height: $standard-input-height;
@@ -89,7 +89,7 @@ input[type=text], input[type=tel], input[type=number]{
 }
 
 #app-container {
-  @media all and (orientation: landscape) {
+  @media screen and (min-aspect-ratio: 13/9)  {
     width: 80%;
     margin: 0 auto;
   }
@@ -103,7 +103,7 @@ input[type=text], input[type=tel], input[type=number]{
     .help-text {
       color: $help-text-color;
       margin-bottom: $standard-content-spacing;
-      @media all and (orientation: landscape) {
+      @media screen and (min-aspect-ratio: 13/9)  {
         margin-bottom: $landscape-content-spacing;
       }
     }
@@ -197,7 +197,7 @@ input[type=text], input[type=tel], input[type=number]{
 
       li:last-of-type {
         margin-bottom: 10vh;
-        @media all and (orientation: landscape) {
+        @media screen and (min-aspect-ratio: 13/9)  {
           margin-bottom: 18vh;
         }
       }
@@ -275,7 +275,7 @@ input[type=text], input[type=tel], input[type=number]{
   }
 }
 
-@media all and (orientation: landscape) {
+@media screen and (min-aspect-ratio: 13/9)  {
   @keyframes animateSlider {
     0% {
       right: 55vw;
@@ -307,21 +307,21 @@ input[type=text], input[type=tel], input[type=number]{
   }
 
   #mic {
-    @media all and (orientation: landscape) {
+    @media screen and (min-aspect-ratio: 13/9)  {
       width: 8vw;
     }
     width: 2 * 5vw;
   }
 
   #stop-btn {
-    @media all and (orientation: landscape) {
+    @media screen and (min-aspect-ratio: 13/9)  {
       margin-bottom: 20px;
     }
     margin-bottom: 7px;
   }
 
   #play-btn {
-    @media all and (orientation: landscape) {
+    @media screen and (min-aspect-ratio: 13/9)  {
       width: 6%;
       padding-bottom: 1em;
     }
@@ -334,7 +334,7 @@ input[type=text], input[type=tel], input[type=number]{
   }
 
   #slider-bar, #slider-status-fill {
-    @media all and (orientation: landscape) {
+    @media screen and (min-aspect-ratio: 13/9)  {
       width: 55vw;
     }
     width: 70vw;
@@ -357,7 +357,7 @@ input[type=text], input[type=tel], input[type=number]{
   }
 
   #slider-status-fill, #slider-status-mark {
-    @media all and (orientation: landscape) {
+    @media screen and (min-aspect-ratio: 13/9)  {
       right: 55vw;
     }
     right: 70vw;
@@ -371,7 +371,7 @@ input[type=text], input[type=tel], input[type=number]{
   }
 
   #timer {
-    @media all and (orientation: landscape) {
+    @media screen and (min-aspect-ratio: 13/9)  {
       font-size: 6vw;
     }
     font-size: 7vw;
