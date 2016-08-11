@@ -125,7 +125,8 @@ input[type=text], input[type=tel], input[type=number] {
       margin: 3vw 0;
       width: 85%;
       padding: 0;
-      height: auto; }
+      height: auto;
+      font-weight: 600; }
       @media screen and (min-aspect-ratio: 13 / 9) {
         #app-container .screen-container #summary-list .field-summary-container .field-answer {
           margin: 1vw 0; } }
