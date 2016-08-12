@@ -89,20 +89,3 @@ function confirmationMessage() {
 function finishEditing(questionID) {
   getSummaryView().disableEdit(questionID);
 }
-
-
-// function displayAllEditIcons() {
-//   var icons = document.getElementsByClassName("edit-icon");
-//   for (i = 0; i < icons.length; i++) {
-//     if(icons[i].classList.contains("hidden")) {
-//       icons[i].classList.remove("hidden");
-//     }
-//   }
-//   return icons;
-// }
-
-// function removeAllEditHighlights() {
-//   getAllQuestionsArray().map(function(questionView) {
-//     questionView.removeEditHighlight();
-//   });
-// }

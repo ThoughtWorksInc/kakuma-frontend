@@ -7,9 +7,11 @@ function getSummaryView(){
     },
     show: function() {
       this.node.classList.remove("hidden");
+      return this;
     },
     hide: function() {
       this.node.classList.add("hidden");
+      return this;
     },
     enableEdit: function(questionID) {
       var response = document.getElementById("summary-response-"+ questionID);
