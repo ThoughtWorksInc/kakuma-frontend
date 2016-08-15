@@ -19,6 +19,11 @@ class MyApp < Sinatra::Base
     slim :index
   end
 
+  post '/' do
+    @name = params[:name]
+    puts params.inspect
+  end
+
   run! if app_file == $0
 
 end

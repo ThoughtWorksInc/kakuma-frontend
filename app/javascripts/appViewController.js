@@ -63,6 +63,13 @@ function updateSummaryField(questionID) {
   summary.updateQuestionResponseWith(answer, questionID);
 }
 
+function updateQuestionFieldFromSummary(questionID) {
+  var answer = getSummaryView().getAnswer(questionID);
+
+  var question = getQuestionView(questionID);
+  question.update(answer);
+}
+
 function clickButtonOnEnterPress(event, callback, questionID) {
   if (event.keyCode == 13) {
     event.preventDefault();
@@ -87,5 +94,6 @@ function confirmationMessage() {
  }
 
 function finishEditing(questionID) {
+  updateQuestionFieldFromSummary(questionID);
   getSummaryView().disableEdit(questionID);
 }

@@ -12,7 +12,7 @@ html(lang="en")
     #header.logo
       img src="../images/FindMe_logo.png"
     #app-container
-      form#question-form onsubmit="return false;" method="post" action="/"
+      form#question-form method="post" action="/"
         - for question in @questionList
           .question.screen-container id="question-#{question.id}" class=(question.id != 1 ? "hidden" : nil)
             .question-container
@@ -87,7 +87,6 @@ html(lang="en")
             button.navigation-button.secondary-button.back onclick="goToQuestion(10); return false;"
               | Go back
           input.question-input.hidden
-      
 
         #form-summary.screen-container.hidden
           ul#summary-list
@@ -96,15 +95,15 @@ html(lang="en")
                 h6.field-label
                   | #{question.fieldLabel}
                 input.field-answer type="text" id="summary-response-#{question.id}" disabled="disabled" onblur="finishEditing(#{question.id})" onkeydown="clickButtonOnEnterPress(event, finishEditing, #{question.id})"
-                button.edit onclick="startEditing(#{question.id})"
+                button.edit onclick="startEditing(#{question.id}); return false;" type="button"
                   | Edit
-            .button-container.summary
-              button.navigation-button.primary-button.submit onclick="confirmationMessage(); return false;"
-                | Finish
-              / button.navigation-button.secondary-button-button.back onclick="goToQuestion(11); return false;"
-              /   | Go back
-            .question-input.hidden
-                    
+          .button-container.summary
+            button.navigation-button.primary-button.submit type="submit"
+              | Finish
+            / button.navigation-button.secondary-button-button.back onclick="goToQuestion(11); return false;"
+            /   | Go back
+          .question-input.hidden
+
       #confirmation.screen-container.hidden
         img.confirmation-icon src="../images/dude_icon.png"
         p

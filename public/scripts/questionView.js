@@ -30,6 +30,16 @@ function getQuestionView(questionID) {
       }
       return null;
     },
+    setRadioValue: function(radios, value){
+      for (var i = 0; i < radios.length; i++) {
+        radio = radios[i];
+        if(radio.value === value) { 
+          return radio.checked = true;
+        }
+      }
+      return null;
+
+    },
     getAnswer: function() {
       var answerInput;
 
@@ -52,10 +62,14 @@ function getQuestionView(questionID) {
       }
       return false;
     },
+    update: function(answer) {
+      var radios = this.getRadios();
+      radios ? this.setRadioValue(radios,answer) : this.questionNode.getElementsByClassName("question-input")[0].value = answer;
+    },
     reset: function() {
       var radios = this.getRadios();
       if(radios){
-        var checkedRadioButton = this.getCheckedRadioButton(radios)
+        var checkedRadioButton = this.getCheckedRadioButton(radios);
         checkedRadioButton.checked = false;
       } else {
       this.questionNode.getElementsByClassName("question-input")[0].value = "";

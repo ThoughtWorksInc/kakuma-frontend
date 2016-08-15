@@ -25,6 +25,9 @@ function getSummaryView(){
       response.disabled = true;
       response.classList.remove("editing");
       response.nextSibling.classList.remove("hidden");
+    },
+    getAnswer: function(questionID) {
+      return document.getElementById("summary-response-"+ questionID).value;
     }
   };
   return summaryView;
