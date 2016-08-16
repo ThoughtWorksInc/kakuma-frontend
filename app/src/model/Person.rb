@@ -1,9 +1,14 @@
+require 'json'
+
 class Person
 
-  attr_reader :input
+  attr_reader :details
 
   def initialize(input)
-    @input = input
+    @details = JSON.parse(input)
   end
 
+  def details_as_json
+    return @details.to_json
+  end
 end
