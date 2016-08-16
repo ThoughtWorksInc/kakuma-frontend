@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+  head
+    meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' 
+    link href="../stylesheets/style.css" rel="stylesheet" type="text/css"
+  body
+    #app-container
+      #confirmation.screen-container
+        img.confirmation-icon src="../images/dude_icon.png"
+        p
+          | Thank you for taking part in testing the application.
+        p
+          | Your feedback is important to us and will be used to improve the application so families can be connected.
+
+        .button-container.confirmation
+          form action="/" 
+            button#submit-form-button.navigation-button.primary-button type="submit"
+              | Add a new person

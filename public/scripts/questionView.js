@@ -33,7 +33,7 @@ function getQuestionView(questionID) {
     setRadioValue: function(radios, value){
       for (var i = 0; i < radios.length; i++) {
         radio = radios[i];
-        if(radio.value === value) { 
+        if(radio.value === value) {
           return radio.checked = true;
         }
       }

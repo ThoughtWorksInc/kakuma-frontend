@@ -1,6 +1,7 @@
 require 'slim'
 require 'sass'
 require 'sinatra/base'
+require 'json'
 require_relative 'src/QuestionService'
 
 class MyApp < Sinatra::Base
@@ -20,8 +21,12 @@ class MyApp < Sinatra::Base
   end
 
   post '/' do
-    @name = params[:name]
-    puts params.inspect
+    @input = params.to_json
+    redirect '/confirmation'
+  end
+
+  get '/confirmation' do
+    slim :confirmation
   end
 
   run! if app_file == $0
