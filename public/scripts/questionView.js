@@ -64,7 +64,8 @@ function getQuestionView(questionID) {
     },
     update: function(answer) {
       var radios = this.getRadios();
-      radios ? this.setRadioValue(radios,answer) : this.questionNode.getElementsByClassName("question-input")[0].value = answer;
+      return radios ? this.setRadioValue(radios,answer) : this.questionNode.getElementsByClassName("question-input")[0].value = answer;
+
     },
     reset: function() {
       var radios = this.getRadios();
