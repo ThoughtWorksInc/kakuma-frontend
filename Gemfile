@@ -9,7 +9,11 @@ gem 'sinatra', '1.4.7'
 gem 'sinatra-base'
 gem 'jasmine'
 gem 'json'
-gem 'rspec'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'database_cleaner'
+
+group :test do
+  gem "rspec"
+  gem 'database_cleaner'
+  gem "rack-test"
+end

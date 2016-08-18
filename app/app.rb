@@ -23,7 +23,6 @@ class MyApp < Sinatra::Base
 
   post '/' do
     @form_data = params.to_json
-    puts @form_data
     @person = Person.new(
               :details => @form_data)
     if @person.save
