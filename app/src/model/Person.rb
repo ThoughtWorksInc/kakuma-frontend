@@ -1,14 +1,9 @@
 require 'json'
 
 class Person
+  include DataMapper::Resource
 
-  attr_reader :details
+  property :id, Serial
+  property :details, Object
 
-  def initialize(input)
-    @details = JSON.parse(input)
-  end
-
-  def details_as_json
-    return @details.to_json
-  end
 end
