@@ -16,7 +16,6 @@ class MyApp < Sinatra::Base
     @questionList = questionService.getQuestionList
   end
 
-
   get '/' do
     slim :index
   end
@@ -27,10 +26,10 @@ class MyApp < Sinatra::Base
               :details => @form_data)
     if @person.save
       puts "Person saved"
+      redirect '/confirmation'
     else
       puts "Failed to save: #{@person.errors.inspect}"
     end
-    redirect '/confirmation'
   end
 
   get '/confirmation' do

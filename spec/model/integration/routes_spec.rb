@@ -32,7 +32,12 @@ describe "posting form submission" do
     expect(last_response.status).to eq 302
   end
 
-  # it "should respond with 404 (?) if the data isn't saved (or bad data or whatever)" do
-  #
-  # end
+  it "is should respond with 404 if the data isn't saved" do
+    pending("to do")
+    params = {
+    }
+
+    post '/', params
+    expect(last_response.status).to eq 404
+  end
 end
