@@ -25,22 +25,22 @@ html(lang="en")
               - if question.field == "gender"
                 .radio-inputs
                   label title="male"
-                    input.question-input.radio.hidden type="#{question.inputType}" value="male" name="#{question.field}" onclick="updateSummaryField(#{question.id}), validateAnswer(#{question.id});"
+                    input.question-input.radio.hidden type="#{question.inputType}" value="male" name="#{question.field}" onclick="appViewController.updateSummaryField(#{question.id}), appViewController.validateAnswer(#{question.id});"
                     .radio-checkbox
                     | male
                   label title="female"
-                    input.question-input.radio.hidden type="#{question.inputType}" value="female" name="#{question.field}" onclick="updateSummaryField(#{question.id}), validateAnswer(#{question.id});"
+                    input.question-input.radio.hidden type="#{question.inputType}" value="female" name="#{question.field}" onclick="appViewController.updateSummaryField(#{question.id}), appViewController.validateAnswer(#{question.id});"
                     .radio-checkbox
                     | female
               - else
-                input.question-input type="#{question.inputType}" name="#{question.field}" onkeyup="validateAnswer(#{question.id}); updateSummaryField(#{question.id})" onkeydown="clickButtonOnEnterPress(event, goToQuestion, #{question.id} + 1)"
+                input.question-input type="#{question.inputType}" name="#{question.field}" onkeyup="appViewController.validateAnswer(#{question.id}); appViewController.updateSummaryField(#{question.id})" onkeydown="appViewController.clickButtonOnEnterPress(event, appViewController.goToQuestion, #{question.id} + 1)"
               - if question.helperText.length != 0
                 p.help-text 
                   | #{question.helperText}
             .button-container
-              button.navigation-button.primary-button.next onclick="goToQuestion(#{question.id} + 1); return false;" disabled="disabled"
+              button.navigation-button.primary-button.next onclick="appViewController.goToQuestion(#{question.id} + 1); return false;" disabled="disabled"
                 | Click for next question
-              button.navigation-button.secondary-button.back onclick="goToQuestion(#{question.id} - 1); return false;" class=(question.id == 1 ? "hidden" : nil)
+              button.navigation-button.secondary-button.back onclick="appViewController.goToQuestion(#{question.id} - 1); return false;" class=(question.id == 1 ? "hidden" : nil)
                 | Go back
       
         .question.screen-container.hidden id=("question-#{@questionList.length + 1}") data-question-title="voice"
@@ -82,9 +82,9 @@ html(lang="en")
               p.help-text
                 | Tap on the bin to delete and start a new recording.
           .button-container
-            button.navigation-button.primary-button.next onclick="showSummary(); return false;" disabled="disabled"
+            button.navigation-button.primary-button.next onclick="appViewController.showSummary(); return false;" disabled="disabled"
               | Click for summary page
-            button.navigation-button.secondary-button.back onclick="goToQuestion(10); return false;"
+            button.navigation-button.secondary-button.back onclick="appViewController.goToQuestion(10); return false;"
               | Go back
           input.question-input.hidden
 
@@ -94,8 +94,8 @@ html(lang="en")
               li.field-summary-container
                 h6.field-label
                   | #{question.fieldLabel}
-                input.field-answer type="text" id="summary-response-#{question.id}" disabled="disabled" onblur="finishEditing(#{question.id})" onkeydown="clickButtonOnEnterPress(event, finishEditing, #{question.id})"
-                button.edit onclick="startEditing(#{question.id}); return false;" type="button"
+                input.field-answer type="text" id="summary-response-#{question.id}" disabled="disabled" onblur="appViewController.finishEditing(#{question.id})" onkeydown="appViewController.clickButtonOnEnterPress(event, appViewController.finishEditing, #{question.id})"
+                button.edit onclick="appViewController.startEditing(#{question.id}); return false;" type="button"
                   | Edit
           .button-container.summary
             button.navigation-button.primary-button.submit type="submit"
