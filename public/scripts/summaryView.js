@@ -1,3 +1,8 @@
+module.exports = {
+  getSummaryView: getSummaryView
+}
+
+
 function getSummaryView(){
   var summaryView = {
     node: document.getElementById("form-summary"),

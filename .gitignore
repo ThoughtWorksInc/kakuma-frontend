@@ -2,6 +2,8 @@
 .DS_Store
 .idea/
 .env
+/node_modules
+
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

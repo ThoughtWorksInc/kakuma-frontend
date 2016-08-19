@@ -1,0 +1,21 @@
+{
+  "name": "kakuma-frontend",
+  "version": "1.0.0",
+  "description": "Copyright (c) 2016 ThoughtWorks, Inc. All rights reserved.",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.thoughtworks.net/findme-kakuma/kakuma-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^13.1.0"
+  }
+}

@@ -1,3 +1,5 @@
+var questionView = require('./questionView');
+
 var isRecording = false;
 var messageCompleted = false;
 var isPlaying = false;
@@ -47,6 +49,8 @@ function startTimer() {
     }, 1000);
 }
 
+
+
 function stopTimer(timeOut) {
     clearTimeout(timeOut);
     clearInterval(interval);
@@ -92,13 +96,13 @@ function recordMessage() {
 }
 
 function setQuestionToDone() {
-  view = getQuestionView(11);
+  view = questionView.getQuestionView(11);
   view.enableSubmitButton();
   view.questionNode.getElementsByClassName("question-input")[0].value = "done";
 }
 
 function setQuestionToNotDone() {
-  view = getQuestionView(11);
+  view = questionView.getQuestionView(11);
   view.disableSubmitButton();
   view.questionNode.getElementsByClassName("question-input")[0].value = "";
 }
@@ -137,7 +141,7 @@ function stopPlaying() {
     displayPlayControls();
 }
 
-function voiceMessage() {
+voiceMessage = function() {
     if (!messageCompleted && !isRecording) {
         recordMessage();
     } else if (!messageCompleted && isRecording) {
@@ -149,7 +153,7 @@ function voiceMessage() {
     }
 }
 
-function resetVoiceMessage() {
+resetVoiceMessage = function() {
     messageCompleted = false;
     isPlaying = false;
 
@@ -167,4 +171,9 @@ function resetVoiceMessage() {
 
     document.getElementById("recording-question-container").classList.remove("hidden");
     document.getElementById("recording-response-container").classList.add("hidden");
+}
+
+module.exports = {
+  voiceMessage: voiceMessage,
+  resetVoiceMessage: resetVoiceMessage,
 }

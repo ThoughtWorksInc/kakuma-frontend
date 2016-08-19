@@ -1,104 +1,133 @@
-var appViewController = new function () {
-    var self = this;
+var questionView = require('./questionView.js');
+var summaryView = require('./summaryView.js');
+var voiceRecordingView = require('./voiceRecordingView.js');
 
-    window.addEventListener('load', function () {
-        self.validateAllQuestions();
-        self.showNextScreen();
-    }, false);
+window.addEventListener('load', function () {
+    validateAllQuestions();
+    showNextScreen();
+}, false);
 
+ getAllQuestionsArray = function() {
+    var allQuestionViews = [];
+    var allQuestionNodes = document.getElementsByClassName("question");
+    for (i = 1; i <= allQuestionNodes.length; i++) {
+        allQuestionViews[i - 1] = questionView.getQuestionView(i);
+    }
+    return allQuestionViews;
+};
 
-     this.getAllQuestionsArray = function() {
-        var allQuestionViews = [];
-        var allQuestionNodes = document.getElementsByClassName("question");
-        for (i = 1; i <= allQuestionNodes.length; i++) {
-            allQuestionViews[i - 1] = getQuestionView(i);
-        }
-        return allQuestionViews;
+getFirstUnansweredQuestion = function() {
+    var isUnanswered = function (question) {
+        return !question.hasAnswer();
     };
+    return getAllQuestionsArray().find(isUnanswered);
+};
 
-    this.getFirstUnansweredQuestion = function() {
-        var isUnanswered = function (question) {
-            return !question.hasAnswer();
-        };
-        return self.getAllQuestionsArray().find(isUnanswered);
-    };
+showNextScreen = function() {
+    hideAllQuestions();
+    var nextQuestion = getFirstUnansweredQuestion();
+    var nextScreen = nextQuestion ? nextQuestion : summaryView.getSummaryView();
 
-    this.showNextScreen = function() {
-        self.hideAllQuestions();
-        var nextQuestion = self.getFirstUnansweredQuestion();
-        var nextScreen = nextQuestion ? nextQuestion : getSummaryView();
+    return nextScreen.show();
+};
 
-        return nextScreen.show();
-    };
-
-    this.hideAllQuestions = function() {
-        self.getAllQuestionsArray()
-            .map(function (question) {
-                question.hide();
-            });
-    };
-
-    this.goToQuestion = function(questionID) {
-        self.hideAllQuestions();
-        getQuestionView(questionID).show();
-    };
-
-    this.validateAnswer = function(questionID) {
-        var question = getQuestionView(questionID);
-        question.validateFormInput();
-    };
-
-    this.validateAllQuestions = function () {
-        self.getAllQuestionsArray()
-            .map(function (question) {
-                question.validateFormInput();
-            });
-    };
-
-    this.showSummary = function() {
-        self.hideAllQuestions();
-        getSummaryView().show();
-    };
-
-    this.updateSummaryField = function(questionID) {
-        var answer = getQuestionView(questionID).getAnswer();
-
-        var summary = getSummaryView();
-        summary.updateQuestionResponseWith(answer, questionID);
-    };
-
-    this.updateQuestionFieldFromSummary = function(questionID) {
-        var answer = getSummaryView().getAnswer(questionID);
-
-        var question = getQuestionView(questionID);
-        question.update(answer);
-    };
-
-    this.clickButtonOnEnterPress = function(event, callback, questionID) {
-        if (event.keyCode == 13) {
-            event.preventDefault();
-            callback(questionID);
-            return false;
-        }
-    };
-
-    this.confirmationMessage = function() {
-        self.getAllQuestionsArray().map(function (question) {
-            question.reset();
+hideAllQuestions = function() {
+    getAllQuestionsArray()
+        .map(function (question) {
+            question.hide();
         });
+};
 
-        getSummaryView().hide();
-        resetVoiceMessage();
-        document.getElementById("confirmation").classList.remove("hidden");
-    };
+goToQuestion = function(questionID) {
+    hideAllQuestions();
+    questionView.getQuestionView(questionID).show();
+};
+
+validateAnswer = function(questionID) {
+    var question = questionView.getQuestionView(questionID);
+    question.validateFormInput();
+};
+
+validateAllQuestions = function () {
+    getAllQuestionsArray()
+        .map(function (question) {
+            question.validateFormInput();
+        });
+};
+
+showSummary = function() {
+    hideAllQuestions();
+    summaryView.getSummaryView().show();
+};
+
+updateSummaryField = function(questionID) {
+    var answer = questionView.getQuestionView(questionID).getAnswer();
+
+    var summary = summaryView.getSummaryView();
+    summary.updateQuestionResponseWith(answer, questionID);
+};
+
+updateQuestionFieldFromSummary = function(questionID) {
+    var answer = summaryView.getSummaryView().getAnswer(questionID);
+
+    var question = questionView.getQuestionView(questionID);
+    question.update(answer);
+};
+
+clickButtonOnEnterPress = function(event, callback, questionID) {
+    if (event.keyCode == 13) {
+        event.preventDefault();
+        callback(questionID);
+        return false;
+    }
+};
+
+confirmationMessage = function() {
+    getAllQuestionsArray().map(function (question) {
+        question.reset();
+    });
+
+    summaryView.getSummaryView().hide();
+    voiceRecordingView.resetVoiceMessage();
+    document.getElementById("confirmation").classList.remove("hidden");
+};
 
 
-    this.startEditing = function(questionID) {
-        getSummaryView().enableEdit(questionID);
-    };
+startEditing = function(questionID) {
+    summaryView.getSummaryView().enableEdit(questionID);
+};
 
-    this.finishEditing = function(questionID) {
-        self.updateQuestionFieldFromSummary(questionID);
-        getSummaryView().disableEdit(questionID);
-    };
-}
+finishEditing = function(questionID) {
+    updateQuestionFieldFromSummary(questionID);
+    summaryView.getSummaryView().disableEdit(questionID);
+};
+
+module.exports = {
+  getAllQuestionsArray: getAllQuestionsArray,
+
+  getFirstUnansweredQuestion: getFirstUnansweredQuestion,
+
+  showNextScreen: showNextScreen,
+
+  hideAllQuestions: hideAllQuestions,
+
+  goToQuestion: goToQuestion,
+
+  validateAnswer: validateAnswer,
+
+  validateAllQuestions: validateAllQuestions,
+
+  showSummary: showSummary,
+
+  updateSummaryField: updateSummaryField,
+
+  updateQuestionFieldFromSummary: updateQuestionFieldFromSummary,
+
+  clickButtonOnEnterPress: clickButtonOnEnterPress,
+
+  confirmationMessage: confirmationMessage,
+
+  startEditing: startEditing,
+
+  finishEditing: finishEditing,
+};
