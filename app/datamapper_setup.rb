@@ -5,12 +5,11 @@ DataMapper::Logger.new($stdout, :debug)
 
 # DataMapper.setup(:default, 'postgres://kakuma_user:sausage@localhost/kakuma_dev')
 
-# db_name = ENV['RDS_DB_NAME']
-# rds_password = ENV['RDS_PASSWORD']
-# rds_port = ENV['RDS_PORT']
+dbName = ENV['RDS_DB_NAME']
+puts "**** dbName ****"
+puts dbName
 
-
-DataMapper.setup(:default, "postgres://kakumadev:sausages@kakumadev-db.c9eswbufhaxy.eu-west-1.rds.amazonaws.com:5432")
+DataMapper.setup(:default, "postgres://kakumaDbUser:sausages@aa1ry1o23s2mm7y.c9eswbufhaxy.eu-west-1.rds.amazonaws.com/#{dbName}")
 
 DataMapper::Property::String.length(255)
 
