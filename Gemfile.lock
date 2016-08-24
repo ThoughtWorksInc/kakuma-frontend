@@ -33,6 +33,13 @@ GEM
     dm-postgres-adapter (1.2.0)
       dm-do-adapter (~> 1.2.0)
       do_postgres (~> 0.10.6)
+    dm-postgres-types (0.0.6)
+      dm-core (~> 1.2.0)
+      dm-migrations (~> 1.2.0)
+      dm-postgres-adapter (~> 1.2.0)
+      dm-types (~> 1.2.0)
+      dm-validations (~> 1.2.0)
+      oj
     dm-serializer (1.2.2)
       dm-core (~> 1.2.0)
       fastercsv (~> 1.5)
@@ -65,6 +72,7 @@ GEM
     json (1.8.3)
     json_pure (1.8.3)
     multi_json (1.12.1)
+    oj (2.17.3)
     phantomjs (2.1.1.0)
     rack (1.6.4)
     rack-protection (1.5.3)
@@ -109,6 +117,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  dm-postgres-types
   jasmine
   json
   rack

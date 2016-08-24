@@ -11,6 +11,7 @@ gem 'jasmine'
 gem 'json'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
+gem 'dm-postgres-types'
 
 group :test do
   gem "rspec"
