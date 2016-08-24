@@ -2,6 +2,13 @@ require 'data_mapper'
 require './app/src/model/Person'
 
 # DataMapper::Logger.new($stdout, :debug)
+puts '************************************************************************************************'
+puts ENV['RDS_HOSTNAME']
+puts ENV['RDS_DB_NAME']
+puts ENV['RDS_USERNAME']
+puts ENV['RDS_PASSWORD']
+
+
 host = ENV['RDS_HOSTNAME'] || "localhost"
 dbName = ENV['RDS_DB_NAME'] || "kakuma_dev"
 userName = ENV['RDS_USERNAME'] || "kakuma_user"
