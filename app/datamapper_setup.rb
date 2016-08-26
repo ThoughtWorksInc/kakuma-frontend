@@ -3,7 +3,7 @@ require './app/src/model/Person'
 
 
 puts "****************TGIF************************"
-puts ENV['RDS_HOSTNAME']
+puts ENV['RDS_DB_URL']
 
 host = ENV['RDS_HOSTNAME'] || "localhost"
 dbName = ENV['RDS_DB_NAME'] || "kakuma_dev"
@@ -14,7 +14,7 @@ url = "postgres://#{userName}:#{password}@#{host}/#{dbName}"
 puts "****************TGIF2************************"
 puts url
 
-DataMapper.setup(:default, url)
+DataMapper.setup(:default, ENV['RDS_DB_URL'])
 
 DataMapper::Property::String.length(255)
 
