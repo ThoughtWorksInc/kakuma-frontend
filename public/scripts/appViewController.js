@@ -10,17 +10,19 @@ window.addEventListener('load', function () {
  getAllQuestionsArray = function() {
     var allQuestionViews = [];
     var allQuestionNodes = document.getElementsByClassName("question");
-    for (i = 1; i <= allQuestionNodes.length; i++) {
+     for (i = 1; i <= allQuestionNodes.length; i++) {
         allQuestionViews[i - 1] = questionView.getQuestionView(i);
     }
-    return allQuestionViews;
+     return allQuestionViews;
 };
 
 getFirstUnansweredQuestion = function() {
     var isUnanswered = function (question) {
         return !question.hasAnswer();
     };
-    return getAllQuestionsArray().find(isUnanswered);
+    var allQuestionsArray = getAllQuestionsArray();
+    var thing = allQuestionsArray.find(isUnanswered);
+    return thing;
 };
 
 showNextScreen = function() {

@@ -1,6 +1,6 @@
 module.exports = {
-  getQuestionView: getQuestionView,
-}
+  getQuestionView: getQuestionView
+};
 
 function getQuestionNode (questionID) {
   return document.getElementById("question-" + questionID);

@@ -1,6 +1,6 @@
 module.exports = {
   getSummaryView: getSummaryView
-}
+};
 
 
 function getSummaryView(){

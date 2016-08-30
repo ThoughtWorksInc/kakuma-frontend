@@ -92,7 +92,6 @@ function recordMessage() {
 
     moveSlider();
     recordingTimer = setTimeout(stopRecording, 60000);
-    ;
 }
 
 function setQuestionToDone() {
@@ -151,7 +150,7 @@ voiceMessage = function() {
     } else if (messageCompleted && isPlaying) {
         stopPlaying();
     }
-}
+};
 
 resetVoiceMessage = function() {
     messageCompleted = false;
@@ -176,4 +175,4 @@ resetVoiceMessage = function() {
 module.exports = {
   voiceMessage: voiceMessage,
   resetVoiceMessage: resetVoiceMessage,
-}
+};

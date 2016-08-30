@@ -1,5 +1,7 @@
 describe("Question View", function () {
     "use strict";
+
+    var questionView = require('../../app/javascripts/questionView.js');
     var question, questionInput;
 
     beforeEach(function () {
@@ -10,51 +12,49 @@ describe("Question View", function () {
     });
 
     it("should hide a question", function () {
-        getQuestionView(1).hide();
+        questionView.getQuestionView(1).hide();
         expect(question.classList).toContain("hidden");
     });
 
     it("should display a question", function () {
         question.classList.add("hidden");
-        getQuestionView(1).show();
+        questionView.getQuestionView(1).show();
         expect(question.classList).not.toContain("hidden");
     });
 
     it("should set focus on a question", function () {
-        getQuestionView(1).focusInput();
+        questionView.getQuestionView(1).focusInput();
         expect(questionInput.focus).toBeTruthy()
     });
 
     it("should get value from input", function () {
         questionInput.value = "Mashmash";
-        console.info(questionInput.value);
-
-        expect(getQuestionView(1).getAnswer()).toEqual("Mashmash");
+        expect(questionView.getQuestionView(1).getAnswer()).toEqual("Mashmash");
     });
 
     it("should update value from input", function () {
         questionInput.value = "Mashmash";
-        getQuestionView(1).update("Mosh");
-        expect(getQuestionView(1).getAnswer()).toEqual("Mosh");
+        questionView.getQuestionView(1).update("Mosh");
+        expect(questionView.getQuestionView(1).getAnswer()).toEqual("Mosh");
     });
 
     it("should enable submit button", function () {
         var submitButton = question.getElementsByClassName("next")[0];
         submitButton.disabled = true;
-        getQuestionView(1).enableSubmitButton();
+        questionView.getQuestionView(1).enableSubmitButton();
         expect(submitButton.disabled).toBeFalsy();
     });
 
     it("should disable submit button", function () {
         var submitButton = question.getElementsByClassName("next")[0];
         submitButton.disabled = false;
-        getQuestionView(1).disableSubmitButton();
+        questionView.getQuestionView(1).disableSubmitButton();
         expect(submitButton.disabled).toBeTruthy();
     });
 
     it("should reset input values", function () {
         questionInput.value = "Mashmash";
-        getQuestionView(1).reset();
+        questionView.getQuestionView(1).reset();
         expect(questionInput.value).toEqual("");
     });
 });
