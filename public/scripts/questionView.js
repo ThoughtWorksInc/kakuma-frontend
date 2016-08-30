@@ -1,6 +1,12 @@
-module.exports = {
-  getQuestionView: getQuestionView
-};
+
+function getAllQuestionsArray() {
+  var allQuestionViews = [];
+  var allQuestionNodes = document.getElementsByClassName("question");
+  for (i = 1; i <= allQuestionNodes.length; i++) {
+    allQuestionViews[i - 1] = getQuestionView(i);
+  }
+  return allQuestionViews;
+}
 
 function getQuestionNode (questionID) {
   return document.getElementById("question-" + questionID);
@@ -97,3 +103,8 @@ function getQuestionView(questionID) {
   };
   return questionView;
 }
+
+module.exports = {
+  getQuestionView: getQuestionView,
+  getAllQuestionsArray: getAllQuestionsArray
+};

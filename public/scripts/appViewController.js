@@ -7,20 +7,11 @@ window.addEventListener('load', function () {
     showNextScreen();
 }, false);
 
- getAllQuestionsArray = function() {
-    var allQuestionViews = [];
-    var allQuestionNodes = document.getElementsByClassName("question");
-     for (i = 1; i <= allQuestionNodes.length; i++) {
-        allQuestionViews[i - 1] = questionView.getQuestionView(i);
-    }
-     return allQuestionViews;
-};
-
 getFirstUnansweredQuestion = function() {
     var isUnanswered = function (question) {
         return !question.hasAnswer();
     };
-    var allQuestionsArray = getAllQuestionsArray();
+    var allQuestionsArray = questionView.getAllQuestionsArray();
     var thing = allQuestionsArray.find(isUnanswered);
     return thing;
 };
@@ -34,7 +25,7 @@ showNextScreen = function() {
 };
 
 hideAllQuestions = function() {
-    getAllQuestionsArray()
+    questionView.getAllQuestionsArray()
         .map(function (question) {
             question.hide();
         });
@@ -51,7 +42,7 @@ validateAnswer = function(questionID) {
 };
 
 validateAllQuestions = function () {
-    getAllQuestionsArray()
+    questionView.getAllQuestionsArray()
         .map(function (question) {
             question.validateFormInput();
         });
@@ -85,7 +76,7 @@ clickButtonOnEnterPress = function(event, callback, questionID) {
 };
 
 confirmationMessage = function() {
-    getAllQuestionsArray().map(function (question) {
+    questionView.getAllQuestionsArray().map(function (question) {
         question.reset();
     });
 
@@ -105,8 +96,6 @@ finishEditing = function(questionID) {
 };
 
 module.exports = {
-  getAllQuestionsArray: getAllQuestionsArray,
-
   getFirstUnansweredQuestion: getFirstUnansweredQuestion,
 
   showNextScreen: showNextScreen,
@@ -131,5 +120,5 @@ module.exports = {
 
   startEditing: startEditing,
 
-  finishEditing: finishEditing,
+  finishEditing: finishEditing
 };
