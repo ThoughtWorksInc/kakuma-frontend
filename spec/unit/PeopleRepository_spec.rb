@@ -8,7 +8,7 @@ describe "people repository" do
         data = {"name":"lucy"}
 
         person = double()
-        expect(Person).to receive(:new).with(:details => data) { person }
+        expect(Person).to receive(:new).with(:id => anything, :details => data) { person }
         expect(person).to receive(:save)
         peopleRepository.insert(data)
     end

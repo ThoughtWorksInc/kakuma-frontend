@@ -7,9 +7,8 @@ describe Person do
   context "saving and retrieving JSON data" do
 
     before(:each) do
-
       @details = {"name":"lucy","gender":"female","age":"23","village":"melbourne","country":"australia","phoneNumber":"+61422885870","nameToFind":"chris","relation":"brother","villageToFind":"london","countryToFind":"UK"}
-      lucy = Person.new(:details => @details.to_json)
+      lucy = Person.new(:id => 23423423423, :details => @details.to_json)
       lucy.save
       @people = Person.all
     end
