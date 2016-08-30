@@ -3,7 +3,7 @@
 .idea/
 .env
 /node_modules
-
+.vagrant/
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
