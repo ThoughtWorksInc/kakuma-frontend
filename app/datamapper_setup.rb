@@ -7,4 +7,4 @@ DataMapper::Property::String.length(255)
 
 DataMapper.finalize
 
-DataMapper.auto_migrate!
+DataMapper.auto_upgrade!
