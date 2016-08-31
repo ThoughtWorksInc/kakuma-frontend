@@ -21,6 +21,9 @@ To start the server:
 
 Go to localhost:9292
 
+To run javascript tests:
+``karma start``
+
 
 
 
