@@ -4,7 +4,7 @@ Date: 06/07/2016
 
 ## Status
 
-Proposed
+Superceded [13. AWS as hosting environment](0013-aws-as-hosting-environment.md)
 
 ## Context
 
