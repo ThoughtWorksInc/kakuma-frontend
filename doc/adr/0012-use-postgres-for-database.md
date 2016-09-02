@@ -4,7 +4,7 @@ Date: 02/09/2016
 
 ## Status
 
-Accepted
+Superceded by [14. remove postgres database code](0014-remove-postgres-database-code.md)
 
 ## Context
 
