@@ -1,10 +1,7 @@
 require 'slim'
 require 'sass'
 require 'sinatra/base'
-require 'json'
-require_relative 'datamapper_setup'
 require_relative 'src/QuestionService'
-require_relative 'src/PeopleRepository'
 
 class MyApp < Sinatra::Base
 
@@ -22,9 +19,6 @@ class MyApp < Sinatra::Base
   end
 
   post '/' do
-    @form_data = params.to_json
-    @peopleRepository = PeopleRepository.new
-    @peopleRepository.insert(@form_data)
     redirect '/confirmation'
   end
 
