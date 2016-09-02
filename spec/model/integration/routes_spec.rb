@@ -10,8 +10,7 @@ end
 
 describe "posting form submission" do
   it "should redirect to the confirmation page on form submission" do
-    post '/',
+    post '/'
     expect(last_response.status).to eq 302
   end
-
 end

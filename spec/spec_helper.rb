@@ -1,6 +1,3 @@
-require 'data_mapper'
-require './app/datamapper_setup'
-require 'database_cleaner'
 require 'rack/test'
 require 'rspec'
 
@@ -32,19 +29,6 @@ end
 RSpec.configure do |config|
 
   config.include RSpecMixin
-
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
