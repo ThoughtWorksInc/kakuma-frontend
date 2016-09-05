@@ -57,7 +57,7 @@ Then deploy to Heroku by running:
 
 ## Running ElasticSearch locally
 To set up an ElasticSearch server, clone the dev tools repo from:
-``git@git.thoughtworks.net:amaddiso/kakuma-local-dependencies.git``
+``kakuma-local-dependencies.git``
 
 In the local dependencies folder run:
 ``vagrant up``
