@@ -56,10 +56,12 @@ Then deploy to Heroku by running:
 ``git push heroku master``
 
 ## Running ElasticSearch locally
-To set up an ElasticSearch server, clone the dev tools repo from:
-``kakuma-local-dependencies.git``
+To set up an ElasticSearch or postgres server, clone the dev tools repo from:
+``https://github.com/ThoughtWorksInc/kakuma-local-dependencies``
 
-In the local dependencies folder run:
+Elasticsearch and Postgres are not needed to run the current version of the prototype, but were being used during development when we were hoping to build a secure persistent version of the site.
+
+In the local dependencies/elasticsearch folder run:
 ``vagrant up``
 
 This will provision a vagrant box and start the elastic seaerch server.
