@@ -4,7 +4,7 @@ Date: 06/07/2016
 
 ## Status
 
-Accepted
+Superceded by [15. Use github for source hosting](0015-use-github-for-source-hosting.md)
 
 ## Context
 
